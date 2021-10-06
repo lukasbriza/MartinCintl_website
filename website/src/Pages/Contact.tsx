@@ -1,0 +1,5 @@
+function Contact(){
+
+}
+
+export {Contact}

@@ -1,0 +1,5 @@
+function Hero(){
+
+}
+
+export {Hero}
