@@ -1,0 +1,85 @@
+////////////////////////////////////
+//POSITIONING//
+.left{
+    float: left;
+    
+}
+.right{
+    float: right;
+}
+.center{
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.centerv{
+    top: 50%;
+    transform: translateY(-50%);
+}
+.relative{
+    position: relative;
+}
+.absolute{
+    position: absolute;
+}
+.fixed{
+    position: fixed;
+}
+.left0{
+    left: 0px;
+}
+.top0{
+    top: 0px;
+}
+
+////////////////////////////////////
+//TRANSFORMATION//
+.upperCase{
+    text-transform: uppercase;
+}
+.lowerCase{
+    text-transform:lowercase;
+}
+.bold{
+    font-weight: 800;
+}
+.semi-bold{
+    font-weight: 600;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}
+.flex{
+    display: flex;
+}
+.op-show{
+    opacity: 1;
+}
+.op-hide{
+    opacity: 0;
+}
+.rotate180{
+    transform: rotate(-180deg);
+}
+////////////////////////////////////
+//WIDTHS//
+.w100{
+    width: 100%;
+}
+.wv100{
+    width: 100vw;
+}
+.w80{
+    width: 80%;
+}
+//HEIGHTS//
+.hv100{
+    height: 100vh;
+}
+.h100{
+    height: 100%;
+}
+////////////////////////////////////

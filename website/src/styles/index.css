@@ -1,1 +1,154 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.center {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.centerv {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.left0 {
+  left: 0px;
+}
+
+.top0 {
+  top: 0px;
+}
+
+.upperCase {
+  text-transform: uppercase;
+}
+
+.lowerCase {
+  text-transform: lowercase;
+}
+
+.bold {
+  font-weight: 800;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.op-show {
+  opacity: 1;
+}
+
+.op-hide {
+  opacity: 0;
+}
+
+.rotate180 {
+  -webkit-transform: rotate(-180deg);
+          transform: rotate(-180deg);
+}
+
+.w100 {
+  width: 100%;
+}
+
+.wv100 {
+  width: 100vw;
+}
+
+.w80 {
+  width: 80%;
+}
+
+.hv100 {
+  height: 100vh;
+}
+
+.h100 {
+  height: 100%;
+}
+
+#Hero {
+  width: 100vw;
+  height: 100vh;
+  background: #131313;
+  overflow: hidden;
+}
+
+#Hero .radial-gradient {
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 61% 86%, rgba(79, 95, 164, 0.692) 0%, rgba(0, 0, 0, 0) 65%);
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: clamp(1.602em, 8vw, 2.441em);
+}
+
+h2 {
+  font-size: clamp(1.424em, 6vw, 1.953em);
+}
+
+h3 {
+  font-size: clamp(1.266em, 5vw, 1.563em);
+}
+
+html, body, #root, #App, #Hero, #About, #Contact, #Products {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/*
+    - Less than 480px
+    - Less than 768px
+    - Less than 1024px
+    - More than 1025px
+
+    biggest to smallest
+*/
+/*# sourceMappingURL=index.css.map */

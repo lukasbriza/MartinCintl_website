@@ -1,0 +1,13 @@
+#Hero{
+    width: 100vw;
+    height: 100vh;
+    background: #131313;
+    overflow: hidden;
+    
+    .radial-gradient{
+        width: 100vw;
+        height: 100vh;
+        
+        background:radial-gradient(circle at 61% 86%, rgba(79, 95, 164, 0.692) 0%, rgba(0, 0, 0, 0) 65%);
+    }
+}

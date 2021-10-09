@@ -1,0 +1,84 @@
+//FONTS//
+@import '../Fonts/Megrim-Regular.ttf';
+@import '../Fonts/Poppins-ExtraLight.ttf';
+@import '../Fonts/Poppins-MediumItalic.ttf';
+@import '../Fonts/Poppins-Regular.ttf';
+////////////////////////////////////
+//MODULES//
+@import './modificationClasses';
+////////////////////////////////////
+//PAGE STYLES//
+@import './Page_styles/Hero';
+@import './Page_styles/About';
+@import './Page_styles/Contact';
+@import './Page_styles/Products';
+////////////////////////////////////
+//MAIN SETTINGS//
+*{
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+    box-sizing: border-box;
+    //font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+h1{font-size: clamp(1.602em, 8vw, 2.441em )}
+h2{font-size: clamp(1.424em, 6vw, 1.953em )}
+h3{font-size: clamp(1.266em, 5vw, 1.563em )}
+
+html, body, #root, #App, #Hero, #About, #Contact, #Products{
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+////////////////////////////////////
+//BREAKPOITS//
+/*
+    - Less than 480px
+    - Less than 768px
+    - Less than 1024px
+    - More than 1025px
+
+    biggest to smallest
+*/
+
+$mobileWidth: 480px;
+$ipadWidth: 768px;
+$pcWidth: 1024px;
+
+@mixin mediaMax($width) {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+}
+
+@mixin mediaMin($width) {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+}
+///////////////////////////////////////////////////
+
+    //MORE THAN 1025px
+    @include mediaMin($pcWidth + 1px){
+        
+    }
+
+    //LESS THAN 1024px
+    @include mediaMax($pcWidth){
+
+    }
+
+    //LESS THAN 768px
+    @include mediaMax($ipadWidth){
+
+    }
+
+    //LESS THAN 480px
+    @include mediaMax($mobileWidth) {
+
+    }
+
