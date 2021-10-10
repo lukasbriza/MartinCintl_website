@@ -7,6 +7,9 @@
 //MODULES//
 @import './modificationClasses';
 ////////////////////////////////////
+//COMPONENTS//
+@import './Component_styles/Button';
+////////////////////////////////////
 //PAGE STYLES//
 @import './Page_styles/Hero';
 @import './Page_styles/About';
@@ -19,7 +22,7 @@
     padding: 0px;
     outline: none;
     box-sizing: border-box;
-    //font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
 }
 
@@ -34,6 +37,9 @@ html, body, #root, #App, #Hero, #About, #Contact, #Products{
     min-width: 100vw;
 }
 
+html{
+    overflow: hidden;
+}
 ////////////////////////////////////
 //BREAKPOITS//
 /*
@@ -64,21 +70,70 @@ $pcWidth: 1024px;
 
     //MORE THAN 1025px
     @include mediaMin($pcWidth + 1px){
-        
+        #Hero{
+            grid-template-columns: 60% 1fr;
+            grid-template-areas: "quote .";
+
+            img{
+                right: 15%;
+                height: clamp(400px, 95%, 80vmax); //min optimal max
+            }
+        }
     }
 
     //LESS THAN 1024px
     @include mediaMax($pcWidth){
+        #Hero{
+            grid-template-columns: 60% 1fr;
+            grid-template-areas: "quote .";
 
+            img{
+                right: 10%;
+                height: clamp(400px, 85%, 80vmax); //min optimal max
+            }
+
+            .quote-section{
+                top: 10%;
+            }
+        }
     }
 
     //LESS THAN 768px
     @include mediaMax($ipadWidth){
+        #Hero{
+            grid-template-columns: 1fr 83% 1fr;
+            grid-template-areas: ". quote .";
 
+            img{
+                left: 50%;
+                transform: translateX(-50%);
+                height: clamp(400px, 100%, 80vmax); //min optimal max
+            }
+
+            .quote-section{
+                top: 15%;
+
+                .quote{
+                    padding-left: 0px;
+                    padding-right: 0px;
+
+                    #quote-firstLine, #quote-secondLine{
+                        font-size: clamp(1rem, 3vw, 35px)
+                    }
+                }
+                
+            }
+        }
     }
 
     //LESS THAN 480px
     @include mediaMax($mobileWidth) {
-
+        #Hero{
+            img{
+                left: 50%;
+                transform: translateX(-50%);
+                height: clamp(400px, 75%, 80vmax); //min optimal max
+            }
+        }
     }
 

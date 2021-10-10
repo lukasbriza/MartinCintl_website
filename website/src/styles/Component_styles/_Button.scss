@@ -1,0 +1,20 @@
+.button-wrapper{
+    background: #4F5FA4;
+
+    height: 50px;
+    width: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+
+    display:inline-grid;
+    align-items: center;
+
+    cursor: pointer;
+    
+    .button-text{
+        font-family:'Poppins', 'Times New Roman';
+        font-weight: 500;
+        color: white;
+        text-transform: uppercase;
+    }
+}

@@ -1,13 +1,67 @@
+
+$quotePadding: 3vw;
+$quoteFontSize: 20px;
+$quoteFontSize: clamp(1.2rem, 2.3vw, 2rem);
+
 #Hero{
     width: 100vw;
     height: 100vh;
-    background: #131313;
-    overflow: hidden;
-    
+    display: grid;
+
     .radial-gradient{
-        width: 100vw;
-        height: 100vh;
-        
-        background:radial-gradient(circle at 61% 86%, rgba(79, 95, 164, 0.692) 0%, rgba(0, 0, 0, 0) 65%);
+        position: absolute;
+        z-index: -1;
+    }
+
+    img{
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .quote-section{
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+
+        grid-area: quote;
+        align-self: center;
+        max-width: 960px;
+
+        .quote{
+            color: white;
+            font-weight: normal;
+            font-style: italic;
+
+            padding-left: $quotePadding;
+            padding-right: $quotePadding;
+            padding-top: $quotePadding;
+            padding-bottom: $quotePadding;
+            p{
+                font-size: $quoteFontSize;
+            }
+
+            #quote-firstLine{
+                display: inline-block;
+                text-align: left;
+            }
+            #quote-secondLine{
+                position: relative;
+                text-align: right;
+            }
+            #signature{
+                font-size: 12px;
+                position: relative;
+                text-align: right;
+                font-style: normal;
+                margin-right: 6vw;
+                margin-top: 10px;
+            }
+        }
+
+        #quote-button{
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 }
