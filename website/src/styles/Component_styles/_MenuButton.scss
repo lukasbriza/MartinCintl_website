@@ -1,0 +1,29 @@
+#menu-button{
+    width: 78px;
+    height: 68px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+
+    border: 1px solid transparent;
+
+    p{
+        font-family: 'Megrim', 'Helvetica Neue';
+        font-size: 20px;
+        color: white;
+    }
+
+    /*TRANSITION SETTING*/
+    transition: background-color 0.2s, border 0.2s linear;
+}
+
+#menu-button:hover{
+    background-color: $schemeBlueLight;
+    border: 1px solid white;
+    transition: background-color 0.05s, border 0.05s linear;
+}
+
+#menu-button:active{
+    background-color: $schemeBlueDark;
+    border: 1px solid transparent;
+}
