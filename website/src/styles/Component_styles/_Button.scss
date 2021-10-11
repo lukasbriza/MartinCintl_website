@@ -1,5 +1,6 @@
 .button-wrapper{
-    background: #4F5FA4;
+    background-color: $schemeBlueLight;
+    border: 1px solid transparent;
 
     height: 50px;
     width: auto;
@@ -17,4 +18,17 @@
         color: white;
         text-transform: uppercase;
     }
+
+    /*TRANSITION SETTINGS*/
+    transition: border 0.255s, background-color 0.08s linear;
+}
+
+.button-wrapper:hover{
+    border: 1px solid white;
+    transition: border 0.1s, background-color 0.08s linear;
+}
+
+.button-wrapper:active{
+    border: 1px solid transparent;
+    background-color: $schemeBlueDark;
 }
