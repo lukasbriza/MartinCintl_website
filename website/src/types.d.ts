@@ -13,11 +13,11 @@ type logo = {
 type actualPage = {
     pages: string[],
     id?: string,
-    location: {}
+    location: any
 }
 
 type menuButton = {
     id?: string,
     menuProps: string[],
-    location: {}
+    location: any
 }
