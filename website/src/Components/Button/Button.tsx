@@ -7,6 +7,7 @@ function Button(props:button){
     {
         return(
             <Link 
+                id={props.id}
                 to={props.link}
                 className="button-wrapper"
                 onClick={(e)=>{props.onClick(e)}}
