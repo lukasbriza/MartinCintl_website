@@ -1,13 +1,17 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 
 function ActualPage(props:actualPage){
-    const [actualPage, setActualPage] = useState('test')
+    const [actualPage, setActualPage] = useState('')
+    const prevPageRef:any = useRef()
 
     useEffect(() =>{
-        let actualPage = pagecontroller(props.location.pathname)
-        setActualPage(actualPage)
-        console.log(actualPage)
+        let page = pagecontroller(props.location.pathname)
+        prevPageRef.current = actualPage
+        setActualPage(page)
     }, [props.location])
+
+    let prevPage = prevPageRef.current
+    console.log(actualPage, prevPage)
 
     function pagecontroller(path:any){
         switch(path){
