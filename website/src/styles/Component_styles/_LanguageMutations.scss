@@ -1,0 +1,83 @@
+#languageMutation{
+    display:grid;
+    justify-items: center;
+    width: 78px;
+    height: 68px;
+    justify-self: right;
+
+    #mutation-wrapper{
+        width: 78px;
+        height: 68px;
+        position: relative;
+
+        display:flex;
+        justify-content: center;
+        cursor:pointer;
+
+        /*TRANSITION SETTING*/
+        transition: background-color 0.2s, border 0.2s linear;
+
+        #arrow{
+            width: 0px;
+            height: 0px;
+
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 7px solid white;
+
+            align-self: center;
+            margin-left: 5px;
+
+            /*TRANSITION SETTINGS*/
+            transform-origin: center center;
+            transition: transform 0.5s ease-out;
+        }
+    }
+
+    #option-wrapper{
+        width: 78px;
+
+        margin-top: 68px;
+        display: grid;
+        position: absolute;
+        justify-items: center;
+
+        cursor: pointer;
+
+        /*TRANSITION SETTING*/
+        transition: background-color 0.2s, border 0.2s linear;
+    }
+}
+
+.language{
+    color: white;
+    font-family: 'Megrim', 'Helvetica Neue';
+    font-size: 20px;
+
+    align-self: center;
+    display: inline-block;
+
+    padding: 5px 0px;
+}
+
+.option{
+    width: 100%;
+    text-align: center;
+    border: 1px solid white;
+
+    /*TRANSITION SETTING*/
+    transition: background-color 0.2s, border 0.2s linear;
+}
+
+/////////////////////////////////////
+.option:hover{
+    background-color: $schemeBlueLight;
+}
+#mutation-wrapper:hover{
+    background-color: $schemeBlueLight;
+    border: 1px solid white;
+}
+.activeMutationWrapper{
+    background-color: $schemeBlueLight;
+    border: 1px solid white;
+}

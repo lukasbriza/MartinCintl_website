@@ -1,0 +1,36 @@
+#menu{
+    background: transparent;
+    position: absolute;
+    z-index: +40;
+
+    display: grid;
+    grid-template-columns: 300px 1fr 4fr 1fr 80px;
+    grid-template-areas: "logo . actualPage languageMutation menuButton";
+    width: 100vw;
+
+    #logo{
+        margin-top: 10px;
+        margin-left: 17px;
+        max-width: 283px;
+        min-width: 283px;   
+
+        grid-area: logo;
+    }
+
+    #actualPage-counter{
+       justify-self: center;
+       margin-top: 22px;
+
+       grid-area: actualPage;
+    }
+
+    #languageMutation{
+        grid-area: languageMutation;
+    }
+
+    #menu-button{
+        justify-self: end;
+        grid-area: menuButton;
+    }
+
+}
