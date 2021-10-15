@@ -18,9 +18,9 @@ function ActualPage(props:actualPage){
             case '/':
                 return 'Fitness'
             case '/about':
-                return 'O mně'
+                return 'Já'
             case '/products':
-                return 'Služby'
+                return 'Produkty'
             case '/contact':
                 return 'Kontakt'
             default:
