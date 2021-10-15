@@ -1,0 +1,49 @@
+#pageCounter-wrapper{
+    position: absolute;
+    display: grid;
+    z-index: +20;
+    height: 100%;
+
+    grid-template-rows: clamp(80px, 10vh, 100px) 1fr clamp(80px, 10vh, 100px);
+    grid-template-areas: "." "counter" ".";
+
+
+    /*POSITIONING*/
+    right: 0px;
+    padding-right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    #countPositioner{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-area: counter;
+
+        .count-wrapper{
+            text-decoration: none;
+            
+
+            .count{
+                font-family: 'Megrim', 'Helvetica Neue';
+                font-size: clamp(20px, 2.5vmin, 60px);
+                font-weight: bold;
+                color: #6E6E6E;
+                cursor: pointer;
+        
+            }
+            .count-underliner{
+                position: relative;
+                left:50%;
+                transform: translateX(-50%);
+
+                width: 0%;
+                height: 3px;
+                background-color:white;
+                border-radius: 40%;
+
+                transition: width 0.5s ease-out;
+            }
+        }
+    }
+}
