@@ -21,3 +21,19 @@ type menuButton = {
     menuProps: string[],
     location: any
 }
+
+type languageMutations = {
+    id?:string,
+    languages: string[]
+}
+
+type pageCounter ={
+    pageLinks: string[],
+    counterData: string[]
+}
+
+type activeLinkObj ={
+    idLink: string,
+    idCount: string,
+    idUnderliner:string
+}
