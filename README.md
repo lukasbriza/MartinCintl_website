@@ -1,2 +1,2 @@
 # MartinCintl_website
-Personal site of Martin Cint - personal fitness coach
+Personal site of Martin Cintl - personal fitness coach
