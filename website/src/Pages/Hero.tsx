@@ -1,5 +1,3 @@
-import React from "react"
-
 //COMPONENTS//
 import HeroImg from '../Static/Hero.webp'
 import {Button} from '../Components/Button/Button'
@@ -16,7 +14,7 @@ function Hero(){
                     <p id="quote-secondLine">změní i tvou mysl, náladu i přístup k životu. &rdquo;</p>
                     <p id="signature">Martin Cintl</p>
                 </section>
-                <Button text="Kdo jsem?" id="quote-button"/>
+                <Button text="Kdo jsem?" id="quote-button" onClick={() => {console.log('click')}} link="/about"/>
             </div>  
         </div>
     )
@@ -30,7 +28,7 @@ function Gradient(props:any){
         height="100vh"
         {...props}
         style={{
-            backgroundColor: "rgba(19,19,19,1)",
+            backgroundColor: "rgba(19,19,19,0.5)",
         }}
         >
             <defs>
@@ -54,7 +52,7 @@ function Gradient(props:any){
             <ellipse
                 cx="72%"
                 cy="55%"
-                rx="100vw"
+                rx="120vw"
                 ry="90vh"
                 style={{
                 fill: "url(#rgrad)",

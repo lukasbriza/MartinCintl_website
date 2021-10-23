@@ -38,6 +38,7 @@
         width: 78px;
 
         margin-top: 68px;
+        right: 80px;
         display: grid;
         position: absolute;
         justify-items: center;
@@ -72,6 +73,11 @@
 /////////////////////////////////////
 .option:hover{
     background-color: $schemeBlueLight;
+}
+.option:active{
+    background-color: $schemeBlueDark;
+    border: 1px solid transparent;
+    transition: background-color 0.1s ease-in;
 }
 #mutation-wrapper:hover{
     background-color: $schemeBlueLight;

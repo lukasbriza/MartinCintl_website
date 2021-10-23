@@ -7,10 +7,12 @@ $quoteFontSize: clamp(1.2rem, 2.3vw, 2rem);
     width: 100vw;
     height: 100vh;
     display: grid;
+    background: rgb(0, 0, 0);
+    z-index: -1;
 
     .radial-gradient{
         position: absolute;
-        z-index: -1;
+        z-index: 0;
     }
 
     img{
@@ -29,15 +31,16 @@ $quoteFontSize: clamp(1.2rem, 2.3vw, 2rem);
 
         .quote{
             color: white;
-            font-weight: normal;
-            font-style: italic;
 
             padding-left: $quotePadding;
             padding-right: $quotePadding;
             padding-top: $quotePadding;
             padding-bottom: $quotePadding;
+            
             p{
                 font-size: $quoteFontSize;
+                font-weight: 600;
+                font-style: italic;
             }
 
             #quote-firstLine{
@@ -55,6 +58,7 @@ $quoteFontSize: clamp(1.2rem, 2.3vw, 2rem);
                 font-style: normal;
                 margin-right: 6vw;
                 margin-top: 10px;
+                cursor: default;
             }
         }
 

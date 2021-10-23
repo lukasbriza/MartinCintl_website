@@ -50,6 +50,10 @@ html{
     overflow: hidden;
 }
 
+#App{
+    overflow: hidden;
+}
+
 ////////////////////////////////////
 //BREAKPOITS//
 /*
@@ -80,7 +84,7 @@ $pcWidth: 1024px;
 
     //MORE THAN 1025px
     @include mediaMin($pcWidth + 1px){
-        #menu{}
+        //HERO//
         #Hero{
             grid-template-columns: 60% 1fr;
             grid-template-areas: "quote .";
@@ -90,11 +94,16 @@ $pcWidth: 1024px;
                 height: clamp(400px, 95%, 80vmax); //min optimal max
             }
         }
+        //ABOUT//
+        #About{
+
+        }
     }
 
     //LESS THAN 1024px
     @include mediaMax($pcWidth){
-        #menu{}
+
+        //HERO//
         #Hero{
             grid-template-columns: 60% 1fr;
             grid-template-areas: "quote .";
@@ -108,11 +117,30 @@ $pcWidth: 1024px;
                 top: 10%;
             }
         }
+        //ABOUT//
+        #About{
+
+        }
     }
 
     //LESS THAN 768px
     @include mediaMax($ipadWidth){
-        #menu{}
+        #menu{
+            #logo{
+                min-width: 250px;
+                max-width: 250px;
+                #name{
+                    font-size: 35px;
+                }
+                #tag{
+                    font-size: 14px;
+                }
+            }
+            #actualPage-counter{
+                display:none;
+            }
+        }
+        //HERO//
         #Hero{
             grid-template-columns: 1fr 83% 1fr;
             grid-template-areas: ". quote .";
@@ -137,17 +165,53 @@ $pcWidth: 1024px;
                 
             }
         }
+        //ABOUT//
+        #About{
+
+        }
     }
 
     //LESS THAN 480px
     @include mediaMax($mobileWidth){
-        #menu{}
+        #menu{
+            grid-template-columns: 160px 1fr 4fr 1fr 80px;
+            #logo{
+                margin-top: 5px;
+                min-width: 160px;
+                max-width: 160px;
+                #name{
+                    margin-top:10px;
+                    font-size: 20px;
+                }
+                #tag{
+                    margin-bottom: 10px;
+                    font-size: 10px;
+                }
+            }
+        }
+        //HERO//
         #Hero{
             img{
                 left: 50%;
                 transform: translateX(-50%);
                 height: clamp(400px, 75%, 80vmax); //min optimal max
             }
+            .quote-section{
+                width: 70vw;
+                .quote{
+                    #quote-firstLine{
+                        font-size: 13px;
+                    }
+                    #quote-secondLine{
+                        font-size: 13px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        //ABOUT//
+        #About{
+
         }
     }
 

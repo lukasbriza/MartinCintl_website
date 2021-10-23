@@ -6,12 +6,15 @@ import {PageContext} from '../Functions/Context'
 ////////////////////////////////////////
 //COMPONENTS//
 import {Menu} from '../Components/Menu/Menu'
+import {SocialIcons} from '../Components/Social_icons/SocialIcons'
 import {PageCounter} from '../Components/Page_counter/PageCounter'
 import {Hero} from '../Pages/Hero'
 import {About} from '../Pages/About'
 import {Products} from '../Pages/Products'
 import {Contact} from '../Pages/Contact'
 ////////////////////////////////////////
+//CONFIG//
+import {config} from './config'
 
 function PageRoutes(){
     const context:any = useContext(PageContext)
@@ -25,8 +28,8 @@ function PageRoutes(){
         <React.Fragment>
             <Menu/>
             <PageCounter 
-                pageLinks={["/","/about","/products","/contact"]} 
-                counterData={["01","02","03","04"]}
+                pageLinks={config.routesMain} 
+                counterData={config.counter}
             />
             <TransitionGroup>
                 <CSSTransition
@@ -42,6 +45,7 @@ function PageRoutes(){
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>
+            <SocialIcons size={25}/>
         </React.Fragment>
     )
 }

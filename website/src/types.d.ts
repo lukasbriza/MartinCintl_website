@@ -11,15 +11,18 @@ type logo = {
 }
 
 type actualPage = {
-    pages: string[],
     id?: string,
-    location: any
+    location: any,
+    mainRoutes: string[],
+    mainPages: string[],
+    show: boolean,
 }
 
 type menuButton = {
     id?: string,
-    menuProps: string[],
-    location: any
+    pagesAll: string[],
+    routesAll: string[],
+    location: any,
 }
 
 type languageMutations = {
@@ -36,4 +39,14 @@ type activeLinkObj ={
     idLink: string,
     idCount: string,
     idUnderliner:string
+}
+
+type socialIcons = {
+    size: number
+}
+
+type socialIcon = {
+    id?: string,
+    size: number,
+    to: string
 }

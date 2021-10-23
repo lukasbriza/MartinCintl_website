@@ -1,0 +1,38 @@
+#About{
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+
+    #AboutLayer{
+        background: rgba(0, 0, 0, 0.342);
+
+        #About-section{
+            position: absolute;
+            height: calc(100vh - 77px);
+            width: 75vw;
+            bottom: 0px;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            
+            left: 50%;
+            transform: translateX(-50%);
+
+            #mainPart{
+                color:white;
+                text-align: center;
+                font-weight: 600;
+                font-size: clamp(18px, 3vmin, 25px);
+            }
+            #secondaryPart{
+                color:white;
+                text-align: center;
+                margin: clamp(20px, 4vmax, 40px) 0px;
+                font-size: clamp(17px, 1.5vmax, 20px);
+            }
+        }
+    }
+}

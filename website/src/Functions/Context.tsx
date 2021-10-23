@@ -35,9 +35,18 @@ function PageContextProvider(props:any){
 
 function AnimationContextProvider(props:any){
     //SETTERS
+    const [menuSlider, setMenuSlider] = useState(false)
+    const [actualPage, setActualPage] = useState(true)
 
     //APP STATE
     let appState = {
+        menuSlider: menuSlider,
+        actualPage: actualPage,
+
+        functions:{
+            setMenuSlider: setMenuSlider,
+            setActualPage: setActualPage,
+        }
     }
     return(
         <AnimationContext.Provider value={appState}>
