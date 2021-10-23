@@ -25,6 +25,12 @@ type menuButton = {
     location: any,
 }
 
+type menuSlider = {
+    pagesAll: string[],
+    routesAll: string[],
+    location: any,
+}
+
 type languageMutations = {
     id?:string,
     languages: string[]
@@ -32,7 +38,8 @@ type languageMutations = {
 
 type pageCounter ={
     pageLinks: string[],
-    counterData: string[]
+    counterData: string[],
+    show: boolean,
 }
 
 type activeLinkObj ={
@@ -49,4 +56,12 @@ type socialIcon = {
     id?: string,
     size: number,
     to: string
+}
+
+type Tile = {
+    background: string,
+    flagCount: string,
+    flagText: string,
+    id?: string,
+    open: boolean,
 }
