@@ -1,4 +1,4 @@
-import {gsap} from 'gsap'
+import {gsap, Power2} from 'gsap'
 
 //PAGE COUNTER ANIMATION//
 const pageCounterDuration = 0.3
@@ -29,7 +29,26 @@ const pageCounterAnOff = (count,underliner) => {
     })
 }
 
+//MANU SLIDER ANIMATION//
+const menuSliderDuration = 1.5
+const menuSliderOn = (element) => {
+    gsap.to(element, {
+        right: '0vw',
+        ease: Power2.easeOut,
+        duration: menuSliderDuration,
+    })
+}
+
+const menuSliderOff = (element) => {
+    gsap.to(element, {
+        right: '-100vw',
+        ease: Power2.easeOut,
+        duration: menuSliderDuration,
+    })
+}
 export {
     pageCounterAnOn,
-    pageCounterAnOff
+    pageCounterAnOff,
+    menuSliderOn,
+    menuSliderOff
 }
