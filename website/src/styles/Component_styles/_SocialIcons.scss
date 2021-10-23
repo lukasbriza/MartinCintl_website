@@ -1,0 +1,56 @@
+#socialIcons-wrapper{
+    position: absolute;
+    bottom: 50px;
+    #socialIcons-section{
+        position: relative;
+        display: grid;
+        row-gap: 10px;
+
+        #mail-background{ 
+            cursor: pointer;
+            background: linear-gradient(#7121CF, #B22DDE);
+            width: 38px;
+            height: 38px;
+
+            #mailIcon{
+                overflow: visible;
+                position: relative;
+            }
+        }
+
+        #instagram-background{
+            cursor: pointer;
+            background: linear-gradient(#9353A4, #FF5C40, #FFC451);
+            width: 38px;
+            height: 38px;
+
+            #instagramIcon{
+                overflow: visible;
+                position: relative;
+            }
+        }
+
+        #facebook-background{
+            cursor: pointer;
+            background: #039BE5;
+            width: 38px;
+            height: 38px;
+
+            #facebookIcon{
+                overflow: visible;
+                position: relative;
+            }
+        }
+
+        #mobileclicker{
+            overflow: visible;
+        }
+
+        .icon{
+            transition: margin 0.5s ease-out;
+        }
+        .icon:hover{
+            margin-left: 10px;
+        }
+    }
+}
