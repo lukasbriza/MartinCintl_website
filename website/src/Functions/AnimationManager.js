@@ -32,7 +32,13 @@ const pageCounterAnOff = (count,underliner) => {
 //MANU SLIDER ANIMATION//
 const menuSliderDuration = 1.5
 const menuSliderOn = (element) => {
-    gsap.to(element, {
+    let tl = gsap.timeline()
+    tl.to(element,{
+        display: 'flex',
+        duration: 0.002,
+        ease: 'none'
+    })
+      .to(element, {
         right: '0vw',
         ease: Power2.easeOut,
         duration: menuSliderDuration,
@@ -40,11 +46,17 @@ const menuSliderOn = (element) => {
 }
 
 const menuSliderOff = (element) => {
-    gsap.to(element, {
+    let tl = gsap.timeline()
+    tl.to(element, {
         right: '-100vw',
         ease: Power2.easeOut,
         duration: menuSliderDuration,
     })
+      .to(element,{
+          display: 'none',
+          duration: 0.002,
+          ease: 'none'
+      })
 }
 export {
     pageCounterAnOn,
