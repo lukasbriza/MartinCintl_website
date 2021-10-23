@@ -1,14 +1,23 @@
+$schemeBlueLight: #4F5FA4;
+$schemeBlueDark: #172565;
+
 //FONTS//
-@import '../Fonts/Megrim-Regular.ttf';
-@import '../Fonts/Poppins-ExtraLight.ttf';
-@import '../Fonts/Poppins-MediumItalic.ttf';
-@import '../Fonts/Poppins-Regular.ttf';
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Poppins:ital,wght@0,200;0,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 ////////////////////////////////////
 //MODULES//
 @import './modificationClasses';
+@import './transitionClasses';
 ////////////////////////////////////
 //COMPONENTS//
 @import './Component_styles/Button';
+@import './Component_styles/Logo';
+@import './Component_styles/Menu';
+@import './Component_styles/ActualPage';
+@import './Component_styles//MenuButton';
+@import './Component_styles/LanguageMutations';
+@import './Component_styles/PageCounter';
+@import './Component_styles/SocialIcons';
 ////////////////////////////////////
 //PAGE STYLES//
 @import './Page_styles/Hero';
@@ -40,6 +49,7 @@ html, body, #root, #App, #Hero, #About, #Contact, #Products{
 html{
     overflow: hidden;
 }
+
 ////////////////////////////////////
 //BREAKPOITS//
 /*
@@ -70,6 +80,7 @@ $pcWidth: 1024px;
 
     //MORE THAN 1025px
     @include mediaMin($pcWidth + 1px){
+        #menu{}
         #Hero{
             grid-template-columns: 60% 1fr;
             grid-template-areas: "quote .";
@@ -83,6 +94,7 @@ $pcWidth: 1024px;
 
     //LESS THAN 1024px
     @include mediaMax($pcWidth){
+        #menu{}
         #Hero{
             grid-template-columns: 60% 1fr;
             grid-template-areas: "quote .";
@@ -100,6 +112,7 @@ $pcWidth: 1024px;
 
     //LESS THAN 768px
     @include mediaMax($ipadWidth){
+        #menu{}
         #Hero{
             grid-template-columns: 1fr 83% 1fr;
             grid-template-areas: ". quote .";
@@ -127,7 +140,8 @@ $pcWidth: 1024px;
     }
 
     //LESS THAN 480px
-    @include mediaMax($mobileWidth) {
+    @include mediaMax($mobileWidth){
+        #menu{}
         #Hero{
             img{
                 left: 50%;
