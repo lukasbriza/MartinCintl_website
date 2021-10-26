@@ -11,6 +11,7 @@ function Button(props:button){
                 to={props.link}
                 className="button-wrapper"
                 onClick={(e)=>{props.onClick(e)}}
+                ref={props.reference}
             >
                 <p 
                     className="button-text"
@@ -27,6 +28,7 @@ function Button(props:button){
                 id={props.id} 
                 className="button-wrapper"
                 onClick={(e)=>{props.onClick(e)}}
+                ref={props.reference}
             >
                 <p 
                     className="button-text"
