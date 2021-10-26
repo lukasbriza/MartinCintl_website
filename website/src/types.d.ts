@@ -3,7 +3,8 @@ type button = {
     text: string,
     id: string,
     onClick?: any,
-    link?: string
+    link?: string,
+    reference?: any
 }
 
 type logo = {
@@ -64,4 +65,18 @@ type Tile = {
     flagText: string,
     id?: string,
     open: boolean,
+    openTrigger: any,
+    children: any
+}
+
+type Tile_content = {
+    show: boolean,
+    count: number,
+    idContent: string
+}
+
+type ListItem = {
+    size?:number
+    text: string
+    importance?:1|2|3,
 }

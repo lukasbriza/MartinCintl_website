@@ -1,4 +1,4 @@
-import {gsap, Power2} from 'gsap'
+import {gsap, Power2, Power1} from 'gsap'
 
 //PAGE COUNTER ANIMATION//
 const pageCounterDuration = 0.3
@@ -58,9 +58,136 @@ const menuSliderOff = (element) => {
           ease: 'none'
       })
 }
+
+//TILE ANIMATION ON//
+const tileTextOnDelay = 0.5 + 1.8
+const tileOn = (layer, tile, flagLine, flagText, flag) => {
+    let tl = gsap.timeline()
+        tl.addLabel('layerOn')
+        .to(layer, {
+            background: 'rgba(0, 0, 0, 0.514)',
+            ease: Power1.easeOut,
+            duration: 0.5
+        }, 'layerOn')
+        .addLabel('start')
+        .to(tile, {
+            width: '60vw',
+            ease: Power1.easeOut,
+            duration: 1.8
+        }, "start")
+        .to(flagLine, {
+            height: '70%',
+            ease: Power1.easeOut,
+            delay: 0.5,
+            duration: 1.5
+        }, "start")
+        .to(flag, {
+            width: '350px',
+            ease: Power1.easeOut,
+            delay: 0.5,
+            duration: 1.5
+        }, "start")
+        .addLabel('flagDone')
+        .to(flagText, {
+            display: 'initial',
+            ease: 'none',
+            duration: 0.002
+        }, 'flagDone')
+        .to(flagText, {
+            opacity: 1,
+            ease: Power1.easeOut,
+            duration: 1
+        })
+}
+
+const tileTextOn = (content, tileText, button) => {
+    let tl = gsap.timeline()
+        tl.to(content, {
+            display: 'grid',
+            duration: 0.02,
+            delay: tileTextOnDelay,
+            ease: 'none'
+        })
+        .to(tileText, {
+            opacity: 1,
+            duration: 1,
+            ease: Power1.easeOut
+        })
+       .to(button,{
+            opacity: 1,
+            duration: 1,
+            delay: -0.5,
+            ease: Power1.easeOut
+        })
+}
+
+//TILE ANIMATION OFF//
+const tileOff = (layer, tile, flagLine, flagText, flag) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .to(flagText, {
+            opacity: 0,
+            duration: 0.5,
+        }, 'start')
+        .to(flagText, {
+            display: 'none',
+            duration: 0.02,
+            ease: 'none'
+        })
+        .to(flagLine, {
+            height: '0%',
+            duration: 1,
+            delay: 0.5,
+            ease: Power1.easeOut,
+        }, 'start')
+        .to(flag, {
+            width: '55px',
+            ease: Power1.easeOut,
+            delay: 0.5,
+            duration: 1.5
+        }, 'start')
+        .to(tile, {
+            width: '20vw',
+            ease: Power1.easeOut,
+            delay: 0.5,
+            duration: 1.8
+        }, "start")
+        .to(layer, {
+            background: 'rgba(0, 0, 0, 0)',
+            duration: 0.5,
+            delay: -0.5,
+            ease: Power1.easeOut,
+        })
+
+}
+
+const tileTextOff = (content, tileText, button) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .to(tileText, {
+            opacity: 0,
+            duration: 0.5,
+            ease: Power1.easeOut
+        }, 'start')
+        .to(button, {
+            opacity: 0,
+            duration: 0.5,
+            ease: Power1.easeOut
+        }, 'start')
+        .to(content, {
+            display: 'none',
+            duration: 0.002,
+            ease: 'none'
+        })
+}
+
 export {
     pageCounterAnOn,
     pageCounterAnOff,
     menuSliderOn,
-    menuSliderOff
+    menuSliderOff,
+    tileOn,
+    tileOff,
+    tileTextOn,
+    tileTextOff
 }
