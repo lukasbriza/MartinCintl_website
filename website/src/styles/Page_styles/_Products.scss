@@ -1,3 +1,82 @@
+$flagFontSize: 22px;
+
 #Products{
     background: wheat;
+    display: flex;
+
+    .tile{
+        .tileLayer{
+            background: rgba(0, 0, 0, 0);
+
+            display: grid;
+            grid-template-rows: 100px 70px 1fr;
+            grid-template-areas: ".""flag""content";
+
+            .flag{
+                grid-area: flag;
+
+                background: $schemeBlueLight;
+                color: white;
+                text-transform: uppercase;
+                font-weight: 600;
+    
+                width: 55px;
+                height: 60px;
+                display: flex;
+                flex-wrap: nowrap;
+
+                cursor: default;
+    
+                .count{
+                    font-size: $flagFontSize;
+                    margin: auto 5px;
+                    text-align: center;
+                    width: 45px;
+                }
+    
+                .flagLine{
+                    width: 2px;
+                    height: 0%;
+                    background: white;
+                    margin: auto 0px;
+                }
+    
+                .flagText{
+                    font-size: $flagFontSize;
+                    margin: auto auto;
+                    opacity: 0;
+                    display:none;
+                }
+            }
+            .tileContent{
+                grid-area: content;
+                display: none; //grid after
+                grid-template-rows: 3fr 1fr ;
+
+
+                .tileText{
+                    color: white;
+                }
+                #tile01_button, #tile02_button, #tile03_button{
+                    justify-self: center;
+                    align-self: center;
+                }
+            }
+        }
+    }
+
+    #tile1{
+        width: 60vw;
+        background: rgba(0,0, 0, 0.514);
+    }
+    #tile2{
+        width: 20vw;
+    }
+    #tile3{
+        width: 20vw;
+    }
+
+    #tileContent1{
+        display: grid;
+    }
 }

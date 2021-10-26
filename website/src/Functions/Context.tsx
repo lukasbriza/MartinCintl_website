@@ -38,20 +38,26 @@ function AnimationContextProvider(props:any){
     const [menuSlider, setMenuSlider] = useState(false)
     const [actualPage, setActualPage] = useState(true)
     const [pageCounter, setPageCounter] = useState(!menuSlider)
-    const [openTile, setOpenTile] = useState(false)
+    const [openTile1, setOpenTile1] = useState(true)
+    const [openTile2, setOpenTile2] = useState(false)
+    const [openTile3, setOpenTile3] = useState(false)
 
     //APP STATE
     let appState = {
         menuSlider: menuSlider,
         actualPage: actualPage,
         pageCounter: pageCounter,
-        openTile: openTile,
+        openTile1: openTile1,
+        openTile2: openTile2,
+        openTile3: openTile3,
 
         functions:{
             setMenuSlider: setMenuSlider,
             setActualPage: setActualPage,
             setPageCounter: setPageCounter,
-            setOpenTile: setOpenTile,
+            setOpenTile1: setOpenTile1,
+            setOpenTile2: setOpenTile2,
+            setOpenTile3: setOpenTile3,
         }
     }
     return(
