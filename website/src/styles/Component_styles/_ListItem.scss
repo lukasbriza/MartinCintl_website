@@ -1,12 +1,16 @@
 .listWrapper{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-top: 10px;
 
     .square{
-        width: 5px;
-        height: 5px;
-        background-color: $schemeBlueLight;
+        z-index: +1;
+        background: $schemeBlueLight;
+        margin-right: 10px;
     }
 
     .listText{
-
+        font-size: 18px;
     }
 }

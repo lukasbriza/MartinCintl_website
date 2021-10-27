@@ -20,7 +20,7 @@ const pageCounterAnOff = (count,underliner) => {
     gsap.to(count,{
         duration: pageCounterDuration,
         ease: "linear",
-        color: '#6E6E6E'
+        color: '#4d4d4d'
     })
     gsap.to(underliner,{
         duration: pageCounterDuration,
@@ -100,11 +100,11 @@ const tileOn = (layer, tile, flagLine, flagText, flag) => {
         })
 }
 
-const tileTextOn = (content, tileText, button) => {
+const tileTextOn = (content, tileText, button, contextFn) => {
     let tl = gsap.timeline()
         tl.to(content, {
             display: 'grid',
-            duration: 0.02,
+            duration: 0.3,
             delay: tileTextOnDelay,
             ease: 'none'
         })
@@ -117,8 +117,13 @@ const tileTextOn = (content, tileText, button) => {
             opacity: 1,
             duration: 1,
             delay: -0.5,
-            ease: Power1.easeOut
+            ease: Power1.easeOut,
+            onComplete: () => {
+                contextFn.setTileAnRunning(false)
+            }
         })
+        
+        return(tl)
 }
 
 //TILE ANIMATION OFF//
@@ -179,6 +184,7 @@ const tileTextOff = (content, tileText, button) => {
             duration: 0.002,
             ease: 'none'
         })
+        return(tl)
 }
 
 export {

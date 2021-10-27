@@ -388,7 +388,7 @@
   font-family: 'Megrim', 'Helvetica Neue';
   font-size: clamp(20px, 2.5vmin, 60px);
   font-weight: bold;
-  color: #6E6E6E;
+  color: #4d4d4d;
   cursor: pointer;
 }
 
@@ -564,6 +564,28 @@
   background-color: #4F5FA4;
 }
 
+.listWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 10px;
+}
+
+.listWrapper .square {
+  z-index: +1;
+  background: #4F5FA4;
+  margin-right: 10px;
+}
+
+.listWrapper .listText {
+  font-size: 18px;
+}
+
 #Hero {
   width: 100vw;
   height: 100vh;
@@ -696,13 +718,21 @@
   display: flex;
 }
 
+#Products .tile {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+
 #Products .tile .tileLayer {
-  background: rgba(0, 0, 0, 0);
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 100px 70px 1fr;
       grid-template-rows: 100px 70px 1fr;
       grid-template-areas: "." "flag" "content";
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
 }
 
 #Products .tile .tileLayer .flag {
@@ -755,6 +785,13 @@
 
 #Products .tile .tileLayer .tileContent .tileText {
   color: white;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding-top: 50px;
+  padding-left: 30px;
 }
 
 #Products .tile .tileLayer .tileContent #tile01_button, #Products .tile .tileLayer .tileContent #tile02_button, #Products .tile .tileLayer .tileContent #tile03_button {
@@ -767,11 +804,14 @@
 
 #Products #tile1 {
   width: 60vw;
-  background: rgba(0, 0, 0, 0.514);
 }
 
 #Products #tile2 {
   width: 20vw;
+}
+
+#Products #tile2:hover {
+  width: 25vw;
 }
 
 #Products #tile3 {

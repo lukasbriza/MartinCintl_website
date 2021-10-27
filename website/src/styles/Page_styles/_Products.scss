@@ -5,12 +5,18 @@ $flagFontSize: 22px;
     display: flex;
 
     .tile{
-        .tileLayer{
-            background: rgba(0, 0, 0, 0);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
 
+        cursor: pointer;
+
+        .tileLayer{
             display: grid;
             grid-template-rows: 100px 70px 1fr;
             grid-template-areas: ".""flag""content";
+
+            transition: background-color 0.3s ease-out;
 
             .flag{
                 grid-area: flag;
@@ -56,6 +62,12 @@ $flagFontSize: 22px;
 
                 .tileText{
                     color: white;
+                    align-items: start;
+                    align-content: center;
+
+                    padding-top: 50px;
+                    padding-left: 30px;
+
                 }
                 #tile01_button, #tile02_button, #tile03_button{
                     justify-self: center;
@@ -67,16 +79,15 @@ $flagFontSize: 22px;
 
     #tile1{
         width: 60vw;
-        background: rgba(0,0, 0, 0.514);
+        
     }
     #tile2{
         width: 20vw;
     }
+    #tile2:hover{
+        width: 25vw;
+    }
     #tile3{
         width: 20vw;
-    }
-
-    #tileContent1{
-        display: grid;
     }
 }

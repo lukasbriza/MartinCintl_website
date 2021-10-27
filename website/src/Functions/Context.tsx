@@ -13,17 +13,20 @@ function PageContextProvider(props:any){
     const [languageMutation, setLanguageMutation] = useState('cs')
     const [location, setLocation] = useState(undefined)
     const [transition, setTransition] = useState(undefined)
+    const [contactFormular, setContactFormular] = useState(undefined)
 
     //APP STATE
     let appState = {
         location: location,
         languageMutation: languageMutation,
         transitionType: transition,
+        contactFormular: contactFormular,
 
         functions:{
             setLanguageMutation: setLanguageMutation,
             setLocation: setLocation,
-            setTransition: setTransition
+            setTransition: setTransition,
+            setContactFormular: setContactFormular,
         }
     }
     return(
@@ -41,6 +44,7 @@ function AnimationContextProvider(props:any){
     const [openTile1, setOpenTile1] = useState(true)
     const [openTile2, setOpenTile2] = useState(false)
     const [openTile3, setOpenTile3] = useState(false)
+    const [tileAnRunning, setTileAnRunning] = useState(false)
 
     //APP STATE
     let appState = {
@@ -50,6 +54,7 @@ function AnimationContextProvider(props:any){
         openTile1: openTile1,
         openTile2: openTile2,
         openTile3: openTile3,
+        tileAnRunning: tileAnRunning,
 
         functions:{
             setMenuSlider: setMenuSlider,
@@ -58,6 +63,7 @@ function AnimationContextProvider(props:any){
             setOpenTile1: setOpenTile1,
             setOpenTile2: setOpenTile2,
             setOpenTile3: setOpenTile3,
+            setTileAnRunning: setTileAnRunning,
         }
     }
     return(
