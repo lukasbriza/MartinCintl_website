@@ -14,9 +14,18 @@ function PageContextProvider(props:any){
     const [location, setLocation] = useState(undefined)
     const [transition, setTransition] = useState(undefined)
     const [contactFormular, setContactFormular] = useState(undefined)
+    const [width, setWidth] = useState(window.innerWidth)
+
+    window.addEventListener('load',()=>{
+        setWidth(window.innerWidth)
+    })
+    window.addEventListener('resize',()=>{
+        setWidth(window.innerWidth)
+    })
 
     //APP STATE
     let appState = {
+        width: width,
         location: location,
         languageMutation: languageMutation,
         transitionType: transition,
