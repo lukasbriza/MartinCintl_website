@@ -187,6 +187,18 @@ const tileTextOff = (content, tileText, button) => {
         return(tl)
 }
 
+const waitCursorOn = () => {
+    gsap.to('.tile', {
+        cursor: 'wait'
+    })
+}
+
+const waitCursorOff = () => {
+    gsap.to('.tile', {
+        cursor: 'pointer'
+    })
+}
+
 export {
     pageCounterAnOn,
     pageCounterAnOff,
@@ -195,5 +207,7 @@ export {
     tileOn,
     tileOff,
     tileTextOn,
-    tileTextOff
+    tileTextOff,
+    waitCursorOn,
+    waitCursorOff
 }
