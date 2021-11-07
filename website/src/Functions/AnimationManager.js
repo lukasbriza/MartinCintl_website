@@ -186,7 +186,40 @@ const tileTextOff = (content, tileText, button) => {
         })
         return(tl)
 }
+//MOBILE TILE ANIMATION//
+const mobileFlagOn = (flag, flagLine, flagText) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .fromTo(flag,
+            {width:'55px'},
+            {width: '350px', ease: Power1.easeOut, delay: 0.5, duration: 1.5},'start')
+        .fromTo(flagLine,
+            {height: '0%'},
+            {height: '70%', ease: Power1.easeOut, delay: 0.5, duration: 1.5}, 'start')
+        .addLabel('flagDone')
+        .fromTo(flagText,
+            {display: 'none'},
+            {display: 'initial', ease: 'none', duration: 0.002}, 'flagDone')
+        .fromTo(flagText,
+            {opacity: 0},
+            {opacity: 1, ease: Power1.easeOut, duration: 1})
+}
+const mobileFlagOff = (flag, flagLine, flagText) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .to(flagText,{opacity: 0, duration: 0.5, ease: Power1.easeOut}, 'start')
+        .to(flagText, {display: 'none', duration: 0.002, ease: 'none'})
+        .addLabel('textDone')
+        .to(flag,{width:'55px', duration: 1, ease: Power1.easeOut},'textDone')
+        .to(flagLine,{height: '0%', ease: Power1.easeOut, duration: 1}, 'textDone')
+}
+const mobileTextOn = () => {
 
+}
+const mobileTextOff = () => {
+
+}
+//WAIT CURSOR ANIMATION//
 const waitCursorOn = () => {
     gsap.to('.tile', {
         cursor: 'wait'
@@ -209,5 +242,9 @@ export {
     tileTextOn,
     tileTextOff,
     waitCursorOn,
-    waitCursorOff
+    waitCursorOff,
+    mobileFlagOn,
+    mobileFlagOff,
+    mobileTextOff,
+    mobileTextOn
 }

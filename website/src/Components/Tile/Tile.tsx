@@ -4,7 +4,7 @@ import {useState, useRef, useContext, useEffect} from 'react'
 import {AnimationContext} from '../../Functions/Context'
 ////////////////////////////////////////////////////
 //ANIMATIONS//
-import {tileOn,tileOff} from '../../Functions/AnimationManager'
+import {tileOn,tileOff,waitCursorOn,waitCursorOff} from '../../Functions/AnimationManager'
 ////////////////////////////////////////////////////
 
 function Tile(props:Tile){
@@ -18,10 +18,19 @@ function Tile(props:Tile){
     const layer:any = useRef()
 
     //////////////////////////////////////////////////////
+    //POINTER LISTENER//
+    useEffect(() =>{
+        if(contextAn.tileAnRunning === false){
+            waitCursorOff()
+        }
+        if(contextAn.tileAnRunning === true){
+            waitCursorOn()
+        }
+    }, [contextAn.tileAnRunning])
+    //////////////////////////////////////////////////////
     //OPEN ANIMATION LISTENER//
     useEffect(() =>{
         if(props.open === true) {
-            //set layer opacity => open tile => open flag => show text with button
             tileOn(
                 layer.current,
                 tile.current, 
@@ -49,6 +58,7 @@ function Tile(props:Tile){
             ref={tile}
 
             onClick={()=>{
+
                 if(contextAn.tileAnRunning === false){
                     switch (props.flagCount){
                         case "01":
