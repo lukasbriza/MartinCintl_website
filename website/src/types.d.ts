@@ -80,3 +80,20 @@ type ListItem = {
     text: string
     importance?:1|2|3,
 }
+
+type flag = {
+    order: number,
+    text: string,
+    for:string,
+    id?:string
+}
+
+
+type input = {
+    type: 'textarea'|'phone'|'text',
+    name: string,
+    placeholder?: string, 
+    rows?: number,
+    cols?: number,
+    fn: (value:text)=>void
+}
