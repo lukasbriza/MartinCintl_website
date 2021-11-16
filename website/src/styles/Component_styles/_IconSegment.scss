@@ -1,0 +1,24 @@
+.iconSegment{
+    margin: 5px 0px;
+    margin-left: 20px;
+    .iconWrapper{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: relative;
+
+        align-items: center;
+
+        text-decoration: none;
+
+        .icon{
+            width: 1.5em;
+            height: 1.5em;
+        }
+        .description{
+            margin-left: 20px;
+            color: white;
+            font-size: 0.75em;
+        }
+    }
+}

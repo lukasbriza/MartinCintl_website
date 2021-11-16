@@ -1,0 +1,160 @@
+$inputHeight: 41px;
+$flagInput-margin:20px;
+$inputWidth: calc(100% - $flagInput-margin);
+
+#service-input{
+    margin-bottom: 45px;
+}
+.formInput{
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-template-areas: "flag input"
+                        ". error";
+    
+
+    .actualOption{
+        grid-area: input;
+        display: flex;
+        position: relative;
+        
+        margin-left: $flagInput-margin;
+        width: $inputWidth;
+        background-color: #E5E5E5;
+        border: 1px solid #404040;
+
+        #actualOption{
+            line-height: $inputHeight;
+            text-align: center;
+            width: 100%;
+        }
+
+        #button{
+            position: relative;
+            background-color:   #B9B6B6;
+            width: 50px;
+            cursor: pointer;
+            display: grid;
+            align-items: center;
+            justify-items: center;
+
+            .triangle{
+                width: 0px;
+                height: 0px;
+                border-left:  5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid white;
+
+                position: absolute;
+                transform-origin: center center;
+                transform: rotate(0deg) skew(360deg, 0deg);
+                
+            }
+        }
+
+        #button:hover{
+            background-color: rgb(136, 136, 136);
+        }
+
+        .options{
+            display:none;
+            grid-area: input;
+            padding-top: $inputHeight;
+            line-height: $inputHeight;
+            width: calc(100% - 44px);
+            position: absolute;
+            
+    
+            .option-select{
+                background-color: #E5E5E5;
+                border: 1px solid grey;
+                text-align: center;
+                cursor: pointer;
+
+                /*ANIMATION SETTING*/
+                transition: background-color 0.2s linear;
+            }
+
+            #diagnostic{
+                border-top: none;
+                border-bottom: none;
+            }
+
+            .option-select:hover{
+                background-color: $schemeBlueLight;
+            }
+        }
+    }
+    
+
+    .flag-contact{
+        grid-area: flag;
+
+        display: inline-flex;
+        flex-wrap: nowrap;
+        height: $inputHeight;
+        width: 130px;
+
+        background-color:$schemeBlueLight;
+        color: white;
+        font-weight: 500;
+        min-width: 120px;
+
+        padding: 8px 0px;
+        
+        .flagOrder{
+            padding: 0px 8px;
+        }
+        .flagText{
+            display: flex;
+            flex-basis: 100%;
+            justify-content: center;
+        }
+    }
+
+    textarea{
+        margin-left: $flagInput-margin;
+        width: $inputWidth;
+        border: 1px solid #404040;
+        resize: none;
+        min-width: 224px;
+        height: 150px;
+        padding: 5px;
+        padding-left: 15px;
+    }
+
+    textarea:invalid[focused="true"]{
+        border: 1px solid red;
+    }
+    
+    textarea:invalid[focused="true"] ~ span{
+        opacity:1;
+    }
+
+    input{
+        width: $inputWidth;
+        height: $inputHeight;
+        margin-left: $flagInput-margin;
+        border: 1px solid #404040;
+        padding: 5px;
+        padding-left: 15px;
+    }
+
+    input:invalid[focused="true"]{
+        border: 1px solid red;
+    }
+    
+    input:invalid[focused="true"] ~ span{
+        opacity: 1;
+    }
+
+    .errorMessage{
+        grid-area: error;
+        width: $inputWidth;
+        margin-left: $flagInput-margin;
+
+        font-size: 12px;
+        padding: 3px;
+        color: red;
+        opacity: 0;
+    }
+}

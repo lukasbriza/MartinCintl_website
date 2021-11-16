@@ -1,0 +1,13 @@
+.segmentLine{
+    display: grid;
+    margin: 5px 0px;
+    grid-template-columns: 1fr 150px;
+    font-weight: 600;
+
+    .lineName{
+        color: white;
+    }
+    .lineValue{
+        color: white;
+    }
+}

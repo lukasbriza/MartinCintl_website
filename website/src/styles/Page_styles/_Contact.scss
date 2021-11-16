@@ -1,3 +1,55 @@
 #Contact{
-    background: green;
+    background: #14151A;
+    display: grid;
+
+    grid-template-rows: 77px 1fr 50px;
+    grid-template-areas: "."
+                        "form"
+                        "footer";
+    .contactContent-wrapper{
+        grid-area: form;
+
+        .contactForm{
+            width: 80%;
+            height: auto;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+    
+            .leftSide{
+                width: 50%;
+                background: white;
+                padding: 50px 30px;
+
+                @media only screen and (max-height:730px){   
+                        padding: 20px 30px;
+
+                }
+            }
+    
+            .rightSide{
+                width: 50%;
+                height: auto;
+                background: $schemeBlueLight;
+    
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+    
+                .pricingSegment-wrapper{
+                    display: grid;
+                    align-content: center;
+                    padding: 0px 20px;
+                }
+    
+                .iconSegment-wrapper{
+                    display: grid;
+                    align-content: center;
+                }
+    
+            }
+        }
+    }
+    
 }
