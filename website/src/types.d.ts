@@ -1,3 +1,5 @@
+
+
 /*GLOBAL TYPES*/
 type button = {
     text: string,
@@ -96,4 +98,30 @@ type input = {
     rows?: number,
     cols?: number,
     fn: (value:text)=>void
+}
+
+type options = {
+    selectOptions: {id:string,value:string,optionNumber:number}[],
+    actualOption: string,
+    roll: boolean,
+    forwardFn: {
+        setRoll: SetStateAction
+        optionSetup: SetStateAction
+    },
+    flag?: boolean
+}
+
+type submitBtn = {
+    fn: ()=>void
+}
+
+type iconSegment = {
+    link?: string,
+    icon: svg,
+    description: string
+}
+
+type pricingSegment = {
+    priceData: {name:string, value:number}[],
+    color?:string
 }

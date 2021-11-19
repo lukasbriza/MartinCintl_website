@@ -1,5 +1,5 @@
-import React, {createContext, useState} from 'react'
-import {useLocation} from 'react-router-dom'
+import {createContext, useState} from 'react'
+
 
 
 //CONTEXTS//
@@ -14,10 +14,12 @@ function PageContextProvider(props:any){
     const [location, setLocation] = useState(undefined)
     const [transition, setTransition] = useState(undefined)
     const [contactFormular, setContactFormular] = useState(undefined)
-    const [width, setWidth] = useState(window.innerWidth)
-
+    const [width, setWidth]:any = useState(null)
+    
     window.addEventListener('load',()=>{
-        setWidth(window.innerWidth)
+        setTimeout(()=>{
+            setWidth(window.innerWidth)
+        },100)
     })
     window.addEventListener('resize',()=>{
         setWidth(window.innerWidth)

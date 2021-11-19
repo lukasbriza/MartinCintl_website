@@ -1,4 +1,4 @@
-import {useContext, useEffect, useRef, useState} from 'react'
+import {useContext, useState} from 'react'
 ////////////////////////////////////////////////////
 //COMPONENTS//
 import {Tile} from '../Components/Tile/Tile'
@@ -19,7 +19,7 @@ import service3 from '../Static/Service3IMG.jpeg'
 ////////////////////////////////////////////////////
 //CONTEXT//
 import {AnimationContext, PageContext} from '../Functions/Context'
-
+import { deviceDetection } from '../Functions/DeviceDetect'
 ///////////////////////////////////////////////////
 //INSTALL SWIPER MODULE//
 SwiperCore.use([Pagination]);
@@ -83,7 +83,7 @@ function Products(){
                 </Tile>
             </div>
         )
-    } else {
+    }else{
 
         return(
             <div id="Products">

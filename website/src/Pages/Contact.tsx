@@ -1,27 +1,30 @@
 import {useEffect, useState, useRef, useContext} from 'react'
 //COMPONENTS//
-import {SubmitButton} from '../Components/Form_components/SubmitButton'
-import {FormInput} from '../Components/Form_components/FormInput'
-import {IconSegment} from '../Components/Form_components/IconSegment'
-import {PricingSegment} from '../Components/Form_components/PricingSegment'
-import {Footer_personal_gsap} from '../Components/Footer/Footer_personal_gsap'
-//ANIMATIONS//
-import {triangleRollOff, triangleRollOn} from '../Functions/AnimationManager'
+import {SubmitButton} from '../Components/Form_components/Partial_components/SubmitButton'
+import {FormInput} from '../Components/Form_components/Partial_components/FormInput'
+import {IconSegment} from '../Components/Form_components/Partial_components/IconSegment'
+import {PricingSegment} from '../Components/Form_components/Partial_components/PricingSegment'
+import {ProgressBar} from '../Components/Form_components/Partial_components/ProgressBar'
+import {MobileFormSetup} from '../Components/Form_components/MobileFormSetup'
+import {FooterPersonalGsap} from '../Components/Footer/FooterPersonalGsap'
+import {Options} from '../Components/Form_components/Partial_components/Options'
 //CONTEXT//
 import {PageContext} from '../Functions/Context'
+//DATA//
+import {inputsData, selectOptionsData} from '../Components/Form_components/Partial_components/DataInputs'
 
 
 function Contact(){
+    ////////////////////////////////////////////////////////////////
     //COMPONENT STATE//
-    const [values, setValues] = useState({
-        name: "",
-        telephone: "",
-        text: ""
-    })
+    const [values, setValues] = useState({name: "", telephone: "", text: ""})
     const [option, setOption] = useState("")
     const [roll, setRoll] = useState(false)
 
     const context:any = useContext(PageContext)
+
+    const inputs = inputsData
+    const selectOptions = selectOptionsData
     ////////////////////////////////////////////////////////////////
     //DEFAULT SETUP//
     useEffect(() =>{
@@ -51,56 +54,10 @@ function Contact(){
         console.log('submit')
     }
     ////////////////////////////////////////////////////////////////
+    //MOBILE FORM HANDLER//
+    const[progress,setProgress]=useState({c1:true,c2:false,c3:false})
 
-    const inputs = [
-        {
-            id: "name-input",
-            name: "name",
-            type: "text",
-            placeholder: "Jméno a přijmení",
-            errorMessage: "Zadán nevalidní znak. Minimální počet znaků je 3.",
-            label: "Jméno",
-            pattern: "^[A-Za-z0-9]{3,}$",
-            labelCounter: "02",
-            required: true,
-        },{
-            id: "telephone-input",
-            name: "telephone",
-            type: "tel",
-            placeholder: "602582262",
-            errorMessage: "Je povolen pouze tvar telefonního čísla o délce 9-ti čísel. Bez mezer.",
-            label: "Telefon",
-            labelCounter: "03",
-            pattern: "^[0-9]{9,9}$",
-            required: true,
-        },{
-            id: "text-input",
-            name: "text",
-            type: "textarea",
-            placeholder: "Zpráva...",
-            errorMessage: "Nejsou povoleny speciální znaky.",
-            label: "Zpráva",
-            labelCounter: "04",
-            pattern: "."
-        }
-    ]
-
-    const selectOptions = [
-        {
-            id: "personalTraining",
-            value: "Osobní trénink",
-            optionNumber: 1
-        },{
-            id: "diagnostic",
-            value: "Funkční diagnostika",
-            optionNumber: 2
-        },{
-            id: "onlineCoaching",
-            value: "Online Coaching",
-            optionNumber: 3
-        }
-    ]
-
+    ////////////////////////////////////////////////////////////////
     if(context.width > 1100){  
         return(
             <div 
@@ -123,12 +80,13 @@ function Contact(){
                             />
 
                             {inputs.map((input:any)=>{
-                                return(
+                                return( 
                                     <FormInput
                                         {...input}
                                         onChange={(e:any)=>{handleChange(e)}}
                                         onFocus={()=>{setRoll(false)}}
                                         key={input.id}
+                                        mobilestyle={false}
                                     />
                                 )
                             })}
@@ -155,66 +113,46 @@ function Contact(){
                         </div>
                         </div>
                     </div>
-                    <Footer_personal_gsap/>
+                    <FooterPersonalGsap/>
             </div>
         )
     } else {
         return(
-        <></>
+        <div 
+            id="ContactMobile" 
+            onClick={()=>{if(roll){setRoll(false)}}}
+        >
+            <div id="ContactMobileForm-wrapper">
+                <form id="ContactMobileForm" className="relative center">
+                    <ProgressBar callback={(e:{c1:boolean, c2:boolean, c3:boolean}) => setProgress(e)} progress={progress}/>
+                    <MobileFormSetup 
+                        progress={progress} 
+                        fn={{
+                            selectOptions: selectOptions,
+                            option: option,
+                            roll: roll,
+                            forwardFn:{
+                                setRoll: setRoll,
+                                optionSetup: optionSetup,
+                                setProgress: setProgress,
+                                handleChange: handleChange,
+                                handleSubmit: handleSubmit
+                            }
+                        }}
+                        priceData={[
+                            {name: "1 trénink (1 osoba)", value: 550},
+                            {name: "1 trénink (2 osoby)", value: 700},
+                            {name: "10 tréninků", value: 4500},
+                            {name: "10 tréninků (2 osoby)", value: 4500}
+                        ]}
+                        formInputs={inputs}
+                    />
+                </form>
+            </div>
+            <FooterPersonalGsap/>
+        </div>
         )
     }
-}
-
-
-function Options(props:options){
-    ////////////////////////////////////////////////////////////////
-    //REFS//
-    const triangleRef = useRef<any>()
-    const optionRef = useRef<any>()
-    //TRIANGLE ANIMATION//
-    useEffect(() =>{        
-        if(props.roll === true){
-            triangleRollOn(triangleRef.current,optionRef.current,".option-select")
-        }
-        if(props.roll === false){
-            triangleRollOff(triangleRef.current,optionRef.current,".option-select")
-        } 
-        
-    },[props.roll])
-    ////////////////////////////////////////////////////////////////
-
-    return(
-        <div className="formInput" id="service-input">
-            <label htmlFor="service" className="flag-contact">
-                <p className="flagOrder">01</p>
-                <p className="flagText">Služba</p>
-            </label>
-            <div className="actualOption">
-                <div id="actualOption">
-                    {props.actualOption}
-                </div>
-                <div id="button" onClick={()=>{props.forwardFn.setRoll(!props.roll)}}>
-                    <div className="triangle" ref={triangleRef}></div>
-                </div>
-                <div className="options" ref={optionRef}>
-                    {
-                        props.selectOptions.map((option:{id:string,value:string,optionNumber:number})=>{
-                            return(
-                            <p className="option-select" 
-                                id={option.id} 
-                                key={option.id}
-                                onClick={() =>{props.forwardFn.optionSetup(option.optionNumber)}}
-                            >
-                                {option.value}
-                            
-                            </p>
-                            )
-                        })
-                    }
-                </div>
-            </div>
-        </div>
-    )
 }
 
 export {Contact}

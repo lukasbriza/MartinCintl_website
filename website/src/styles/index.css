@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Megrim&family=Poppins:ital,wght@0,200;0,400;1,500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oxanium:wght@800&display=swap");
 .left {
   float: left;
 }
@@ -19,6 +20,12 @@
   top: 50%;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
+}
+
+.centerh {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .relative {
@@ -146,6 +153,10 @@
   color: white;
   display: -ms-grid;
   display: grid;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 #logo p {
@@ -213,6 +224,10 @@
   font-family: 'Megrim', 'Helvetica Neue';
   font-size: 20px;
   cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   /*TRANSITION SETTINGS*/
   -webkit-transition: opacity 0.5s linear;
   transition: opacity 0.5s linear;
@@ -408,7 +423,7 @@
 
 #socialIcons-wrapper {
   position: absolute;
-  bottom: 50px;
+  bottom: 70px;
 }
 
 #socialIcons-wrapper #socialIcons-section {
@@ -577,13 +592,596 @@
 }
 
 .listWrapper .square {
-  z-index: +1;
   background: #4F5FA4;
   margin-right: 10px;
+  min-width: 7px;
 }
 
 .listWrapper .listText {
   font-size: 18px;
+}
+
+@media only screen and (max-height: 690px) and (max-width: 900px) {
+  .listWrapper .listText {
+    font-size: 16px;
+  }
+}
+
+#service-input {
+  margin-bottom: 45px;
+}
+
+.formInput {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 130px 1fr;
+      grid-template-columns: 130px 1fr;
+      grid-template-areas: "flag input" ". error";
+}
+
+.formInput .actualOption {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: input;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  margin-left: 20px;
+  width: calc(100% - $flagInput-margin);
+  background-color: #E5E5E5;
+  border: 1px solid #404040;
+}
+
+.formInput .actualOption #actualOption {
+  line-height: 41px;
+  text-align: center;
+  width: 100%;
+}
+
+.formInput .actualOption #button {
+  position: relative;
+  background-color: #B9B6B6;
+  width: 50px;
+  cursor: pointer;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.formInput .actualOption #button .triangle {
+  width: 0px;
+  height: 0px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid white;
+  position: absolute;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  -webkit-transform: rotate(0deg) skew(360deg, 0deg);
+          transform: rotate(0deg) skew(360deg, 0deg);
+}
+
+.formInput .actualOption #button:hover {
+  background-color: #888888;
+}
+
+.formInput .actualOption .options {
+  display: none;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: input;
+  padding-top: 41px;
+  line-height: 41px;
+  width: calc(100% - 44px);
+  position: absolute;
+}
+
+.formInput .actualOption .options .option-select {
+  background-color: #E5E5E5;
+  border: 1px solid grey;
+  text-align: center;
+  cursor: pointer;
+  /*ANIMATION SETTING*/
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+.formInput .actualOption .options #diagnostic {
+  border-top: none;
+  border-bottom: none;
+}
+
+.formInput .actualOption .options .option-select:hover {
+  background-color: #4F5FA4;
+}
+
+.formInput .flag-contact {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: flag;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  height: 41px;
+  width: 130px;
+  background-color: #4F5FA4;
+  color: white;
+  font-weight: 500;
+  min-width: 120px;
+  padding: 8px 0px;
+}
+
+.formInput .flag-contact .flagOrder {
+  padding: 0px 8px;
+}
+
+.formInput .flag-contact .flagText {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.formInput textarea {
+  margin-left: 20px;
+  width: calc(100% - $flagInput-margin);
+  border: 1px solid #404040;
+  resize: none;
+  min-width: 224px;
+  height: 150px;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.formInput textarea:focus {
+  border: 2px solid #4F5FA4;
+}
+
+.formInput textarea:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.formInput textarea:invalid[focused="true"] ~ span {
+  opacity: 1;
+}
+
+.formInput input {
+  width: calc(100% - $flagInput-margin);
+  height: 41px;
+  margin-left: 20px;
+  border: 1px solid #404040;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.formInput input:focus {
+  border: 2px solid #4F5FA4;
+}
+
+.formInput input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.formInput input:invalid[focused="true"] ~ span {
+  opacity: 1;
+}
+
+.formInput .errorMessage {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: error;
+  width: calc(100% - $flagInput-margin);
+  margin-left: 20px;
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  opacity: 0;
+}
+
+.formInput-mobile {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 130px 1fr;
+      grid-template-columns: 130px 1fr;
+  -ms-grid-rows: 1fr 25px;
+      grid-template-rows: 1fr 25px;
+      grid-template-areas: "flag input" ". error";
+  width: 85%;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.formInput-mobile .flag-contact-mobile {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: flag;
+  background: #4F5FA4;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 35px;
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+
+.formInput-mobile .flag-contact-mobile .flagText-mobile {
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  font-weight: 600;
+}
+
+.formInput-mobile textarea {
+  resize: none;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: calc(100% - 15px);
+  height: 90px;
+  margin-left: 15px;
+  overflow-y: scroll;
+}
+
+.formInput-mobile textarea:focus {
+  border: 2px solid #4F5FA4;
+}
+
+.formInput-mobile textarea:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.formInput-mobile textarea:invalid[focused="true"] ~ span {
+  opacity: 1;
+}
+
+.formInput-mobile input {
+  height: 41px;
+  padding-left: 10px;
+  margin-left: 15px;
+}
+
+.formInput-mobile input:focus {
+  border: 2px solid #4F5FA4;
+}
+
+.formInput-mobile input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+.formInput-mobile input:invalid[focused="true"] ~ span {
+  opacity: 1;
+}
+
+.formInput-mobile .errorMessage-mobile {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: error;
+  width: calc(100% - $flagInput-margin);
+  margin-left: 20px;
+  font-size: 12px;
+  padding: 3px;
+  color: red;
+  opacity: 0;
+  margin-bottom: 5px;
+}
+
+.submitButton {
+  border: none;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  background-color: #4F5FA4;
+  padding: 8px 30px;
+  cursor: pointer;
+  /*TRANSITION SETUP*/
+  -webkit-transition: background-color 0.1s linear;
+  transition: background-color 0.1s linear;
+}
+
+.submitButton:active {
+  background-color: #172565;
+}
+
+.submitButton:hover {
+  padding: 7px 30px;
+  border: 1px solid #172565;
+}
+
+.iconSegment {
+  margin: 5px 0px;
+  margin-left: 20px;
+}
+
+.iconSegment .iconWrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-decoration: none;
+}
+
+.iconSegment .iconWrapper .icon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.iconSegment .iconWrapper .description {
+  margin-left: 20px;
+  color: white;
+  font-size: 0.75em;
+}
+
+.segmentLine {
+  display: -ms-grid;
+  display: grid;
+  margin: 5px 0px;
+  -ms-grid-columns: 1fr 150px;
+      grid-template-columns: 1fr 150px;
+  font-weight: 600;
+}
+
+.segmentLine .lineName {
+  color: white;
+}
+
+.segmentLine .lineValue {
+  color: white;
+}
+
+#footer {
+  width: 100vw;
+  height: 50px;
+  background: black;
+  position: absolute;
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
+  display: -ms-grid;
+  display: grid;
+      grid-template-columns: 1fr 150px 1fr;
+      grid-template-areas: ". footerLogo .";
+}
+
+#footer #footerLogo-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: footerLogo;
+  cursor: pointer;
+}
+
+#footer #footerLogo-wrapper .leftSide-logo {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  background: transparent;
+  left: 56px;
+}
+
+#footer #footerLogo-wrapper .leftSide-logo #line1 {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: calc(9px + -3px);
+}
+
+#footer #footerLogo-wrapper .leftSide-logo #line2 {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(19px + -3px);
+}
+
+#footer #footerLogo-wrapper .leftText {
+  position: absolute;
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr auto 1fr;
+      grid-template-columns: 1fr auto 1fr;
+      grid-template-areas: "1pt 2pt 3pt";
+  left: 24px;
+  top: 10px;
+}
+
+#footer #footerLogo-wrapper .leftText #pt1 {
+  font-family: "Oxanium" !important;
+  font-weight: 800;
+  font-size: 15px;
+  opacity: 0;
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1pt;
+  left: 4px;
+}
+
+#footer #footerLogo-wrapper .leftText #pt2-wrapper {
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: 2pt;
+  width: 18px;
+}
+
+#footer #footerLogo-wrapper .leftText #pt2-wrapper #pt2 {
+  font-family: "Oxanium" !important;
+  font-weight: 800;
+  font-size: 15px;
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: 2pt;
+  text-align: center;
+  opacity: 0;
+}
+
+#footer #footerLogo-wrapper .leftText #pt2-wrapper #circle {
+  position: absolute;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: 2pt;
+  left: 0px;
+  top: 1px;
+}
+
+#footer #footerLogo-wrapper .leftText #pt2-wrapper #circle #circlePath {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+}
+
+#footer #footerLogo-wrapper .leftText #pt3 {
+  font-family: "Oxanium" !important;
+  font-weight: 800;
+  font-size: 15px;
+  position: relative;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: 1pt;
+  opacity: 0;
+  right: 4px;
+}
+
+#footer #footerLogo-wrapper .divider {
+  position: absolute;
+  height: 0px;
+  width: 3px;
+  background: white;
+  left: 52%;
+  top: 50%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(15deg) translate(-50%, -50%);
+          transform: rotate(15deg) translate(-50%, -50%);
+}
+
+#footer #footerLogo-wrapper .rightText {
+  font-family: "Oxanium" !important;
+  font-weight: 800;
+  font-size: 15px;
+  position: absolute;
+  color: white;
+  right: 21px;
+  top: 19px;
+  opacity: 0;
+}
+
+#footer #footerLogo-wrapper .rightSide-logo {
+  position: absolute;
+  height: 100%;
+  width: 30px;
+  background: transparent;
+  right: 57px;
+}
+
+#footer #footerLogo-wrapper .rightSide-logo #line3 {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: calc(15px + 11px);
+}
+
+#footer #footerLogo-wrapper .rightSide-logo #line4 {
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: calc(5px + 11px);
+}
+
+#footer #footerLogo-wrapper .line {
+  position: absolute;
+  height: 16px;
+  width: 3px;
+  background: white;
+}
+
+#footer #footerLogo-wrapper .centerX {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.progressBar-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.progressBar-wrapper .circleWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.progressBar-wrapper .circleWrapper .number {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: 'Megrim', 'Helvetica Neue';
+  font-size: 18px;
+  font-weight: 600;
+  color: black;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.progressBar-wrapper .line-wrapper {
+  width: 100px;
+  height: 1px;
+  background-color: #3d3d3d;
+  position: relative;
+  overflow: visible;
 }
 
 #Hero {
@@ -700,6 +1298,17 @@
   font-size: clamp(18px, 3vmin, 25px);
 }
 
+#About #AboutLayer #About-section #mainPart a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: clamp(18px, 3vmin, 25px);
+  color: #4F5FA4;
+}
+
+#About #AboutLayer #About-section #mainPart a:hover {
+  text-decoration: underline;
+}
+
 #About #AboutLayer #About-section #secondaryPart {
   color: white;
   text-align: center;
@@ -708,7 +1317,171 @@
 }
 
 #Contact {
-  background: green;
+  background: #14151A;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 77px 1fr 50px;
+      grid-template-rows: 77px 1fr 50px;
+      grid-template-areas: "." "form" "footer";
+}
+
+#Contact .contactContent-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: form;
+}
+
+#Contact .contactContent-wrapper .contactForm {
+  width: 80%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#Contact .contactContent-wrapper .contactForm .leftSide {
+  width: 50%;
+  background: white;
+  padding: 50px 30px;
+}
+
+@media only screen and (max-height: 730px) {
+  #Contact .contactContent-wrapper .contactForm .leftSide {
+    padding: 20px 30px;
+  }
+}
+
+#Contact .contactContent-wrapper .contactForm .rightSide {
+  width: 50%;
+  height: auto;
+  background: #4F5FA4;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+#Contact .contactContent-wrapper .contactForm .rightSide .pricingSegment-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 0px 20px;
+}
+
+#Contact .contactContent-wrapper .contactForm .rightSide .iconSegment-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+#ContactMobile {
+  background: #14151A;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 100px 1fr 50px;
+      grid-template-rows: 100px 1fr 50px;
+      grid-template-areas: "." "ContactMobile" "footer";
+}
+
+#ContactMobile #ContactMobileForm-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: ContactMobile;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm {
+  height: 80%;
+  width: 80%;
+  background: white;
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 20px 40px 1fr auto 20px;
+      grid-template-rows: 20px 40px 1fr auto 20px;
+      grid-template-areas: "." "progressBar" "content" "buttons" ".";
+  overflow: auto;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .progressBar-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: progressBar;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 15px;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper .segmentLine {
+  -ms-grid-columns: 1fr auto;
+      grid-template-columns: 1fr auto;
+  max-width: 500px;
+  padding-right: 50px;
+  padding-left: 50px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: -1;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: buttons;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper .button-wrapper {
+  width: 150px;
+  text-align: center;
+  margin: auto 15px;
+  padding: 0px;
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm #service-input {
+  width: 80%;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm #service-input .actualOption {
+  margin-left: 0px;
+}
+
+#ContactMobile #footer {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
 }
 
 #Products {
@@ -735,6 +1508,13 @@
   transition: background-color 0.3s ease-out;
 }
 
+@media only screen and (max-height: 690px) {
+  #Products .tile .tileLayer {
+    -ms-grid-rows: 100px 60px 1fr;
+        grid-template-rows: 100px 60px 1fr;
+  }
+}
+
 #Products .tile .tileLayer .flag {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
@@ -754,7 +1534,7 @@
 }
 
 #Products .tile .tileLayer .flag .count {
-  font-size: 22px;
+  font-size: 20px;
   margin: auto 5px;
   text-align: center;
   width: 45px;
@@ -768,7 +1548,7 @@
 }
 
 #Products .tile .tileLayer .flag .flagText {
-  font-size: 22px;
+  font-size: 20px;
   margin: auto auto;
   opacity: 0;
   display: none;
@@ -792,6 +1572,14 @@
       align-content: center;
   padding-top: 50px;
   padding-left: 30px;
+}
+
+@media only screen and (max-height: 690px) {
+  #Products .tile .tileLayer .tileContent .tileText {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 #Products .tile .tileLayer .tileContent #tile01_button, #Products .tile .tileLayer .tileContent #tile02_button, #Products .tile .tileLayer .tileContent #tile03_button {
@@ -818,6 +1606,49 @@
   width: 20vw;
 }
 
+#Products .productSwiper {
+  width: 100vw;
+  height: 100vh;
+  background: grey;
+  z-index: 0;
+  position: relative !important;
+  min-height: 640px;
+  min-width: 360px;
+}
+
+#Products .productSwiper .swiper-pagination {
+  bottom: calc(100% - 90px);
+}
+
+#Products .productSwiper .swiper-wrapper .swiper-slide .tile .tileLayer {
+  -ms-grid-rows: 100px 60px 1fr;
+      grid-template-rows: 100px 60px 1fr;
+}
+
+#Products .productSwiper .swiper-wrapper .swiper-slide .tile .tileLayer .tileContent {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 44px 1fr 44px;
+      grid-template-columns: 44px 1fr 44px;
+  -ms-grid-rows: auto auto 60px;
+      grid-template-rows: auto auto 60px;
+      grid-template-areas: ". tileText ." ". button ." ". . .";
+}
+
+#Products .productSwiper .swiper-wrapper .swiper-slide .tile .tileLayer .tileContent .tileText {
+  padding: 0px;
+  padding-top: 10px;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: tileText;
+}
+
+#Products .productSwiper .swiper-wrapper .swiper-slide .tile .tileLayer .tileContent .button-wrapper {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: button;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -840,19 +1671,20 @@ h3 {
   font-size: clamp(1.266em, 5vw, 1.563em);
 }
 
-html, body, #root, #App, #Hero, #About, #Contact, #Products {
+html, body, #root, #App, #Hero, #About, #Contact, #ContactMobile, #Products {
   width: 100vw;
   height: 100vh;
-  min-height: 100vh;
-  min-width: 100vw;
 }
 
 html {
   overflow: hidden;
 }
 
-#App {
-  overflow: hidden;
+#Hero, #About, #Contact, #ContactMobile, #Products {
+  position: relative;
+  overflow: auto;
+  min-height: 640px;
+  min-width: 360px;
 }
 
 /*
@@ -873,6 +1705,31 @@ html {
     right: 15%;
     height: clamp(400px, 95%, 80vmax);
   }
+  /**/
+  /**/
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: content;
+    display: -ms-grid;
+    display: grid;
+    justify-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .message {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .iconSegmentMobile-wrapper .iconSegment .iconWrapper svg {
+    fill: black !important;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .iconSegmentMobile-wrapper .iconSegment .iconWrapper .description {
+    color: black;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -887,6 +1744,32 @@ html {
   }
   #Hero .quote-section {
     top: 10%;
+  }
+  /**/
+  /**/
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: content;
+    display: -ms-grid;
+    display: grid;
+    justify-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .iconSegmentMobile-wrapper .iconSegment .iconWrapper svg {
+    fill: black !important;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent .iconSegmentMobile-wrapper .iconSegment .iconWrapper .description {
+    color: black;
+    width: 70%;
   }
 }
 
@@ -924,6 +1807,29 @@ html {
   }
   #Hero .quote-section .quote #quote-firstLine, #Hero .quote-section .quote #quote-secondLine {
     font-size: clamp(1rem, 3vw, 35px);
+  }
+  /**/
+  /**/
+  #ContactMobile {
+    -ms-grid-rows: 0px 1fr 50px;
+        grid-template-rows: 0px 1fr 50px;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm {
+    padding-top: 68px;
+    width: 100%;
+    height: 100%;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper .formInput-mobile {
+    -ms-grid-columns: none;
+        grid-template-columns: none;
+    -ms-grid-rows: 40px 1fr 25px;
+        grid-template-rows: 40px 1fr 25px;
+        grid-template-areas: "flag" "input" "error";
+    width: 70%;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper {
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
   }
 }
 
@@ -966,6 +1872,33 @@ html {
   }
   #About #AboutLayer #About-section #secondaryPart {
     font-size: 13px;
+  }
+  /**/
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm {
+    -ms-grid-rows: 20px 40px 1fr auto 50px;
+        grid-template-rows: 20px 40px 1fr auto 50px;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .progressBar-wrapper .line-wrapper {
+    width: 50px;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper .formInput-mobile {
+    -ms-grid-columns: none;
+        grid-template-columns: none;
+    -ms-grid-rows: 1fr 25px;
+        grid-template-rows: 1fr 25px;
+        grid-template-areas: "input" "error";
+    width: 70%;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper .formInput-mobile .flag-contact-mobile {
+    display: none;
+  }
+  #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper #service-input {
+    width: 70%;
   }
 }
 /*# sourceMappingURL=index.css.map */

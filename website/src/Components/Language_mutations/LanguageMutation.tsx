@@ -1,13 +1,17 @@
 import {useState, useContext, useEffect} from 'react'
-import {PageContext} from '../../Functions/Context'
+import {AnimationContext, PageContext} from '../../Functions/Context'
 
 function LanguageMutation(props:languageMutations){
     const context:any = useContext(PageContext)
+    const anContext:any = useContext(AnimationContext)
+
     const [language, setLanguage] = useState(context.languageMutation)
     const [optiondisplay, setOptionDisplay] = useState("none")
     const [rolled, setRolled] = useState(false)
     const [mutationWrapperClass, setMutationWrapperClass] = useState({})
     const [rotation, setRotation] = useState(0)
+
+    const [mobStyle, setmobStyle] = useState("white")
 
     useEffect(() =>{
         setLanguage(context.languageMutation)
@@ -16,6 +20,31 @@ function LanguageMutation(props:languageMutations){
     useEffect(() =>{
         if(rolled === true){
             roll() //set default on location change
+        }
+    },[context.location])
+
+    useEffect(() =>{
+        if(context.width <= 768 && context.location === "/contact" && mobStyle === "white"){
+            setmobStyle("black")
+        }
+        if(context.width > 768 && mobStyle === "black"){
+            setmobStyle("white")
+        }
+    }, [context.width])
+    useEffect(() =>{
+        if(anContext.menuSlider === true && context.width <= 768 && context.location === "/contact"){
+            setmobStyle("white")
+        }
+        if(anContext.menuSlider === false && context.width <=768 && context.location === "/contact"){
+            setmobStyle("black")
+        }
+    },[anContext.menuSlider])
+    useEffect(() =>{
+        if(context.location !== "/contact"){
+            setmobStyle("white")
+        }
+        if(context.location === "/contact" && context.width <= 768){
+            setmobStyle("black")
         }
     },[context.location])
 
@@ -54,6 +83,7 @@ function LanguageMutation(props:languageMutations){
                 className="language option"
                 onClick={(e)=>{switchLanguage(e)}}
                 data-value={option}
+                style={{color:mobStyle, fontWeight: 600}}
             >
                 {option}
             </p>
@@ -67,13 +97,14 @@ function LanguageMutation(props:languageMutations){
                 className={"absolute center "+mutationWrapperClass}
                 onClick={()=>{roll()}}
             >
-                <p id="language" className="language">
+                <p id="language" className="language" style={{color: mobStyle, fontWeight: 600}}>
                     {language}
                 </p>
                 <div 
                     id="arrow"
                     style={{
-                        transform: "rotate("+rotation+"deg)"
+                        transform: "rotate("+rotation+"deg)",
+                        borderTop: "7px solid "+mobStyle
                     }}
                 >
                 </div>
