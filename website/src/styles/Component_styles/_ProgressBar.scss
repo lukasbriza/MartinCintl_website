@@ -1,0 +1,33 @@
+.progressBar-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .circleWrapper{
+        position: relative;
+        cursor:pointer;
+
+        .number{
+            position: absolute;
+            left: 50%;
+            top:50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Megrim', 'Helvetica Neue';
+            font-size: 18px;
+            font-weight: 600;
+            color:black;
+            user-select: none;
+
+        }
+    }
+    .line-wrapper{
+        width: 100px;
+
+        height: 1px;
+        background-color:rgb(61, 61, 61);
+        
+
+        position: relative;
+        overflow: visible;
+    }
+}

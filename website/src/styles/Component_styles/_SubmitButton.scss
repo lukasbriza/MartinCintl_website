@@ -1,0 +1,22 @@
+.submitButton{
+    border: none;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: $schemeBlueLight;
+    padding: 8px 30px;
+    cursor:pointer;
+
+    /*TRANSITION SETUP*/
+    transition:  background-color 0.1s linear;
+}
+
+.submitButton:active{
+    background-color: $schemeBlueDark;
+}
+
+.submitButton:hover{
+    padding:7px 30px;
+    border: 1px solid $schemeBlueDark;
+}

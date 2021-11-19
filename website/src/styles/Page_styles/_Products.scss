@@ -1,4 +1,5 @@
-$flagFontSize: 22px;
+$flagFontSize: 20px;
+$maxHeight: 690px;
 
 #Products{
     background: wheat;
@@ -17,6 +18,10 @@ $flagFontSize: 22px;
             grid-template-areas: ".""flag""content";
 
             transition: background-color 0.3s ease-out;
+
+            @media only screen and (max-height: $maxHeight) {
+                grid-template-rows: 100px 60px 1fr;
+            }
 
             .flag{
                 grid-area: flag;
@@ -59,7 +64,6 @@ $flagFontSize: 22px;
                 display: none; //grid after
                 grid-template-rows: 3fr 1fr ;
 
-
                 .tileText{
                     color: white;
                     align-items: start;
@@ -67,6 +71,12 @@ $flagFontSize: 22px;
 
                     padding-top: 50px;
                     padding-left: 30px;
+
+                    @media only screen and (max-height: $maxHeight) {
+                        padding-top: 10px;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                    }
 
                 }
                 #tile01_button, #tile02_button, #tile03_button{
@@ -89,5 +99,54 @@ $flagFontSize: 22px;
     }
     #tile3{
         width: 20vw;
+    }
+
+
+    //SWIPER SECTION//
+    .productSwiper{
+        width: 100vw;
+        height: 100vh;
+
+        background: grey;
+        z-index: 0;
+
+        position: relative !important;
+
+        min-height: 640px;
+        min-width: 360px;
+
+        .swiper-pagination{
+           bottom: calc(100% - 90px); 
+        }
+
+        .swiper-wrapper{
+
+            .swiper-slide{
+                .tile{
+                    .tileLayer{
+                            grid-template-rows: 100px 60px 1fr;
+                        .tileContent{
+                            display:grid;
+                            grid-template-columns: 44px 1fr 44px;
+                            
+                            grid-template-rows: auto auto 60px;
+                            grid-template-areas: ". tileText ."
+                                                ". button ."
+                                                ". . .";
+                            .tileText{
+                                padding: 0px;
+                                padding-top:10px;
+                                grid-area: tileText;
+                            }
+
+                            .button-wrapper{
+                                grid-area: button;
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

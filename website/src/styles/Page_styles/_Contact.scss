@@ -53,3 +53,90 @@
     }
     
 }
+
+#ContactMobile{
+    background: #14151A;
+
+    display:grid;
+    grid-template-rows: 100px 1fr 50px;
+    grid-template-areas: "." "ContactMobile" "footer";
+    
+
+
+
+    #ContactMobileForm-wrapper{
+        grid-area: ContactMobile;
+
+        #ContactMobileForm{
+            height: 80%;
+            width: 80%;
+            background: white;
+            position: relative;
+            
+            display: grid;
+            grid-template-rows: 20px 40px 1fr auto 20px;
+            grid-template-areas: "." "progressBar" "content" "buttons" ".";
+
+            overflow:auto;
+
+            .progressBar-wrapper{grid-area: progressBar;}
+            .contentForm-wrapper{
+                grid-area: content;
+                display: flex;
+                flex-direction: column;
+                margin-top: 15px;
+
+                .segmentLine{
+                    grid-template-columns: 1fr auto;
+                    max-width: 500px;
+                   
+                    padding-right: 50px;
+                    padding-left: 50px;
+                    position: relative;
+                    left:50%;
+                    transform: translateX(-50%);
+                    z-index: -1;
+                }
+            }
+            .contactForm-button-wrapper{grid-area: buttons;}
+
+
+
+            .contactForm-button-wrapper{
+                position: relative;
+                display: flex;
+                width: 100%;
+                justify-content: center;
+
+                .button-wrapper{
+                    width: 150px;
+                    text-align: center;
+                    margin: auto 15px;
+                    padding:0px;
+                }
+
+            }
+
+            //SETUP 1
+            #service-input{
+                width: 80%;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+
+                .actualOption{
+                    margin-left:0px;
+                }
+            }
+            //SETUP2
+            .formInput-mobile{
+
+            }
+
+        }
+    }
+
+    #footer{
+        grid-area: footer;
+    }
+}
