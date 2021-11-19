@@ -121,6 +121,10 @@ $inputWidth: calc(100% - $flagInput-margin);
         padding: 5px;
         padding-left: 15px;
     }
+    
+    textarea:focus{
+        border: 2px solid $schemeBlueLight;
+    }
 
     textarea:invalid[focused="true"]{
         border: 1px solid red;
@@ -137,6 +141,10 @@ $inputWidth: calc(100% - $flagInput-margin);
         border: 1px solid #404040;
         padding: 5px;
         padding-left: 15px;
+    }
+
+    input:focus{
+        border: 2px solid $schemeBlueLight;
     }
 
     input:invalid[focused="true"]{
@@ -156,5 +164,99 @@ $inputWidth: calc(100% - $flagInput-margin);
         padding: 3px;
         color: red;
         opacity: 0;
+    }
+}
+
+///////////////////////////////////////////////////////////
+.formInput-mobile{
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    grid-template-rows: 1fr 25px;
+    grid-template-areas: "flag input" ". error";
+    width: 85%;
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .flag-contact-mobile{
+        grid-area: flag;
+
+        background: $schemeBlueLight;
+        display: inline-flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        height: 35px;
+        width: 130px;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        margin-bottom: 5px;
+
+        .flagText-mobile{
+            color:white;
+            display: flex;
+            flex-basis: 100%;
+            justify-content: center;
+            align-content: center;
+            font-weight: 600;;
+        }
+    }
+
+    
+
+    textarea{
+        resize: none;
+        padding-left: 10px;
+        padding-top: 10px;
+        width: calc(100% - 15px);
+        height: 90px;
+
+        margin-left: 15px;
+
+        overflow-y:scroll;
+    }
+    textarea:focus{
+        border: 2px solid $schemeBlueLight;
+    }
+    textarea:invalid[focused="true"]{
+        border: 1px solid red;
+    }
+    
+    textarea:invalid[focused="true"] ~ span{
+        opacity:1;
+    }
+
+    input{
+        height: $inputHeight;
+        padding-left: 10px;
+        margin-left: 15px;
+    }
+
+    input:focus{
+        border: 2px solid $schemeBlueLight;
+    }
+
+    input:invalid[focused="true"]{
+        border: 1px solid red;
+    }
+    
+    input:invalid[focused="true"] ~ span{
+        opacity: 1;
+    }
+
+    .errorMessage-mobile{
+        grid-area: error;
+
+        width: $inputWidth;
+        margin-left: $flagInput-margin;
+
+        font-size: 12px;
+        padding: 3px;
+        color: red;
+        opacity: 0;
+
+        margin-bottom: 5px;
     }
 }

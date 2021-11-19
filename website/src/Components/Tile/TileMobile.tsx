@@ -1,6 +1,9 @@
 import {useEffect, useRef} from 'react'
 //ANIMATION//
 import {mobileFlagOn, mobileFlagOff} from '../../Functions/AnimationManager'
+//CONTEXT//
+
+
 
 function TileMobile(props:any){
     const flag:any = useRef()
@@ -9,7 +12,7 @@ function TileMobile(props:any){
 
     useEffect(()=>{
         if(props.open === true){
-            mobileFlagOn(flag.current,flagLine.current,flagText.current)
+            mobileFlagOn(flag.current,flagLine.current,flagText.current,"315px")
         }
         if(props.close === false){
             mobileFlagOff(flag.current,flagLine.current,flagText.current)

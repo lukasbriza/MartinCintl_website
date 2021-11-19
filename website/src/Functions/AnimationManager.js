@@ -187,12 +187,12 @@ const tileTextOff = (content, tileText, button) => {
         return(tl)
 }
 //MOBILE TILE ANIMATION//
-const mobileFlagOn = (flag, flagLine, flagText) => {
+const mobileFlagOn = (flag, flagLine, flagText, width) => { //350px
     let tl = gsap.timeline()
         tl.addLabel('start')
         .fromTo(flag,
             {width:'55px'},
-            {width: '350px', ease: Power1.easeOut, delay: 0.5, duration: 1.5},'start')
+            {width: width, ease: Power1.easeOut, delay: 0.5, duration: 1.5},'start')
         .fromTo(flagLine,
             {height: '0%'},
             {height: '70%', ease: Power1.easeOut, delay: 0.5, duration: 1.5}, 'start')
@@ -231,6 +231,51 @@ const waitCursorOff = () => {
         cursor: 'pointer'
     })
 }
+//TRIANGLE ROLL//
+const triangleRollOn = (ref, option, select) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .to(ref,{
+            transform: "rotate(179.9deg)",
+            duration: 0.5,
+            ease: 'linear'
+        }, 'start')
+        .to(option, {
+            display: 'initial',
+            duration: 0.05,
+            ease:'none'
+        },'start')
+        .to([select], {
+            delay: 0.05,
+            ease: Power1.easeOut,
+            duration: 0.5,
+            stagger: 0.1,
+            opacity: 1,
+        }, 'start')
+
+}
+const triangleRollOff = (ref, option, select) => {
+    let tl = gsap.timeline()
+        tl.addLabel('start')
+        .to(ref, {
+            transform: "rotate(0deg)",
+            duration: 0.5,
+            ease: 'linear'
+        },'start')
+        .to([select],{
+            delay: 0.05,
+            duration: 0.5,
+            opacity: 0,
+            reversed:true,
+            stagger: 0.1,
+            ease: Power1.easeOut,
+        },'start')
+        .to(option,{
+            display: 'none',
+            duration: 0.05,
+            ease: 'none'
+        })
+}
 
 export {
     pageCounterAnOn,
@@ -246,5 +291,7 @@ export {
     mobileFlagOn,
     mobileFlagOff,
     mobileTextOff,
-    mobileTextOn
+    mobileTextOn,
+    triangleRollOn,
+    triangleRollOff
 }

@@ -14,7 +14,7 @@ function About(){
                 <section id="About-section" className="wv100">
                     <p id="mainPart">
                         Jmenuji se MARTIN CINTL<br/>
-                        a ve Tvůj gym působím jako trenér se specializací na <br/> 
+                        a ve <a href="https://www.tvujgym.cz/">Tvůj Gym</a> působím jako trenér se specializací na <br/> 
                         silový a nápravný trénink.
                     </p>
                     <p id="secondaryPart">

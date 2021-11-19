@@ -5,12 +5,15 @@
     margin-top: 10px;
 
     .square{
-        z-index: +1;
         background: $schemeBlueLight;
         margin-right: 10px;
+        min-width: 7px;
     }
 
     .listText{
         font-size: 18px;
+        @media only screen and (max-height: 690px) and (max-width:900px){
+            font-size: 16px;
+        }
     }
 }

@@ -83,26 +83,20 @@ function TileContent(props:Tile_content){
             text = (
                     <>
                     <ListItem 
-                        text={'Co to je?'} 
-                        importance={1}/>
-                    <ListItem 
                         text={'Vyšetření měkkých i pevných tkání centrální nervové soustavy a jejich propojení'}
-                        importance={2}/>
+                        importance={1}/>
+
                     <ListItem
-                        text={'V čem mi pomůže?'}
+                        text={'Zjištění stavu a omezení pohybového aparátu.'}
                         importance={1}
                     />
                     <ListItem
-                        text={'Zjištění stavu a omezení pohybového aparátu.'}
-                        importance={2}
-                    />
-                    <ListItem
                         text={'Zjištění možné příčiny bolestí či podráždění.'}
-                        importance={2}
+                        importance={1}
                     />
                     <ListItem
                         text={'Stanovení tréninkového/ nápravného plánu.'}
-                        importance={2}
+                        importance={1}
                     />
                     </>
                 )
