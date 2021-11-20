@@ -6,6 +6,7 @@ import {menuSliderOff, menuSliderOn} from '../../Functions/AnimationManager'
 
 function MenuSlider(props:menuSlider){
     const context:any = useContext(AnimationContext)
+
     const menuSlider:any = useRef()
 
     //ANIMATION LISTENER//
@@ -27,6 +28,12 @@ function MenuSlider(props:menuSlider){
                 to={props.routesAll[index]}
                 key={index+menuItem+"key"}
                 id={"_"+index+menuItem}
+                onClick={()=>{
+                    setTimeout(()=>{
+                        menuSliderOff(menuSlider.current)
+                        context.functions.setActualPage(true)
+                    },1750)
+                }}
             >
                 <p>{menuItem}</p>
             </Link>
