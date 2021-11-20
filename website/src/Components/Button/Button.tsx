@@ -11,7 +11,9 @@ function Button(props:button){
                 to={props.link}
                 className="button-wrapper"
                 onClick={(e)=>{props.onClick(e)}}
-                ref={props.reference}
+                onMouseEnter={props.onMouseEnter}
+                onTouchStart={props.onTouchStart}
+                
             >
                 <p 
                     className="button-text"

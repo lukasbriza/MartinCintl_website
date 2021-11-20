@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect,useState} from "react"
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import {Switch, Route, useLocation} from 'react-router-dom'
 import {useContext} from 'react';
@@ -42,7 +42,7 @@ function PageRoutes(){
             <TransitionGroup>
                 <CSSTransition
                     timeout={2000}
-                    classNames={"some"}    
+                    classNames={contextAn.animationClass}    
                     key={location.key}
                 >
                     <Switch location={location}>

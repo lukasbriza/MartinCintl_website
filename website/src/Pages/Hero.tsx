@@ -1,8 +1,11 @@
+import {useContext} from 'react'
+import {AnimationContext} from '../Functions/Context'
 //COMPONENTS//
 import HeroImg from '../Static/Hero.webp'
 import {Button} from '../Components/Button/Button'
 
 function Hero(){
+    const context:any = useContext(AnimationContext)
 
     return(
         <div id="Hero">
@@ -14,7 +17,14 @@ function Hero(){
                     <p id="quote-secondLine">změní i tvou mysl, náladu i přístup k životu. &rdquo;</p>
                     <p id="signature">Martin Cintl</p>
                 </section>
-                <Button text="Kdo jsem?" id="quote-button" onClick={() => {console.log('click')}} link="/about"/>
+                <Button 
+                    text="Kdo jsem?" 
+                    id="quote-button" 
+                    onClick={() => {console.log('click')}} 
+                    link="/about" 
+                    onMouseEnter={()=>{context.functions.setAnimationClass("Up")}}
+                    onTouchStart={()=>{context.functions.setAnimationClass("Up")}}
+                />
             </div>  
         </div>
     )

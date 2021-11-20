@@ -36,7 +36,7 @@ function Products(){
     const[textAnimation2, setTextAnimation2] = useState(false)
     const[textAnimation3, setTextAnimation3] = useState(false)
 
-    if(contextApp.width > 700){
+    if(contextApp.width > 700 && deviceDetection() === false){
         return(
             <div id="Products">
                 <Tile 

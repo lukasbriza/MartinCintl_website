@@ -62,6 +62,8 @@ function TileContent(props:Tile_content){
                         id={"tile01_button"} 
                         reference={tileButton} 
                         link={"/contact"} 
+                        onMouseEnter={()=>{contextAn.functions.setAnimationClass("Up")}}
+                        onTouchStart={()=>{contextAn.functions.setAnimationClass("Up")}}
                         onClick={()=>{pushAppState(1)}}
                     />
             text = (
@@ -78,6 +80,8 @@ function TileContent(props:Tile_content){
                         id={"tile02_button"}
                         reference={tileButton} 
                         link={"/contact"} 
+                        onMouseEnter={()=>{contextAn.functions.setAnimationClass("Up")}}
+                        onTouchStart={()=>{contextAn.functions.setAnimationClass("Up")}}
                         onClick={()=>{pushAppState(2)}}
                     />
             text = (
@@ -107,6 +111,8 @@ function TileContent(props:Tile_content){
                         id={"tile03_button"} 
                         reference={tileButton} 
                         link={"/contact"} 
+                        onMouseEnter={()=>{contextAn.functions.setAnimationClass("Up")}}
+                        onTouchStart={()=>{contextAn.functions.setAnimationClass("Up")}}
                         onClick={()=>{pushAppState(3)}}
                     />
             text = (

@@ -1,4 +1,5 @@
 import {createContext, useState} from 'react'
+import {deviceDetection} from './DeviceDetect'
 
 
 
@@ -56,11 +57,13 @@ function AnimationContextProvider(props:any){
     const [openTile2, setOpenTile2] = useState(false)
     const [openTile3, setOpenTile3] = useState(false)
     const [tileAnRunning, setTileAnRunning] = useState(false)
+    const [animationClass, setAnimationClass] = useState('')
 
     //APP STATE
     let appState = {
         menuSlider: menuSlider,
         actualPage: actualPage,
+        animationClass: animationClass,
         pageCounter: pageCounter,
         openTile1: openTile1,
         openTile2: openTile2,
@@ -75,6 +78,7 @@ function AnimationContextProvider(props:any){
             setOpenTile2: setOpenTile2,
             setOpenTile3: setOpenTile3,
             setTileAnRunning: setTileAnRunning,
+            setAnimationClass: setAnimationClass,
         }
     }
     return(

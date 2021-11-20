@@ -213,8 +213,6 @@ $inputWidth: calc(100% - $flagInput-margin);
         width: calc(100% - 15px);
         height: 90px;
 
-        margin-left: 15px;
-
         overflow-y:scroll;
     }
     textarea:focus{
@@ -231,7 +229,8 @@ $inputWidth: calc(100% - $flagInput-margin);
     input{
         height: $inputHeight;
         padding-left: 10px;
-        margin-left: 15px;
+        
+        width: calc(100% - 15px);
     }
 
     input:focus{

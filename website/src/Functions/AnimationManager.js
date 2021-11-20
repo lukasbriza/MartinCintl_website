@@ -2,18 +2,37 @@ import {gsap, Power2, Power1} from 'gsap'
 
 //PAGE COUNTER ANIMATION//
 const pageCounterDuration = 0.3
-const pageCounterAnOn = (count,underliner) => {
-    
-    gsap.to(count,{
-        duration: pageCounterDuration,
-        ease: "linear",
-        color: 'white'
-    })
-    gsap.to(underliner,{
-        duration: pageCounterDuration,
-        ease: "linear",
-        width: "100%"
-    })
+const pageCounterAnOn = (count,underliner,isMobile) => {
+    if(isMobile === true) {
+        gsap.to(count,{
+            duration: pageCounterDuration,
+            ease: "linear",
+            color: 'black'
+        })
+        gsap.fromTo(underliner,{
+            width: '0%',
+            backgroundColor: 'black'
+        },{
+            duration: pageCounterDuration,
+            ease: "linear",
+            width: "100%"
+        })
+    }
+    if(isMobile === false) {
+        gsap.to(count,{
+            duration: pageCounterDuration,
+            ease: "linear",
+            color: 'white'
+        })
+        gsap.fromTo(underliner,{
+            width: '0%',
+            backgroundColor: 'white'
+        },{
+            duration: pageCounterDuration,
+            ease: "linear",
+            width: "100%"
+        })
+    }
 }
 
 const pageCounterAnOff = (count,underliner) => {

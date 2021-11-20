@@ -1,10 +1,13 @@
-import React from 'react'
+import { useContext } from 'react'
 import aboutImg from '../Static/AboutIMG.jpg'
+import { AnimationContext } from '../Functions/Context'
 ////////////////////////////////////////////////
 //COMPONENTS//
 import {Button} from '../Components/Button/Button'
 
+
 function About(){
+    const context:any = useContext(AnimationContext)
     return(
         <div 
             id="About"
@@ -22,7 +25,14 @@ function About(){
                         jejich výkon a dosáhnout jejich vytyčeného cíle. V obou případech je pro mě klíčové dosáhnout co 
                         nejlepšího výsledku za podmínky udržení celkového zdravý člověka, bez bolesti a omezení
                     </p>
-                    <Button text={"chci cvičit"} id={"About-button"} link={"/products"} onClick={()=>{console.log('click')}}/>
+                    <Button 
+                        text={"chci cvičit"} 
+                        id={"About-button"} 
+                        link={"/products"} 
+                        onClick={()=>{console.log('click')}}
+                        onMouseEnter={()=>{context.functions.setAnimationClass("Up")}}
+                        onTouchStart={()=>{context.functions.setAnimationClass("Up")}}
+                    />
                 </section>
             </div>
         </div>

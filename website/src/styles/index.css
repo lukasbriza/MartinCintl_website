@@ -111,6 +111,54 @@
   height: 100%;
 }
 
+.Up-enter {
+  position: absolute;
+  top: 100vh;
+}
+
+.Up-enter.Up-enter-active {
+  position: absolute;
+  top: 0vh;
+  -webkit-transition: top 1.75s ease-out;
+  transition: top 1.75s ease-out;
+}
+
+.Up-exit {
+  position: absolute;
+  top: 0vh;
+}
+
+.Up-exit.Up-exit-active {
+  position: absolute;
+  top: -100vh;
+  -webkit-transition: top 1.75s ease-out;
+  transition: top 1.75s ease-out;
+}
+
+.Down-enter {
+  position: absolute;
+  top: -100vh;
+}
+
+.Down-enter.Down-enter-active {
+  position: absolute;
+  top: 0vh;
+  -webkit-transition: top 1.75s ease-out;
+  transition: top 1.75s ease-out;
+}
+
+.Down-exit {
+  position: absolute;
+  top: 0vh;
+}
+
+.Down-exit.Down-exit-active {
+  position: absolute;
+  top: 100vh;
+  -webkit-transition: top 1.75s ease-out;
+  transition: top 1.75s ease-out;
+}
+
 .button-wrapper {
   background-color: #4F5FA4;
   border: 1px solid transparent;
@@ -844,7 +892,6 @@
   padding-top: 10px;
   width: calc(100% - 15px);
   height: 90px;
-  margin-left: 15px;
   overflow-y: scroll;
 }
 
@@ -863,7 +910,7 @@
 .formInput-mobile input {
   height: 41px;
   padding-left: 10px;
-  margin-left: 15px;
+  width: calc(100% - 15px);
 }
 
 .formInput-mobile input:focus {
@@ -968,7 +1015,6 @@
   width: 100vw;
   height: 50px;
   background: black;
-  position: absolute;
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   grid-area: footer;
@@ -1190,7 +1236,6 @@
   display: -ms-grid;
   display: grid;
   background: black;
-  z-index: -1;
 }
 
 #Hero .radial-gradient {
@@ -1323,6 +1368,12 @@
   -ms-grid-rows: 77px 1fr 50px;
       grid-template-rows: 77px 1fr 50px;
       grid-template-areas: "." "form" "footer";
+}
+
+#Contact #foote {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: footer;
 }
 
 #Contact .contactContent-wrapper {
@@ -1681,7 +1732,6 @@ html {
 }
 
 #Hero, #About, #Contact, #ContactMobile, #Products {
-  position: relative;
   overflow: auto;
   min-height: 640px;
   min-width: 360px;

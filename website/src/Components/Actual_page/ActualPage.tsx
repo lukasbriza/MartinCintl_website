@@ -1,9 +1,12 @@
-import {useEffect, useState, useRef} from 'react'
+import {useEffect, useState, useRef,useContext} from 'react'
+import {AnimationContext} from '../../Functions/Context'
 
 function ActualPage(props:actualPage){
     const [actualPage, setActualPage] = useState('')
     const [opacity, setOpacity] = useState(1)
     const prevPageRef:any = useRef()
+
+    const anContext:any = useContext(AnimationContext)
 
     //LOCATION LISTENER//
     useEffect(() =>{
@@ -21,9 +24,6 @@ function ActualPage(props:actualPage){
             setOpacity(0)
         }
     }, [props.show])
-
-    let prevPage = prevPageRef.current
-    console.log(actualPage, prevPage)
 
     function pagecontroller(path:any){
         switch(path){

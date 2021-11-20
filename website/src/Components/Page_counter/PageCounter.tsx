@@ -17,18 +17,33 @@ function PageCounter(props:pageCounter){
 
     const [opacity, setOpacity] = useState(1)
     const [display, setDisplay] = useState('grid')
+
+    const [breakPoint, setBreakpoint] = useState(false)
     //////////////////////////////////////
     //ANIMATION SETUP//
     useEffect(() =>{
         linksArray.forEach((link:string, i:number) =>{
             if(link === context.location){
-                pageCounterAnOn(selector("#_"+i+"count"), selector("#_"+i+"count-underliner"))
+                pageCounterAnOn(selector("#_"+i+"count"), selector("#_"+i+"count-underliner"),false)
             }
             if(link !== context.location){
                 pageCounterAnOff(selector("#_"+i+"count"), selector("#_"+i+"count-underliner"))
             }
         })
+        if(context.width <=768 && context.location === '/contact'){
+            pageCounterAnOn('#_3count','#_3count-underliner',true)
+            setBreakpoint(true)
+        }
     },[context.location])
+    useEffect(() =>{
+        if(context.width <=768 && context.location === '/contact' && breakPoint === false){
+            pageCounterAnOn('#_3count','#_3count-underliner',true)
+            setBreakpoint(true)
+        } else if(context.width > 768 && breakPoint === true){
+            pageCounterAnOn('#_3count','#_3count-underliner',false)
+            setBreakpoint(false)
+        }
+    },[context.width])
     //SHOW SETUP//
     useEffect(() =>{
         if(contextAn.menuSlider === true) {
@@ -46,13 +61,41 @@ function PageCounter(props:pageCounter){
             },1000)
         }
     },[contextAn.menuSlider])
-
     //////////////////////////////////////
     //ARRAY PROCESSING//
     function activeLinkAnimation(obj:any){
-       pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner))
+        if(context.width <= 768 && obj.idCount === "_3count"){
+            pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),true)
+        }
+        if(obj.idCount === "_2count" || obj.idCount === "_1count" || obj.idCount === "_0count"){
+            pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),false)
+        }
     }
     
+    function classSetter(i:number){
+        switch(i){
+            case 0:
+                contextAn.functions.setAnimationClass("Down")
+                break
+            case 1:
+                if(context.location === "/"){
+                    contextAn.functions.setAnimationClass("Up")
+                } else {
+                    contextAn.functions.setAnimationClass("Down")
+                }
+                break
+            case 2:
+                if(context.location === "/contact"){
+                    contextAn.functions.setAnimationClass("Down")
+                } else {
+                    contextAn.functions.setAnimationClass("Up")
+                }
+                break
+            case 3:
+                contextAn.functions.setAnimationClass("Up")
+                break
+        }
+    }
     let counts = linksArray.map((link:string, i:number)=>{
         return(
             <Link 
@@ -65,6 +108,9 @@ function PageCounter(props:pageCounter){
                                 idCount: "_"+i+"count",
                                 idUnderliner: "_"+i+"count-underliner"
                             })}}
+
+                onMouseEnter={()=>{classSetter(i)}}
+                onTouchStart={()=>{classSetter(i)}}
             >
                 <p 
                     id={"_"+i+"count"} 

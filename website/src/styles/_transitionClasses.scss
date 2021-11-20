@@ -1,12 +1,45 @@
 //CURRENT SLIDE VIEW//
-.Up{
-
+///////////////////////////////////////
+.Up-enter{
+    position:absolute;
+    top: 100vh;
+}
+.Up-enter.Up-enter-active{
+    position:absolute;
+    top: 0vh;
+    transition: top 1.75s ease-out;
 }
 
-.Down{
-
+.Up-exit{
+    position:absolute;
+    top: 0vh;
+}
+.Up-exit.Up-exit-active{
+    position:absolute;
+    top: -100vh;
+    transition: top 1.75s ease-out;
+}
+///////////////////////////////////////
+.Down-enter{
+    position:absolute;
+    top: -100vh;
+}
+.Down-enter.Down-enter-active{
+    position:absolute;
+    top: 0vh;
+    transition: top 1.75s ease-out;
 }
 
+.Down-exit{
+    position:absolute;
+    top: 0vh;
+}
+.Down-exit.Down-exit-active{
+    position:absolute;
+    top: 100vh;
+    transition: top 1.75s ease-out;
+}
+///////////////////////////////////////
 .Left{
 
 }

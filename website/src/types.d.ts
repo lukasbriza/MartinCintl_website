@@ -6,6 +6,8 @@ type button = {
     id: string,
     onClick?: any,
     link?: string,
+    onMouseEnter?: any,
+    onTouchStart?:any,
     reference?: any
 }
 

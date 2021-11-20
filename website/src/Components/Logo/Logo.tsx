@@ -1,6 +1,7 @@
 import {useContext,useState,useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import {PageContext, AnimationContext} from '../../Functions/Context'
+import {deviceDetection} from "../../Functions/DeviceDetect"
 
 function Logo(props:logo){
     const appContext:any = useContext(PageContext)
@@ -32,6 +33,7 @@ function Logo(props:logo){
             setLogoStyle("black")
         }
     },[appContext.location])
+    
 
     return(
         <Link to="/" id={props.id}>

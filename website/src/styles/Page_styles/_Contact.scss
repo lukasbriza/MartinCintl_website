@@ -6,6 +6,8 @@
     grid-template-areas: "."
                         "form"
                         "footer";
+
+    #foote{grid-area: footer;}
     .contactContent-wrapper{
         grid-area: form;
 
