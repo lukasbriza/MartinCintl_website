@@ -1,6 +1,6 @@
 $inputHeight: 41px;
-$flagInput-margin:20px;
-$inputWidth: calc(100% - $flagInput-margin);
+$flagInputMargin:20px;
+$inputWidth: calc(100%-20px);
 
 #service-input{
     margin-bottom: 45px;
@@ -17,7 +17,7 @@ $inputWidth: calc(100% - $flagInput-margin);
         display: flex;
         position: relative;
         
-        margin-left: $flagInput-margin;
+        margin-left: $flagInputMargin;
         width: $inputWidth;
         background-color: #E5E5E5;
         border: 1px solid #404040;
@@ -112,7 +112,7 @@ $inputWidth: calc(100% - $flagInput-margin);
     }
 
     textarea{
-        margin-left: $flagInput-margin;
+        margin-left: $flagInputMargin;
         width: $inputWidth;
         border: 1px solid #404040;
         resize: none;
@@ -137,7 +137,7 @@ $inputWidth: calc(100% - $flagInput-margin);
     input{
         width: $inputWidth;
         height: $inputHeight;
-        margin-left: $flagInput-margin;
+        margin-left: $flagInputMargin;
         border: 1px solid #404040;
         padding: 5px;
         padding-left: 15px;
@@ -158,7 +158,7 @@ $inputWidth: calc(100% - $flagInput-margin);
     .errorMessage{
         grid-area: error;
         width: $inputWidth;
-        margin-left: $flagInput-margin;
+        margin-left: $flagInputMargin;
 
         font-size: 12px;
         padding: 3px;
@@ -249,7 +249,7 @@ $inputWidth: calc(100% - $flagInput-margin);
         grid-area: error;
 
         width: $inputWidth;
-        margin-left: $flagInput-margin;
+        margin-left: $flagInputMargin;
 
         font-size: 12px;
         padding: 3px;

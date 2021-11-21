@@ -676,7 +676,7 @@
   display: flex;
   position: relative;
   margin-left: 20px;
-  width: calc(100% - $flagInput-margin);
+  width: calc(100%-20px);
   background-color: #E5E5E5;
   border: 1px solid #404040;
 }
@@ -782,7 +782,7 @@
 
 .formInput textarea {
   margin-left: 20px;
-  width: calc(100% - $flagInput-margin);
+  width: calc(100%-20px);
   border: 1px solid #404040;
   resize: none;
   min-width: 224px;
@@ -804,7 +804,7 @@
 }
 
 .formInput input {
-  width: calc(100% - $flagInput-margin);
+  width: calc(100%-20px);
   height: 41px;
   margin-left: 20px;
   border: 1px solid #404040;
@@ -828,7 +828,7 @@
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: error;
-  width: calc(100% - $flagInput-margin);
+  width: calc(100%-20px);
   margin-left: 20px;
   font-size: 12px;
   padding: 3px;
@@ -929,7 +929,7 @@
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: error;
-  width: calc(100% - $flagInput-margin);
+  width: calc(100%-20px);
   margin-left: 20px;
   font-size: 12px;
   padding: 3px;
