@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef, useContext} from 'react'
+import {useEffect, useState, useContext} from 'react'
 //COMPONENTS//
 import {SubmitButton} from '../Components/Form_components/Partial_components/SubmitButton'
 import {FormInput} from '../Components/Form_components/Partial_components/FormInput'
@@ -12,6 +12,7 @@ import {Options} from '../Components/Form_components/Partial_components/Options'
 import {PageContext} from '../Functions/Context'
 //DATA//
 import {inputsData, selectOptionsData} from '../Components/Form_components/Partial_components/DataInputs'
+import {config} from '../App/config'
 
 
 function Contact(){
@@ -20,16 +21,49 @@ function Contact(){
     const [values, setValues] = useState({name: "", telephone: "", text: ""})
     const [option, setOption] = useState("")
     const [roll, setRoll] = useState(false)
+    const [priceDataState, setPricedataState] = useState<any>([{name:'', value:0}])
 
     const context:any = useContext(PageContext)
 
     const inputs = inputsData
     const selectOptions = selectOptionsData
+    const priceData =[
+        [
+            {name: "1 trénink", value: 550},
+            {name: "1 trénink (2 osoby)", value: 700},
+            {name: "10 tréninků", value: 4500},
+            {name: "10 tréninků (2 osoby)", value: 6000}        
+        ],[
+            {name: "Diagnostika a výstup", value: 1000},
+            {name: "Diagnostika a výstup + nápravný trénink a plán", value: 2200}
+        ],[
+            {name: "Online coaching (za měsíc)", value: 1500}
+        ]
+    ]
     ////////////////////////////////////////////////////////////////
     //DEFAULT SETUP//
     useEffect(() =>{
-        optionSetup(1)
+        if(context.contactFormular === undefined){
+            optionSetup(1)
+            priceDataSetup(1)
+        } else {
+            optionSetup(context.contactFormular.tag)
+            priceDataSetup(context.contactFormular.tag)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
+    useEffect(() =>{
+        if(option === selectOptionsData[0].value){
+            priceDataSetup(selectOptionsData[0].optionNumber)
+        }
+        if(option === selectOptionsData[1].value){
+            priceDataSetup(selectOptionsData[1].optionNumber)
+        }
+        if(option === selectOptionsData[2].value){
+            priceDataSetup(selectOptionsData[2].optionNumber)
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[option])
 
 
     const optionSetup = (option:number) => {
@@ -46,6 +80,20 @@ function Contact(){
         }
     }
 
+    const priceDataSetup = (tag:number) => {
+        switch (tag) {
+            case 1:
+                setPricedataState(priceData[0])
+                break
+            case 2:
+                setPricedataState(priceData[1])
+                break
+            case 3:
+                setPricedataState(priceData[2])
+                break
+        }
+    } 
+
     const handleChange = (e:any) => {
         setValues({...values, [e.target.name]: e.target.value})
     }
@@ -56,6 +104,27 @@ function Contact(){
     ////////////////////////////////////////////////////////////////
     //MOBILE FORM HANDLER//
     const[progress,setProgress]=useState({c1:true,c2:false,c3:false})
+
+    ////////////////////////////////////////////////////////////////
+    //FUNCIONS//
+    function validation(e:{c1:boolean, c2:boolean, c3:boolean}){
+        if(e.c1 === true && e.c2 === true && e.c3 === true){
+            let regExpName = /^[A-Za-z0-9]{3,}$/
+            let name = regExpName.test(values.name)
+            let regExpTelephone = /^[0-9]{9,9}$/
+            let telephone = regExpTelephone.test(values.telephone)
+            let regExpText = /^\w\d\s/
+            let text = regExpText.test(values.text)
+            
+            if(name === true && telephone === true && text === true){
+                setProgress(e)
+            } else {
+                alert("Nesprávně zadané údaje.")
+            }
+        }else{
+            setProgress(e)
+        }
+    }
 
     ////////////////////////////////////////////////////////////////
     if(context.width > 1100){  
@@ -96,19 +165,14 @@ function Contact(){
 
                         <div className="rightSide">
                             <div className="pricingSegment-wrapper">
-                                <PricingSegment priceData={[
-                                    {name: "1 trénink (1 osoba)", value: 550},
-                                    {name: "1 trénink (2 osoby)", value: 700},
-                                    {name: "10 tréninků", value: 4500},
-                                    {name: "10 tréninků (2 osoby)", value: 4500}
-                                ]}/>
+                                <PricingSegment priceData={priceDataState}/>
                             </div>
                             <div className="iconSegment-wrapper">
                                 <IconSegment icon={'Pin'} description={'Tvůj Gym s.r.o. - Havlíčkova 260, Kolín 28002'}/>
                                 <IconSegment icon={'Call'} description={'+420 722 950 942'}/>
-                                <IconSegment icon={'Mail'} description={'martincintl@seznam.cz'} link={'test'}/>
-                                <IconSegment icon={'Instagram'} description={'martincintl_fit'} link={'test'}/>
-                                <IconSegment icon={'Facebook'} description={'martincintlfitness'} link={'test'}/>
+                                <IconSegment icon={'Mail'} description={'martincintl@seznam.cz'} link={config.socialLinks.mail}/>
+                                <IconSegment icon={'Instagram'} description={'martin.cintl'} link={config.socialLinks.instagram}/>
+                                <IconSegment icon={'Facebook'} description={'martincintlfitness'} link={config.socialLinks.facebook}/>
                             </div>
                         </div>
                         </div>
@@ -124,7 +188,7 @@ function Contact(){
         >
             <div id="ContactMobileForm-wrapper">
                 <form id="ContactMobileForm" className="relative center">
-                    <ProgressBar callback={(e:{c1:boolean, c2:boolean, c3:boolean}) => setProgress(e)} progress={progress}/>
+                    <ProgressBar callback={(e:{c1:boolean, c2:boolean, c3:boolean}) => validation(e)} progress={progress}/>
                     <MobileFormSetup 
                         progress={progress} 
                         fn={{
@@ -136,15 +200,11 @@ function Contact(){
                                 optionSetup: optionSetup,
                                 setProgress: setProgress,
                                 handleChange: handleChange,
-                                handleSubmit: handleSubmit
+                                handleSubmit: handleSubmit,
+                                validation: validation
                             }
                         }}
-                        priceData={[
-                            {name: "1 trénink (1 osoba)", value: 550},
-                            {name: "1 trénink (2 osoby)", value: 700},
-                            {name: "10 tréninků", value: 4500},
-                            {name: "10 tréninků (2 osoby)", value: 4500}
-                        ]}
+                        priceData={priceDataState}
                         formInputs={inputs}
                     />
                 </form>

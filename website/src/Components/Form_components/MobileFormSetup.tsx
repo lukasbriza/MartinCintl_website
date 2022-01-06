@@ -70,7 +70,7 @@ function MobileFormSetup(props:any){
                     <Button 
                         text={"Pokračovat"} 
                         id={"formContinueBtn3"} 
-                        onClick={()=>{props.fn.forwardFn.setProgress({c1: true, c2: true, c3: true})}}/>
+                        onClick={()=>{props.fn.forwardFn.validation({c1: true, c2: true, c3: true})}}/>
                 </div>
             </>
         )

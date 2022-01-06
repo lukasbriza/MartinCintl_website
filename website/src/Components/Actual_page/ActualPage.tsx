@@ -13,6 +13,7 @@ function ActualPage(props:actualPage){
         let page = pagecontroller(props.location.pathname)
         prevPageRef.current = actualPage
         setActualPage(page)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [props.location])
 
     //SHOW LISTENER//
@@ -35,6 +36,10 @@ function ActualPage(props:actualPage){
                 return 'Produkty'
             case '/contact':
                 return 'Kontakt'
+            case '/qualification':
+                return 'Kvalifikace'
+            case '/references':
+                return 'Reference'
             default:
                 return 'Fitness'
         }

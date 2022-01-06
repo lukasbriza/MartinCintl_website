@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useState, useContext, useEffect} from 'react'
 import {AnimationContext, PageContext} from '../../Functions/Context'
 
@@ -83,7 +84,7 @@ function LanguageMutation(props:languageMutations){
                 className="language option"
                 onClick={(e)=>{switchLanguage(e)}}
                 data-value={option}
-                style={{color:mobStyle, fontWeight: 600}}
+                style={{color:mobStyle, fontWeight: 600, border: '1px solid '+mobStyle}}
             >
                 {option}
             </p>

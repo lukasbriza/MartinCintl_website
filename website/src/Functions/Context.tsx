@@ -1,5 +1,4 @@
 import {createContext, useState} from 'react'
-import {deviceDetection} from './DeviceDetect'
 
 
 
@@ -11,7 +10,7 @@ const AnimationContext = createContext({})
 //CUSTOM PROVIDERS//
 function PageContextProvider(props:any){
     //SETTERS
-    const [languageMutation, setLanguageMutation] = useState('cs')
+    const [languageMutation, setLanguageMutation] = useState('cz')
     const [location, setLocation] = useState(undefined)
     const [transition, setTransition] = useState(undefined)
     const [contactFormular, setContactFormular] = useState(undefined)

@@ -7,6 +7,7 @@ function PricingSegment(props:pricingSegment){
         if(props.color !== undefined){
             setColor(props.color)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     let components = props.priceData.map((price:{name:string, value:number}, index)=>{

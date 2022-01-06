@@ -14,11 +14,14 @@ function MenuSlider(props:menuSlider){
         if(context.menuSlider === true){
             menuSliderOn(menuSlider.current)
             context.functions.setActualPage(false)
+            context.functions.setPageCounter(false)
         }
         if(context.menuSlider === false){
             menuSliderOff(menuSlider.current)
             context.functions.setActualPage(true)
+            context.functions.setPageCounter(true)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [context.menuSlider])
 
     //SLIDER PROPERTIES RENDERING//
@@ -30,8 +33,9 @@ function MenuSlider(props:menuSlider){
                 id={"_"+index+menuItem}
                 onClick={()=>{
                     setTimeout(()=>{
-                        menuSliderOff(menuSlider.current)
+                        context.functions.setMenuSlider(false)
                         context.functions.setActualPage(true)
+
                     },1750)
                 }}
             >

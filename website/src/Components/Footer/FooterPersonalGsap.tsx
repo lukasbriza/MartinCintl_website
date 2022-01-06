@@ -96,6 +96,7 @@ function FooterPersonalGsap(props:any){
                 animationOff()
             },onAnTime)
         }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active])
     //////////////////////////////////////////////////////
     return(
