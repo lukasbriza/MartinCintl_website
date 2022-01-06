@@ -1,0 +1,60 @@
+.overlay-wrapper{
+    display: none;
+    grid-template-columns: 55px 1fr 55px;
+    grid-template-areas: ". overlay .";
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.445);
+    
+    .overlay-content-wrapper{
+        position: relative;
+        grid-area: overlay;
+        display: grid;
+        grid-template-rows: 50px min-content 50px;
+        grid-template-areas: "hideButton" "content" ".";
+
+        padding: 5% 5%;
+        border-radius: 25px;
+        background: white;
+
+        .hide-button{
+            justify-self: end;
+            align-self: center;
+            grid-area: hideButton;
+            position:absolute;
+            cursor: pointer;
+            right: 25px;
+
+            .line{
+                position: absolute;
+                width: 25px;
+                height: 5px;
+                border-radius: 5px;
+                background: rgb(48, 48, 48);
+            }
+            .line:nth-of-type(1){
+                transform: rotate(45deg);
+            }
+            .line:nth-of-type(2){
+                transform: rotate(135deg)
+            }
+        }
+
+        .content{
+            overflow-y: auto;
+            max-height: 70vh;
+            width: 100%;
+            grid-area: content;
+            display: flex;
+            flex-direction: column;
+            .overlay-header{
+                text-align: center;
+                color: black;
+            }
+            .overlay-content{
+                text-align: center;
+                color: black;
+            }
+        }
+    }
+}

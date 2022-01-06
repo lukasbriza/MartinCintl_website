@@ -116,7 +116,17 @@ $maxHeight: 690px;
         min-width: 360px;
 
         .swiper-pagination{
-           bottom: calc(100% - 90px); 
+           bottom: calc(100% - 93px); 
+
+           .swiper-pagination-bullet{
+               width: 10px;
+               height: 10px;
+               background: white;
+           }
+
+           .swiper-pagination-bullet-active{
+               background: $schemeBlueLight;
+           }
         }
 
         .swiper-wrapper{

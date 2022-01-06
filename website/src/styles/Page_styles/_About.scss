@@ -5,9 +5,13 @@
 
     #AboutLayer{
         background: rgba(0, 0, 0, 0.63);
+        overflow: auto;
+        min-height: 640px;
+        min-width: 360px;
 
         #About-section{
-            position: absolute;
+            position: relative;
+            top: 77px;
             height: calc(100vh - 77px);
             width: 75vw;
             bottom: 0px;
@@ -20,6 +24,8 @@
             
             left: 50%;
             transform: translateX(-50%);
+
+            min-height: 400px;
 
             #mainPart{
                 color:white;
@@ -43,6 +49,19 @@
                 text-align: center;
                 margin: clamp(20px, 4vmax, 40px) 0px;
                 font-size: clamp(17px, 1.5vmax, 20px);
+
+                #showMore{
+                    margin-top: 10px;
+                    color: $schemeBlueLight;
+                    font-weight: 600;
+                    cursor: pointer;
+                    display: inline-block;
+                }
+
+                #showMore:hover{
+                    text-decoration: underline;
+                }
+                
             }
         }
     }

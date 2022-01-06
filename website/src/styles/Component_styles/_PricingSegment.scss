@@ -1,5 +1,6 @@
 .segmentLine{
     display: grid;
+    align-items: center;
     margin: 5px 0px;
     grid-template-columns: 1fr 150px;
     font-weight: 600;
@@ -9,5 +10,6 @@
     }
     .lineValue{
         color: white;
+        margin-left: 10px;
     }
 }

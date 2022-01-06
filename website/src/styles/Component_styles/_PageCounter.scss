@@ -4,6 +4,9 @@
     z-index: +20;
     height: 100%;
 
+    overflow: auto;
+    min-height: 640px;
+
     grid-template-rows: clamp(80px, 10vh, 100px) 1fr clamp(80px, 10vh, 100px);
     grid-template-areas: "." "counter" ".";
 
@@ -13,6 +16,11 @@
     padding-right: 20px;
     top: 50%;
     transform: translateY(-50%);
+
+    @media only screen and (max-height:640px){
+        transform: none;
+        top:-2px
+    }
 
     /*ANIMATION SETTINGS*/
     transition: opacity 0.5s linear;

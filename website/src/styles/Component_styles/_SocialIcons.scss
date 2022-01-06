@@ -54,3 +54,38 @@
         }
     }
 }
+
+#socialIcons-mobile-wrapper{
+    width: 20px;
+    height: 25px;
+    background: $schemeBlueLight;
+
+    position: absolute;
+    border-radius: 0px 15px 15px 0px;
+
+    display:grid;
+    grid-template-rows: 22px 1fr;
+    grid-template-areas: "arrow" "socialIcons";
+
+    backface-visibility: hidden;
+
+    #social-arrow{
+        display: grid;
+        grid-area: arrow;
+        cursor: pointer;
+        position: absolute;
+        transform:scale(0.5);
+    }
+
+    #socialIcons-wrapper{
+        grid-area: socialIcons;
+        position: unset;
+        bottom: unset;
+        margin-left: 5px;
+    }
+
+    .icon{
+        opacity: 0;
+        display: none;
+    }
+}
