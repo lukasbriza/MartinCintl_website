@@ -127,3 +127,10 @@ type pricingSegment = {
     priceData: {name:string, value:number}[],
     color?:string
 }
+
+ type Overlay = {
+     show: boolean,
+     onClick: ()=>void,
+     content: string,
+     header?: string
+ }
