@@ -1,0 +1,110 @@
+.galleryTiles-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: hidden;
+
+  .img-container {
+    min-height: 190px;
+    height: 17vw;
+    margin: 1.5vw 1vw;
+
+    transition-property: all;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
+
+    .img {
+      height: 100%;
+      cursor: pointer;
+    }
+  }
+
+  .img-container:hover {
+    transform: scale(1.05);
+  }
+
+  .img-container:active {
+    transform: scale(1);
+  }
+}
+
+.gallery-wrapper {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 100%;
+  height: calc(100% - 177px);
+
+  .cross-container {
+    position: absolute;
+    right: 10%;
+  }
+  .gallery-container {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 50px 50px 1fr 50px 50px;
+    grid-template-areas: ". left gallery right .";
+
+    .SliderWrapper {
+      grid-area: gallery;
+      width: 70%;
+      height: 100%;
+      max-height: 100%;
+      /*
+            .slide-outer{
+               // width: 100%;
+                .slide-inner{
+                    //width: 100%;
+                }
+            }*/
+    }
+  }
+
+  .leftArr {
+    grid-area: left;
+    cursor: pointer;
+    transform: rotate(180deg);
+  }
+  .rightArr {
+    grid-area: right;
+    cursor: pointer;
+  }
+}
+
+.cross-wrapper {
+  position: relative;
+  cursor: pointer;
+
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+  transform-origin: center;
+  transition-property: all;
+
+  .line {
+    width: 30px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+  }
+
+  .line:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  .line:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+.cross-wrapper:hover {
+  transform: scale(1.1);
+}
+.cross-wrapper:active {
+  transform: scale(0.9);
+}

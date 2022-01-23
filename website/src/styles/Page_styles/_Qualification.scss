@@ -1,16 +1,18 @@
-#Qualification{
-    background-repeat: no-repeat;
-    background-position:center;
-    background-size: cover;
+#Qualification {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
-    display: grid;
-    grid-template-rows: 1fr 50px;
-    grid-template-areas: "." "footer";
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  grid-template-areas: "content" "footer";
 
-    .layer{
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.582);
-        position: absolute;
-    }
+  .layer {
+    grid-area: content;
+    width: 100vw;
+    height: 100%;
+    padding-top: 80px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.582);
+  }
 }

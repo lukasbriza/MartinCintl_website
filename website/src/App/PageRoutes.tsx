@@ -1,4 +1,4 @@
-import React, {useEffect,useState} from "react"
+import React, {useEffect} from "react"
 import {CSSTransition, TransitionGroup} from 'react-transition-group'
 import {Switch, Route, useLocation} from 'react-router-dom'
 import {useContext} from 'react';
@@ -12,6 +12,8 @@ import {Hero} from '../Pages/Hero'
 import {About} from '../Pages/About'
 import {Products} from '../Pages/Products'
 import {Contact} from '../Pages/Contact'
+import {Qualification} from "../Pages/Qualification";
+import {References} from "../Pages/References"
 import {MenuSlider} from '../Components/Menu_slider/MenuSlider'
 ////////////////////////////////////////
 //CONFIG//
@@ -24,6 +26,7 @@ function PageRoutes(){
 
     useEffect(() =>{
         context.functions.setLocation(location.pathname)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
 
     return(
@@ -50,6 +53,8 @@ function PageRoutes(){
                         <Route exact path="/about" component={About}/>
                         <Route path="/products" component={Products}/>
                         <Route path="/contact" component={Contact}/>
+                        <Route path="/qualification" component={Qualification}/>
+                        <Route path="/references" component={References}/>
                     </Switch>
                 </CSSTransition>
             </TransitionGroup>
