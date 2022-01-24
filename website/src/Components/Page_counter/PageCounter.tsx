@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {useEffect, useRef, useContext, useState} from 'react'
 import {Link} from 'react-router-dom'
 import {gsap} from 'gsap'
@@ -54,21 +55,54 @@ function PageCounter(props:pageCounter){
             },1000)
         }
         if(contextAn.menuSlider === false) {
+            if(
+                context.location !== "/qualification" &&
+                context.location !== "/references"
+            ){
+                contextAn.functions.setPageCounter(true)
+                setDisplay('grid')
+                setTimeout(()=>{
+                    setOpacity(1)
+                },1000)
+            }
+        }
+    },[contextAn.menuSlider])
+
+    useEffect(() =>{
+        if(
+            context.location === "/qualification" ||
+            context.location === "/references"
+        ){
+            contextAn.functions.setPageCounter(false)
+            setOpacity(0)
+            setTimeout(()=>{
+                setDisplay('none')
+            },1000)
+        }
+        if(
+            context.location !== "/qualification" &&
+            context.location !== "/references" &&
+            contextAn.menuSlider === false
+        ){
             contextAn.functions.setPageCounter(true)
             setDisplay('grid')
             setTimeout(()=>{
                 setOpacity(1)
             },1000)
         }
-    },[contextAn.menuSlider])
+    },[context.location])
     //////////////////////////////////////
     //ARRAY PROCESSING//
-    function activeLinkAnimation(obj:any){
-        if(context.width <= 768 && obj.idCount === "_3count"){
-            pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),true)
-        }
-        if(obj.idCount === "_2count" || obj.idCount === "_1count" || obj.idCount === "_0count"){
-            pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),false)
+    function activeLinkAnimation(obj:any,e:any,link:any){
+        if(link === context.location){
+            e.preventDefault()
+        }else{
+            if(context.width <= 768 && obj.idCount === "_3count"){
+                pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),true)
+            }
+            if(obj.idCount === "_2count" || obj.idCount === "_1count" || obj.idCount === "_0count"){
+                pageCounterAnOn(selector("#"+obj.idCount),selector("#"+obj.idUnderliner),false)
+            }
         }
     }
     
@@ -103,11 +137,11 @@ function PageCounter(props:pageCounter){
                 className="count-wrapper"
                 id={"_"+i+"count-wrapper"}
                 key={"_"+i+"count-wrapperKey"}
-                onClick={()=>{activeLinkAnimation({
+                onClick={(e)=>{activeLinkAnimation({
                                 idLink: "_"+i+"count-wrapper",
                                 idCount: "_"+i+"count",
                                 idUnderliner: "_"+i+"count-underliner"
-                            })}}
+                            },e,link)}}
 
                 onMouseEnter={()=>{classSetter(i)}}
                 onTouchStart={()=>{classSetter(i)}}
