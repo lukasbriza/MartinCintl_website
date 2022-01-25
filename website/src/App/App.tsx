@@ -1,13 +1,15 @@
-import {Router} from 'react-router-dom'
-import {createBrowserHistory} from 'history'
-import {PageContextProvider, AnimationContextProvider} from '../Functions/Context'
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import { PageContextProvider, AnimationContextProvider } from '../Functions/Context'
 ///////////////////////////////////////////////////
 //COMPONENTS//
-import {PageRoutes} from './PageRoutes'
+import { PageRoutes } from './PageRoutes'
 ///////////////////////////////////////////////////
 //BROWSER HISTORY//
 export const history = createBrowserHistory()
 ///////////////////////////////////////////////////
+
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
       <PageContextProvider>
         <AnimationContextProvider>
           <Router history={history}>
-            <PageRoutes/>
+            <PageRoutes />
           </Router>
         </AnimationContextProvider>
       </PageContextProvider>

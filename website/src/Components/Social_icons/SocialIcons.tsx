@@ -1,61 +1,71 @@
-import {Link} from 'react-router-dom'
-import {socIconsMobileOn,socIconsMobileOff} from '../../Functions/AnimationManager'
-import {useContext, useState, useEffect} from 'react'
-import {PageContext} from '../../Functions/Context'
-import {config} from '../../App/config'
+import { Link } from 'react-router-dom'
+import { socIconsMobileOn, socIconsMobileOff } from '../../Functions/AnimationManager'
+import { useContext, useState, useEffect } from 'react'
+import { PageContext } from '../../Functions/Context'
+import { config } from '../../App/config'
 import { SVGProps } from "react"
+import { AnimationContext } from "../../Functions/Context"
+import { deviceDetection } from '../../Functions/DeviceDetect'
 
-function SocialIcons(props:socialIcons){
-  const context:any = useContext(PageContext)
+function SocialIcons(props: socialIcons) {
+  const context: any = useContext(PageContext)
 
   const [mobArrow, setMobArrow] = useState(false)
 
   useEffect(() => {
-    if(mobArrow === true && window.innerWidth <768){
-      console.log('1')
+    if (mobArrow === true && window.innerWidth < 768) {
       socIconsMobileOn()
     }
-    if(mobArrow === false && window.innerWidth <768){
-      console.log('2')
+    if (mobArrow === false && window.innerWidth < 768) {
       socIconsMobileOff()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[mobArrow])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mobArrow])
 
   let pcStyleReset = {
     width: undefined,
     height: undefined
   }
-  if(context.width < 768){
-    return(
+  if (context.width < 768) {
+    return (
       <div id="socialIcons-mobile-wrapper">
-          <Arrow onClick={()=>{setMobArrow(!mobArrow)}}/>
+        <Arrow onClick={() => { setMobArrow(!mobArrow) }} />
         <div id="socialIcons-wrapper" style={pcStyleReset}>
           <div id="socialIcons-section">
-              <MailSmallIcon id="mailIcon" size={props.size} to={config.socialLinks.mail}/>
-              <InstagramSmallIcon id="instagramIcon" size={props.size} to={config.socialLinks.instagram}/>
-              <FacebookSmallIcon id="facebookIcon" size={props.size} to={config.socialLinks.facebook}/>
+            <MailSmallIcon id="mailIcon" size={props.size} to={config.socialLinks.mail} />
+            <InstagramSmallIcon id="instagramIcon" size={props.size} to={config.socialLinks.instagram} />
+            <FacebookSmallIcon id="facebookIcon" size={props.size} to={config.socialLinks.facebook} />
           </div>
         </div>
       </div>
     )
-  }else{
+  } else {
 
-    return(
+    return (
       <div id="socialIcons-wrapper" style={pcStyleReset}>
-          <div id="socialIcons-section">
-              <MailSmallIcon id="mailIcon" size={props.size} to={config.socialLinks.mail}/>
-              <InstagramSmallIcon id="instagramIcon" size={props.size} to={config.socialLinks.instagram}/>
-              <FacebookSmallIcon id="facebookIcon" size={props.size} to={config.socialLinks.facebook}/>
-          </div>
+        <div id="socialIcons-section">
+          <MailSmallIcon id="mailIcon" size={props.size} to={config.socialLinks.mail} />
+          <InstagramSmallIcon id="instagramIcon" size={props.size} to={config.socialLinks.instagram} />
+          <FacebookSmallIcon id="facebookIcon" size={props.size} to={config.socialLinks.facebook} />
+        </div>
       </div>
     )
   }
 }
 
 function InstagramSmallIcon(props: socialIcon) {
+  const [style, setStyle] = useState({ marginLeft: "0px" })
   return (
-    <a id="instagram-background" href={props.to} target="_blank" className="icon" rel="noreferrer">
+    <a
+      id="instagram-background"
+      href={props.to}
+      target="_blank"
+      className="icon"
+      rel="noreferrer"
+      style={style}
+      onMouseEnter={() => { if (deviceDetection() === false) { setStyle({ marginLeft: "10px" }) } }}
+      onMouseLeave={() => { setStyle({ marginLeft: "0px" }) }}
+    >
       <svg
         height={props.size}
         viewBox="0 0 511 511.9"
@@ -72,47 +82,77 @@ function InstagramSmallIcon(props: socialIcon) {
 }
 
 function FacebookSmallIcon(props: socialIcon) {
-    return (
-      <a id="facebook-background" href={props.to} target="_blank" className="icon" rel="noreferrer">
-        <svg
-          height={props.size}
-          viewBox="0 0 24 24"
-          width={props.size}
-          xmlns="http://www.w3.org/2000/svg"
-          id={props.id}
-          className="center"
-        >
-          <path fill="white" d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
-        </svg>
-      </a>
-    )
+  const [style, setStyle] = useState({ marginLeft: "0px" })
+  return (
+    <a
+      id="facebook-background"
+      href={props.to}
+      target="_blank"
+      className="icon"
+      rel="noreferrer"
+      style={style}
+      onMouseEnter={() => { if (deviceDetection() === false) { setStyle({ marginLeft: "10px" }) } }}
+      onMouseLeave={() => { setStyle({ marginLeft: "0px" }) }}
+    >
+      <svg
+        height={props.size}
+        viewBox="0 0 24 24"
+        width={props.size}
+        xmlns="http://www.w3.org/2000/svg"
+        id={props.id}
+        className="center"
+      >
+        <path fill="white" d="M15.997 3.985h2.191V.169C17.81.117 16.51 0 14.996 0c-3.159 0-5.323 1.987-5.323 5.639V9H6.187v4.266h3.486V24h4.274V13.267h3.345l.531-4.266h-3.877V6.062c.001-1.233.333-2.077 2.051-2.077z" />
+      </svg>
+    </a>
+  )
 }
 
 function MailSmallIcon(props: socialIcon) {
-    return (
-      <Link id="mail-background" to={props.to} className="icon">
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          viewBox="0 0 512 512" 
-          height={props.size}
-          width={props.size}
-          id={props.id}
-          className="center"
-        >
-          <path fill="white" d="M10.688 95.156C80.958 154.667 204.26 259.365 240.5 292.01c4.865 4.406 10.083 6.646 15.5 6.646 5.406 0 10.615-2.219 15.469-6.604 36.271-32.677 159.573-137.385 229.844-196.896 4.375-3.698 5.042-10.198 1.5-14.719C494.625 69.99 482.417 64 469.333 64H42.667c-13.083 0-25.292 5.99-33.479 16.438-3.542 4.52-2.875 11.02 1.5 14.718z" />
-          <path fill="white" d="M505.813 127.406a10.618 10.618 0 00-11.375 1.542C416.51 195.01 317.052 279.688 285.76 307.885c-17.563 15.854-41.938 15.854-59.542-.021-33.354-30.052-145.042-125-208.656-178.917a10.674 10.674 0 00-11.375-1.542A10.674 10.674 0 000 137.083v268.25C0 428.865 19.135 448 42.667 448h426.667C492.865 448 512 428.865 512 405.333v-268.25a10.66 10.66 0 00-6.187-9.677z" />
-        </svg>
-      </Link>
-    )
+  const context: any = useContext(AnimationContext)
+  const context2: any = useContext(PageContext)
+
+  const [style, setStyle] = useState({ marginLeft: "0px" })
+  return (
+    <Link id="mail-background" to={props.to} className="icon" style={style}
+
+      onMouseEnter={() => {
+        if (deviceDetection() === false) { setStyle({ marginLeft: "10px" }) }
+        if (context2.location !== "/contact") {
+          context.functions.setAnimationClass("Up")
+        }
+      }}
+      onMouseLeave={() => {
+        setStyle({ marginLeft: "0px" })
+      }}
+      onClick={(e) => {
+        if (context2.location === "/contact") {
+          e.preventDefault()
+        }
+      }}
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 512 512"
+        height={props.size}
+        width={props.size}
+        id={props.id}
+        className="center"
+      >
+        <path fill="white" d="M10.688 95.156C80.958 154.667 204.26 259.365 240.5 292.01c4.865 4.406 10.083 6.646 15.5 6.646 5.406 0 10.615-2.219 15.469-6.604 36.271-32.677 159.573-137.385 229.844-196.896 4.375-3.698 5.042-10.198 1.5-14.719C494.625 69.99 482.417 64 469.333 64H42.667c-13.083 0-25.292 5.99-33.479 16.438-3.542 4.52-2.875 11.02 1.5 14.718z" />
+        <path fill="white" d="M505.813 127.406a10.618 10.618 0 00-11.375 1.542C416.51 195.01 317.052 279.688 285.76 307.885c-17.563 15.854-41.938 15.854-59.542-.021-33.354-30.052-145.042-125-208.656-178.917a10.674 10.674 0 00-11.375-1.542A10.674 10.674 0 000 137.083v268.25C0 428.865 19.135 448 42.667 448h426.667C492.865 448 512 428.865 512 405.333v-268.25a10.66 10.66 0 00-6.187-9.677z" />
+      </svg>
+    </Link>
+  )
 }
-  
-function Arrow(props: SVGProps<SVGSVGElement>){
-  return(
-    <svg 
+
+function Arrow(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
       xmlns="http://www.w3.org/2000/svg"
       id="social-arrow"
-      width={24} 
-      height={24} 
+      width={24}
+      height={24}
       onClick={props.onClick}
       {...props}
     >
@@ -121,5 +161,5 @@ function Arrow(props: SVGProps<SVGSVGElement>){
   )
 }
 export {
-    SocialIcons
+  SocialIcons
 }

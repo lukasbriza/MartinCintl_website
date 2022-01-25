@@ -1,7 +1,7 @@
-function SubmitButton(props:submitBtn){
-    return(
-        <button className="submitButton relative centerh" onClick={()=>{props.fn()}}>Odeslat</button>
+function SubmitButton(props: any) {
+    return (
+        <button className="submitButton relative centerh" onClick={(e) => { props.fn(e) }}>Odeslat</button>
     )
 }
 
-export {SubmitButton}
+export { SubmitButton }
