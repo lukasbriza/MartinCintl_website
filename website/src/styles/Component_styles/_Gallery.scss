@@ -1,15 +1,28 @@
 .galleryTiles-wrapper {
   width: 100%;
-  display: flex;
+  top: 90px;
+  position: absolute;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   overflow-y: hidden;
 
+  @media (max-height: 1000px) {
+    @media (max-width: 900px) {
+      display: none !important;
+    }
+  }
+
   .img-container {
     min-height: 190px;
     height: 17vw;
     margin: 1.5vw 1vw;
+
+    @media (max-height: 1000px) {
+      @media (min-width: 900px) {
+        height: 280px !important;
+      }
+    }
 
     transition-property: all;
     transition-duration: 0.25s;
@@ -38,9 +51,22 @@
   max-width: 100%;
   height: calc(100% - 177px);
 
+  @media (max-height: 1000px) {
+    @media (max-width: 900px) {
+      display: flex !important;
+      opacity: 1 !important;
+    }
+  }
+
   .cross-container {
     position: absolute;
     right: 10%;
+
+    @media (max-height: 1000px) {
+      @media (max-width: 900px) {
+        display: none !important;
+      }
+    }
   }
   .gallery-container {
     width: 100%;

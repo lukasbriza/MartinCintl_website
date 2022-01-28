@@ -1,91 +1,88 @@
-#socialIcons-wrapper{
-    position: absolute;
-    bottom: 70px;
-    #socialIcons-section{
+#socialIcons-wrapper {
+  position: absolute;
+  bottom: 70px;
+  #socialIcons-section {
+    position: relative;
+    display: grid;
+    row-gap: 10px;
+
+    #mail-background {
+      cursor: pointer;
+      background: linear-gradient(#7121cf, #b22dde);
+      width: 38px;
+      height: 38px;
+
+      #mailIcon {
+        overflow: visible;
         position: relative;
-        display: grid;
-        row-gap: 10px;
-
-        #mail-background{ 
-            cursor: pointer;
-            background: linear-gradient(#7121CF, #B22DDE);
-            width: 38px;
-            height: 38px;
-
-            #mailIcon{
-                overflow: visible;
-                position: relative;
-            }
-        }
-
-        #instagram-background{
-            cursor: pointer;
-            background: linear-gradient(#9353A4, #FF5C40, #FFC451);
-            width: 38px;
-            height: 38px;
-
-            #instagramIcon{
-                overflow: visible;
-                position: relative;
-            }
-        }
-
-        #facebook-background{
-            cursor: pointer;
-            background: #039BE5;
-            width: 38px;
-            height: 38px;
-
-            #facebookIcon{
-                overflow: visible;
-                position: relative;
-            }
-        }
-
-        #mobileclicker{
-            overflow: visible;
-        }
-
-        .icon{
-            transition: margin 0.5s ease-out;
-        }
-        .icon:hover{
-            margin-left: 10px;
-        }
+      }
     }
+
+    #instagram-background {
+      cursor: pointer;
+      background: linear-gradient(#9353a4, #ff5c40, #ffc451);
+      width: 38px;
+      height: 38px;
+
+      #instagramIcon {
+        overflow: visible;
+        position: relative;
+      }
+    }
+
+    #facebook-background {
+      cursor: pointer;
+      background: #039be5;
+      width: 38px;
+      height: 38px;
+
+      #facebookIcon {
+        overflow: visible;
+        position: relative;
+      }
+    }
+
+    #mobileclicker {
+      overflow: visible;
+    }
+
+    .icon {
+      transition: margin 0.5s ease-out;
+    }
+  }
 }
 
-#socialIcons-mobile-wrapper{
-    width: 20px;
-    height: 25px;
-    background: $schemeBlueLight;
+#socialIcons-mobile-wrapper {
+  width: 20px;
+  height: 25px;
+  background: $schemeBlueLight;
 
+  position: absolute;
+  border-radius: 0px 15px 15px 0px;
+
+  display: grid;
+  grid-template-rows: 22px 1fr;
+  grid-template-areas: "arrow" "socialIcons";
+
+  backface-visibility: hidden;
+
+  #social-arrow {
+    display: grid;
+    grid-area: arrow;
+    cursor: pointer;
     position: absolute;
-    border-radius: 0px 15px 15px 0px;
+    transform: scale(0.5);
+  }
 
-    display:grid;
-    grid-template-rows: 22px 1fr;
-    grid-template-areas: "arrow" "socialIcons";
+  #socialIcons-wrapper {
+    grid-area: socialIcons;
+    position: unset;
+    bottom: unset;
+    margin-left: 5px;
+  }
 
-    backface-visibility: hidden;
-
-    #social-arrow{
-        display: grid;
-        grid-area: arrow;
-        cursor: pointer;
-        position: absolute;
-        transform:scale(0.5);
-    }
-
-    #socialIcons-wrapper{
-        grid-area: socialIcons;
-        position: unset;
-        bottom: unset;
-        margin-left: 5px;
-    }
-
-    .icon{
-        opacity: 0;
-        display: none;
-    }
+  .icon {
+    opacity: 0;
+    display: none;
+  }
 }

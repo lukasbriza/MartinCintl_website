@@ -1,73 +1,97 @@
-$schemeBlueLight: #4F5FA4;
+$schemeBlueLight: #4f5fa4;
 $schemeBlueDark: #172565;
 
 //MEDIA QUERIES//
-@import './mq';
+@import "./mq";
 ////////////////////////////////////
 //FONTS//
-@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Poppins:ital,wght@0,200;0,400;1,500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Megrim&family=Poppins:ital,wght@0,200;0,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 ////////////////////////////////////
 //MODULES//
-@import './modificationClasses';
-@import './transitionClasses';
+@import "./modificationClasses";
+@import "./transitionClasses";
 ////////////////////////////////////
 //COMPONENTS//
-@import './Component_styles/Button';
-@import './Component_styles/Logo';
-@import './Component_styles/Menu';
-@import './Component_styles/ActualPage';
-@import './Component_styles//MenuButton';
-@import './Component_styles/LanguageMutations';
-@import './Component_styles/PageCounter';
-@import './Component_styles/SocialIcons';
-@import './Component_styles/MenuSlider';
-@import './Component_styles/ListItem';
-@import './Component_styles/FormInput';
-@import './Component_styles/SubmitButton';
-@import './Component_styles/IconSegment';
-@import './Component_styles/PricingSegment';
-@import './Component_styles/Footer_personal_gsap';
-@import './Component_styles/ProgressBar';
-@import './Component_styles/Overlay';
+@import "./Component_styles/Button";
+@import "./Component_styles/Logo";
+@import "./Component_styles/Menu";
+@import "./Component_styles/ActualPage";
+@import "./Component_styles//MenuButton";
+@import "./Component_styles/LanguageMutations";
+@import "./Component_styles/PageCounter";
+@import "./Component_styles/SocialIcons";
+@import "./Component_styles/MenuSlider";
+@import "./Component_styles/ListItem";
+@import "./Component_styles/FormInput";
+@import "./Component_styles/SubmitButton";
+@import "./Component_styles/IconSegment";
+@import "./Component_styles/PricingSegment";
+@import "./Component_styles/Footer_personal_gsap";
+@import "./Component_styles/ProgressBar";
+@import "./Component_styles/Overlay";
+@import "./Component_styles/Gallery";
 ////////////////////////////////////
 //PAGE STYLES//
-@import './Page_styles/Hero';
-@import './Page_styles/About';
-@import './Page_styles/Contact';
-@import './Page_styles/Products';
-@import './Page_styles/Qualification';
+@import "./Page_styles/Hero";
+@import "./Page_styles/About";
+@import "./Page_styles/Contact";
+@import "./Page_styles/Products";
+@import "./Page_styles/Qualification";
+@import "./Page_styles/Referenes";
 ////////////////////////////////////
 //MAIN SETTINGS//
-*{
-    margin: 0px;
-    padding: 0px;
-    outline: none;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
+* {
+  margin: 0px;
+  padding: 0px;
+  outline: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
 }
 
-h1{font-size: clamp(1.602em, 8vw, 2.441em )}
-h2{font-size: clamp(1.424em, 6vw, 1.953em )}
-h3{font-size: clamp(1.266em, 5vw, 1.563em )}
-
-html, body, #root, .App, #Hero, #About, #Contact,#ContactMobile, #Products, #Qualification{
-    width: 100vw;
-    height: 100vh;
+h1 {
+  font-size: clamp(1.602em, 8vw, 2.441em);
+}
+h2 {
+  font-size: clamp(1.424em, 6vw, 1.953em);
+}
+h3 {
+  font-size: clamp(1.266em, 5vw, 1.563em);
 }
 
-html{
-    overflow: hidden;
+html,
+body,
+#root,
+.App,
+#Hero,
+#About,
+#Contact,
+#ContactMobile,
+#Products,
+#Qualification {
+  width: 100vw;
+  height: 100vh;
 }
 
-
-#Hero, #About, #Contact, #ContactMobile, #Products,#Qualification, .App,#root,html, body{
-    overflow: auto;
-    min-height: 640px;
-    min-width: 360px;
+html {
+  overflow: hidden;
 }
 
+#Hero,
+#About,
+#Contact,
+#ContactMobile,
+#Products,
+#Qualification,
+.App,
+#root,
+html,
+body {
+  overflow: auto;
+  min-height: 640px;
+  min-width: 360px;
+}
 
 ////////////////////////////////////
 //BREAKPOITS//
@@ -85,307 +109,336 @@ $ipadWidth: 768px;
 $pcWidth: 1024px;
 
 @mixin mediaMax($width) {
-    @media only screen and (max-width: $width) {
-      @content;
-    }
+  @media only screen and (max-width: $width) {
+    @content;
+  }
 }
 
 @mixin mediaMin($width) {
-    @media only screen and (min-width: $width) {
-      @content;
-    }
+  @media only screen and (min-width: $width) {
+    @content;
+  }
 }
 ///////////////////////////////////////////////////
 
-    //MORE THAN 1025px
-    @include mq($from:wide){
-        //HERO//
-        #Hero{
-            grid-template-columns: 60% 1fr;
-            grid-template-areas: "quote .";
+//MORE THAN 1025px
+@include mq($from: wide) {
+  //HERO//
+  #Hero {
+    grid-template-columns: 60% 1fr;
+    grid-template-areas: "quote .";
 
-            img{
-                right: 15%;
-                height: clamp(400px, 95%, 80vmax); //min optimal max
-            }
-        }
-        //ABOUT//
-        /**/
-        //PRODUCTS//
-        /**/
-        //CONTACT//
-        #ContactMobile{
-            
-            #ContactMobileForm-wrapper{
-                #ContactMobileForm{
-                    .submitContent{
-                        grid-area: content;
-                        display: grid;
-                        justify-items:  center;
-                        justify-content: center;
-
-                        .message{
-                            margin-top: 15px;
-                            text-align: center;
-                            font-size: 20px;
-                            font-weight: bold;
-                        }
-                        .iconSegmentMobile-wrapper{
-    
-                            .iconSegment{
-                                .iconWrapper{
-                                    svg{
-                                        fill: black !important;
-                                    }
-                                    .description{
-                                        color:black;
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+    img {
+      right: 15%;
+      height: clamp(400px, 95%, 80vmax); //min optimal max
     }
-    //LESS THAN 1024px
-    @include mq($until:desktop){
+  }
+  //ABOUT//
+  /**/
+  //PRODUCTS//
+  /**/
+  //CONTACT//
+  #ContactMobile {
+    #ContactMobileForm-wrapper {
+      #ContactMobileForm {
+        .submitContent {
+          grid-area: content;
+          display: grid;
+          justify-items: center;
+          justify-content: center;
 
-        //HERO//
-        #Hero{
-            grid-template-columns: 60% 1fr;
-            grid-template-areas: "quote .";
-
-            img{
-                right: 10%;
-                height: clamp(400px, 85%, 80vmax); //min optimal max
-            }
-
-            .quote-section{
-                top: 10%;
-            }
-        }
-        //ABOUT//
-        /**/
-        //PRODUCTS//
-        /**/
-        //CONTACT//
-        #ContactMobile{
-            
-            #ContactMobileForm-wrapper{
-                #ContactMobileForm{
-                    .submitContent{
-                        grid-area: content;
-                        display: grid;
-                        justify-items:  center;
-                        justify-content: center;
-
-                        .message{
-                            margin-top: 20px;
-                            text-align: center;
-
-                            font-size: 20px;
-                            font-weight: bold;
-                        }
-                        .iconSegmentMobile-wrapper{
-    
-                            .iconSegment{
-                                .iconWrapper{
-                                    svg{
-                                        fill: black !important;
-                                    }
-                                    .description{
-                                        color:black;
-                                        width: 70%;
-                                    }
-                                }
-                            }
-                        }
-                    }
+          .message {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .iconSegmentMobile-wrapper {
+            .iconSegment {
+              .iconWrapper {
+                svg {
+                  fill: black !important;
                 }
+                .description {
+                  color: black;
+                }
+              }
             }
+          }
         }
+      }
+    }
+  }
+}
+//LESS THAN 1024px
+@include mq($until: desktop) {
+  //HERO//
+  #Hero {
+    grid-template-columns: 60% 1fr;
+    grid-template-areas: "quote .";
+
+    img {
+      right: 10%;
+      height: clamp(400px, 85%, 80vmax); //min optimal max
     }
 
-    //LESS THAN 768px
-    @include mq($until:tablet){
-        /*SOCIAL ICONS POSITIONER*/
-        .App{
-            #socialIcons-mobile-wrapper{
-                top: calc(100% - 200px);
-                @media only screen and (max-height:640px){
-                    top: calc(640px - 200px)   
-                }
-            }
+    .quote-section {
+      top: 10%;
+    }
+  }
+  //ABOUT//
+  /**/
+  //PRODUCTS//
+  /**/
+  //QUALIFICATION//
+  #Qualification {
+    .layer {
+      .galleryTiles-wrapper {
+        .img-container {
+          height: 250px;
         }
+      }
+    }
+  }
+  //CONTACT//
+  #ContactMobile {
+    #ContactMobileForm-wrapper {
+      #ContactMobileForm {
+        .submitContent {
+          grid-area: content;
+          display: grid;
+          justify-items: center;
+          justify-content: center;
 
-        #menu{
-            #logo{
-                min-width: 250px;
-                max-width: 250px;
-                #name{
-                    font-size: 35px;
+          .message {
+            margin-top: 20px;
+            text-align: center;
+
+            font-size: 20px;
+            font-weight: bold;
+          }
+          .iconSegmentMobile-wrapper {
+            .iconSegment {
+              .iconWrapper {
+                svg {
+                  fill: black !important;
                 }
-                #tag{
-                    font-size: 14px;
+                .description {
+                  color: black;
+                  width: 70%;
                 }
+              }
             }
-            #actualPage-counter{
-                display:none;
-            }
+          }
         }
-        //HERO//
-        #Hero{
-            grid-template-columns: 1fr 83% 1fr;
-            grid-template-areas: ". quote .";
+      }
+    }
+  }
+}
 
-            img{
-                left: 50%;
-                transform: translateX(-50%);
-                height: clamp(400px, 100%, 80vmax); //min optimal max
-            }
+//LESS THAN 768px
+@include mq($until: tablet) {
+  /*SOCIAL ICONS POSITIONER*/
+  .App {
+    #socialIcons-mobile-wrapper {
+      top: calc(100% - 200px);
+      @media only screen and (max-height: 640px) {
+        top: calc(640px - 200px);
+      }
+    }
+  }
 
-            .quote-section{
-                top: 15%;
+  #menu {
+    #logo {
+      min-width: 250px;
+      max-width: 250px;
+      #name {
+        font-size: 35px;
+      }
+      #tag {
+        font-size: 14px;
+      }
+    }
+    #actualPage-counter {
+      display: none;
+    }
+  }
+  //HERO//
+  #Hero {
+    grid-template-columns: 1fr 83% 1fr;
+    grid-template-areas: ". quote .";
 
-                .quote{
-                    padding-left: 0px;
-                    padding-right: 0px;
-
-                    #quote-firstLine, #quote-secondLine{
-                        font-size: clamp(1rem, 3vw, 35px)
-                    }
-                }
-                
-            }
-        }
-        //ABOUT//
-        /**/
-        //PRODUCTS//
-        /**/
-        //CONTACT//
-        #ContactMobile{
-            grid-template-rows: 0px 1fr 50px;
-
-            #ContactMobileForm-wrapper{
-                #ContactMobileForm{
-                    padding-top: 68px;
-                    width: 100%;
-                    height: 100%;
-
-                    .contentForm-wrapper{
-                        .formInput-mobile{
-                            grid-template-columns:none;
-                            grid-template-rows: 40px 1fr 25px;
-                            grid-template-areas: "flag" "input" "error"; 
-                            width: 70%;
-                        }
-                    }
-                    .contactForm-button-wrapper{
-                        transform: scale(0.8);
-                    }
-                }
-            }
-        }
-        
+    img {
+      left: 50%;
+      transform: translateX(-50%);
+      height: clamp(400px, 100%, 80vmax); //min optimal max
     }
 
-    //LESS THAN 480px
-    @include mq($until:mobile){
-        #menu{
-            grid-template-columns: 160px 1fr 4fr 1fr 80px;
-            #logo{
-                margin-top: 5px;
-                min-width: 160px;
-                max-width: 160px;
-                #name{
-                    margin-top:10px;
-                    font-size: 20px;
-                }
-                #tag{
-                    margin-bottom: 10px;
-                    font-size: 10px;
-                }
-            }
-        }
-        //HERO//
-        #Hero{
-            img{
-                left: 50%;
-                transform: translateX(-50%);
-                height: clamp(400px, 75%, 80vmax); //min optimal max
-            }
-            .quote-section{
-                width: 70vw;
-                .quote{
-                    #quote-firstLine{
-                        font-size: 13px;
-                    }
-                    #quote-secondLine{
-                        font-size: 13px;
-                        text-align: left;
-                    }
-                }
-            }
-        }
-        //ABOUT//
-        #About{
-            #AboutLayer{
-                #About-section{
-                    #mainPart{
-                        font-size: 15px;
-                    }
-                    #secondaryPart{
-                        font-size: 13px;
-                    }
-                }
-                .overlay-wrapper{
-                    z-index: 100;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 1fr;
-                    grid-template-areas: "overlay";
+    .quote-section {
+      top: 15%;
 
-                    .overlay-content-wrapper{
-                        height: 100%;
-                        border-radius: 0px;
-                        grid-template-rows: 1fr 4fr 1fr;
-                        padding:0px 25px;
-                    }
-                }
-            }
-        }
-        //PRODUCTS//
-        /**/
-        //CONTACT//
-        #ContactMobile{
-            #ContactMobileForm-wrapper{
-                #ContactMobileForm{
-                    grid-template-rows:20px 40px 1fr auto 50px;
+      .quote {
+        padding-left: 0px;
+        padding-right: 0px;
 
-                    .progressBar-wrapper{
-                        .line-wrapper{
-                            width:50px;
-                        }
-                    }
-                    .contentForm-wrapper{
-                        justify-content: space-evenly;
-
-                        .formInput-mobile{
-                            grid-template-columns:none;
-                            grid-template-rows: 1fr 25px;
-                            grid-template-areas: "input" "error";
-                            width:70%;
-                            
-                            .flag-contact-mobile{
-                                display:none;
-                            }
-                        }
-                        #service-input{
-                            width:70%;
-                        }
-                    }
-                }
-            }
+        #quote-firstLine,
+        #quote-secondLine {
+          font-size: clamp(1rem, 3vw, 35px);
         }
+      }
     }
+  }
+  //ABOUT//
+  /**/
+  //PRODUCTS//
+  /**/
+  //QUALIFICATION//
+  #Qualification {
+    .layer {
+      .galleryTiles-wrapper {
+        display: none !important;
+      }
+      .gallery-wrapper {
+        .gallery-container {
+          grid-template-columns: 50px 1fr 50px;
+          grid-template-areas: "left gallery right";
 
+          .slide-inner {
+            padding: 0px;
+          }
+        }
+      }
+    }
+  }
+  //CONTACT//
+  #ContactMobile {
+    grid-template-rows: 0px 1fr 50px;
+
+    #ContactMobileForm-wrapper {
+      #ContactMobileForm {
+        padding-top: 68px;
+        width: 100%;
+        height: 100%;
+
+        .contentForm-wrapper {
+          .formInput-mobile {
+            grid-template-columns: none;
+            grid-template-rows: 40px 1fr 25px;
+            grid-template-areas: "flag" "input" "error";
+            width: 70%;
+          }
+        }
+        .contactForm-button-wrapper {
+          transform: scale(0.8);
+        }
+      }
+    }
+  }
+}
+
+//LESS THAN 480px
+@include mq($until: mobile) {
+  #menu {
+    grid-template-columns: 160px 1fr 4fr 1fr 80px;
+    #logo {
+      margin-top: 5px;
+      min-width: 160px;
+      max-width: 160px;
+      #name {
+        margin-top: 10px;
+        font-size: 20px;
+      }
+      #tag {
+        margin-bottom: 10px;
+        font-size: 10px;
+      }
+    }
+  }
+  //HERO//
+  #Hero {
+    img {
+      left: 50%;
+      transform: translateX(-50%);
+      height: clamp(400px, 75%, 80vmax); //min optimal max
+    }
+    .quote-section {
+      width: 70vw;
+      .quote {
+        #quote-firstLine {
+          font-size: 13px;
+        }
+        #quote-secondLine {
+          font-size: 13px;
+          text-align: left;
+        }
+      }
+    }
+  }
+  //ABOUT//
+  #About {
+    #AboutLayer {
+      #About-section {
+        #mainPart {
+          font-size: 15px;
+        }
+        #secondaryPart {
+          font-size: 13px;
+        }
+      }
+      .overlay-wrapper {
+        z-index: 100;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "overlay";
+
+        .overlay-content-wrapper {
+          height: 100%;
+          border-radius: 0px;
+          grid-template-rows: 1fr 4fr 1fr;
+          padding: 0px 25px;
+        }
+      }
+    }
+  }
+  //PRODUCTS//
+  /**/
+  //QUALIFICATION//
+  #Qualification {
+    .layer {
+      .gallery-wrapper {
+        width: 100%;
+      }
+    }
+  }
+  //CONTACT//
+  #ContactMobile {
+    #ContactMobileForm-wrapper {
+      #ContactMobileForm {
+        grid-template-rows: 20px 40px 1fr auto 50px;
+
+        .progressBar-wrapper {
+          .line-wrapper {
+            width: 50px;
+          }
+        }
+        .contentForm-wrapper {
+          justify-content: space-evenly;
+
+          .formInput-mobile {
+            grid-template-columns: none;
+            grid-template-rows: 1fr 25px;
+            grid-template-areas: "input" "error";
+            width: 70%;
+
+            .flag-contact-mobile {
+              display: none;
+            }
+          }
+          #service-input {
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+}

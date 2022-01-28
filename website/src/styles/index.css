@@ -199,7 +199,7 @@ body:before {
 }
 
 .button-wrapper {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   border: 1px solid transparent;
   text-decoration: none;
   height: 50px;
@@ -339,7 +339,7 @@ body:before {
 }
 
 #menu-button:hover {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   border: 1px solid white;
   -webkit-transition: background-color 0.05s, border 0.05s linear;
   transition: background-color 0.05s, border 0.05s linear;
@@ -430,7 +430,7 @@ body:before {
 }
 
 .option:hover {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
 }
 
 .option:active {
@@ -441,12 +441,12 @@ body:before {
 }
 
 #mutation-wrapper:hover {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   border: 1px solid white;
 }
 
 .activeMutationWrapper {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   border: 1px solid white;
 }
 
@@ -532,8 +532,8 @@ body:before {
 
 #socialIcons-wrapper #socialIcons-section #mail-background {
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, from(#7121CF), to(#B22DDE));
-  background: linear-gradient(#7121CF, #B22DDE);
+  background: -webkit-gradient(linear, left top, left bottom, from(#7121cf), to(#b22dde));
+  background: linear-gradient(#7121cf, #b22dde);
   width: 38px;
   height: 38px;
 }
@@ -545,8 +545,8 @@ body:before {
 
 #socialIcons-wrapper #socialIcons-section #instagram-background {
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, left bottom, from(#9353A4), color-stop(#FF5C40), to(#FFC451));
-  background: linear-gradient(#9353A4, #FF5C40, #FFC451);
+  background: -webkit-gradient(linear, left top, left bottom, from(#9353a4), color-stop(#ff5c40), to(#ffc451));
+  background: linear-gradient(#9353a4, #ff5c40, #ffc451);
   width: 38px;
   height: 38px;
 }
@@ -558,7 +558,7 @@ body:before {
 
 #socialIcons-wrapper #socialIcons-section #facebook-background {
   cursor: pointer;
-  background: #039BE5;
+  background: #039be5;
   width: 38px;
   height: 38px;
 }
@@ -577,14 +577,10 @@ body:before {
   transition: margin 0.5s ease-out;
 }
 
-#socialIcons-wrapper #socialIcons-section .icon:hover {
-  margin-left: 10px;
-}
-
 #socialIcons-mobile-wrapper {
   width: 20px;
   height: 25px;
-  background: #4F5FA4;
+  background: #4f5fa4;
   position: absolute;
   border-radius: 0px 15px 15px 0px;
   display: -ms-grid;
@@ -714,7 +710,7 @@ body:before {
 }
 
 #menuSlider #menubox-wrapper a:hover {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
 }
 
 .listWrapper {
@@ -730,7 +726,7 @@ body:before {
 }
 
 .listWrapper .square {
-  background: #4F5FA4;
+  background: #4f5fa4;
   margin-right: 10px;
   min-width: 7px;
 }
@@ -834,7 +830,7 @@ body:before {
 }
 
 .formInput .actualOption .options .option-select:hover {
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
 }
 
 .formInput .flag-contact {
@@ -848,7 +844,7 @@ body:before {
       flex-wrap: nowrap;
   height: 41px;
   width: 130px;
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   color: white;
   font-weight: 500;
   min-width: 120px;
@@ -882,7 +878,7 @@ body:before {
 }
 
 .formInput textarea:focus {
-  border: 2px solid #4F5FA4;
+  border: 2px solid #4f5fa4;
 }
 
 .formInput textarea:invalid[focused="true"] {
@@ -903,7 +899,7 @@ body:before {
 }
 
 .formInput input:focus {
-  border: 2px solid #4F5FA4;
+  border: 2px solid #4f5fa4;
 }
 
 .formInput input:invalid[focused="true"] {
@@ -945,7 +941,7 @@ body:before {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: flag;
-  background: #4F5FA4;
+  background: #4f5fa4;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -986,7 +982,7 @@ body:before {
 }
 
 .formInput-mobile textarea:focus {
-  border: 2px solid #4F5FA4;
+  border: 2px solid #4f5fa4;
 }
 
 .formInput-mobile textarea:invalid[focused="true"] {
@@ -1004,7 +1000,7 @@ body:before {
 }
 
 .formInput-mobile input:focus {
-  border: 2px solid #4F5FA4;
+  border: 2px solid #4f5fa4;
 }
 
 .formInput-mobile input:invalid[focused="true"] {
@@ -1034,7 +1030,7 @@ body:before {
   text-align: center;
   text-transform: uppercase;
   font-weight: 600;
-  background-color: #4F5FA4;
+  background-color: #4f5fa4;
   padding: 8px 30px;
   cursor: pointer;
   /*TRANSITION SETUP*/
@@ -1390,7 +1386,7 @@ body:before {
   overflow-y: auto;
   max-height: 70vh;
   width: 100%;
-  -ms-grid-row: 3;
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: content;
   display: -webkit-box;
@@ -1410,6 +1406,179 @@ body:before {
 .overlay-wrapper .overlay-content-wrapper .content .overlay-content {
   text-align: center;
   color: black;
+}
+
+.galleryTiles-wrapper {
+  width: 100%;
+  top: 90px;
+  position: absolute;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow-y: hidden;
+}
+
+@media (max-height: 1000px) and (max-width: 900px) {
+  .galleryTiles-wrapper {
+    display: none !important;
+  }
+}
+
+.galleryTiles-wrapper .img-container {
+  min-height: 190px;
+  height: 17vw;
+  margin: 1.5vw 1vw;
+  -webkit-transition-property: all;
+  transition-property: all;
+  -webkit-transition-duration: 0.25s;
+          transition-duration: 0.25s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+}
+
+@media (max-height: 1000px) and (min-width: 900px) {
+  .galleryTiles-wrapper .img-container {
+    height: 280px !important;
+  }
+}
+
+.galleryTiles-wrapper .img-container .img {
+  height: 100%;
+  cursor: pointer;
+}
+
+.galleryTiles-wrapper .img-container:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.galleryTiles-wrapper .img-container:active {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.gallery-wrapper {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  max-width: 100%;
+  height: calc(100% - 177px);
+}
+
+@media (max-height: 1000px) and (max-width: 900px) {
+  .gallery-wrapper {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    opacity: 1 !important;
+  }
+}
+
+.gallery-wrapper .cross-container {
+  position: absolute;
+  right: 10%;
+}
+
+@media (max-height: 1000px) and (max-width: 900px) {
+  .gallery-wrapper .cross-container {
+    display: none !important;
+  }
+}
+
+.gallery-wrapper .gallery-container {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  -ms-grid-columns: 50px 50px 1fr 50px 50px;
+      grid-template-columns: 50px 50px 1fr 50px 50px;
+      grid-template-areas: ". left gallery right .";
+}
+
+.gallery-wrapper .gallery-container .SliderWrapper {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: gallery;
+  width: 70%;
+  height: 100%;
+  max-height: 100%;
+  /*
+            .slide-outer{
+               // width: 100%;
+                .slide-inner{
+                    //width: 100%;
+                }
+            }*/
+}
+
+.gallery-wrapper .leftArr {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: left;
+  cursor: pointer;
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.gallery-wrapper .rightArr {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: right;
+  cursor: pointer;
+}
+
+.cross-wrapper {
+  position: relative;
+  cursor: pointer;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-transition-property: all;
+  transition-property: all;
+}
+
+.cross-wrapper .line {
+  width: 30px;
+  height: 4px;
+  border-radius: 5px;
+  background-color: white;
+  position: absolute;
+}
+
+.cross-wrapper .line:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.cross-wrapper .line:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.cross-wrapper:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.cross-wrapper:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 #Hero {
@@ -1534,7 +1703,7 @@ body:before {
   text-decoration: none;
   font-weight: 600;
   font-size: clamp(18px, 3vmin, 25px);
-  color: #4F5FA4;
+  color: #4f5fa4;
 }
 
 #About #AboutLayer #About-section #mainPart a:hover {
@@ -1550,7 +1719,7 @@ body:before {
 
 #About #AboutLayer #About-section #secondaryPart #showMore {
   margin-top: 10px;
-  color: #4F5FA4;
+  color: #4f5fa4;
   font-weight: 600;
   cursor: pointer;
   display: inline-block;
@@ -1609,7 +1778,7 @@ body:before {
 #Contact .contactContent-wrapper .contactForm .rightSide {
   width: 50%;
   height: auto;
-  background: #4F5FA4;
+  background: #4f5fa4;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr;
@@ -1666,7 +1835,7 @@ body:before {
 }
 
 #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper {
-  -ms-grid-row: 3;
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: content;
   display: -webkit-box;
@@ -1769,7 +1938,7 @@ body:before {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: flag;
-  background: #4F5FA4;
+  background: #4f5fa4;
   color: white;
   text-transform: uppercase;
   font-weight: 600;
@@ -1805,11 +1974,10 @@ body:before {
 }
 
 #Products .tile .tileLayer .tileContent {
-  -ms-grid-row: 3;
+  -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: content;
   display: none;
-  -ms-grid-rows: 3fr 1fr;
       grid-template-rows: 3fr 1fr;
 }
 
@@ -1877,7 +2045,7 @@ body:before {
 }
 
 #Products .productSwiper .swiper-pagination .swiper-pagination-bullet-active {
-  background: #4F5FA4;
+  background: #4f5fa4;
 }
 
 #Products .productSwiper .swiper-wrapper .swiper-slide .tile .tileLayer {
@@ -1917,14 +2085,38 @@ body:before {
   display: grid;
   -ms-grid-rows: 1fr 50px;
       grid-template-rows: 1fr 50px;
-      grid-template-areas: "." "footer";
+      grid-template-areas: "content" "footer";
 }
 
 #Qualification .layer {
-  width: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: content;
+  position: relative;
+  width: 100vw;
   height: 100%;
+  overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.582);
-  position: absolute;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#References {
+  width: 100vw;
+  height: 100vh;
+  background-color: #4f5fa4;
+}
+
+#References div {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 * {
@@ -1933,7 +2125,7 @@ body:before {
   outline: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
 }
 
@@ -1949,7 +2141,16 @@ h3 {
   font-size: clamp(1.266em, 5vw, 1.563em);
 }
 
-html, body, #root, .App, #Hero, #About, #Contact, #ContactMobile, #Products, #Qualification {
+html,
+body,
+#root,
+.App,
+#Hero,
+#About,
+#Contact,
+#ContactMobile,
+#Products,
+#Qualification {
   width: 100vw;
   height: 100vh;
 }
@@ -1958,7 +2159,16 @@ html {
   overflow: hidden;
 }
 
-#Hero, #About, #Contact, #ContactMobile, #Products, #Qualification, .App, #root, html, body {
+#Hero,
+#About,
+#Contact,
+#ContactMobile,
+#Products,
+#Qualification,
+.App,
+#root,
+html,
+body {
   overflow: auto;
   min-height: 640px;
   min-width: 360px;
@@ -1985,7 +2195,7 @@ html {
   /**/
   /**/
   #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent {
-    -ms-grid-row: 3;
+    -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: content;
     display: -ms-grid;
@@ -2024,8 +2234,11 @@ html {
   }
   /**/
   /**/
+  #Qualification .layer .galleryTiles-wrapper .img-container {
+    height: 250px;
+  }
   #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .submitContent {
-    -ms-grid-row: 3;
+    -ms-grid-row: 1;
     -ms-grid-column: 1;
     grid-area: content;
     display: -ms-grid;
@@ -2095,11 +2308,23 @@ html {
     padding-left: 0px;
     padding-right: 0px;
   }
-  #Hero .quote-section .quote #quote-firstLine, #Hero .quote-section .quote #quote-secondLine {
+  #Hero .quote-section .quote #quote-firstLine,
+  #Hero .quote-section .quote #quote-secondLine {
     font-size: clamp(1rem, 3vw, 35px);
   }
   /**/
   /**/
+  #Qualification .layer .galleryTiles-wrapper {
+    display: none !important;
+  }
+  #Qualification .layer .gallery-wrapper .gallery-container {
+    -ms-grid-columns: 50px 1fr 50px;
+        grid-template-columns: 50px 1fr 50px;
+        grid-template-areas: "left gallery right";
+  }
+  #Qualification .layer .gallery-wrapper .gallery-container .slide-inner {
+    padding: 0px;
+  }
   #ContactMobile {
     -ms-grid-rows: 0px 1fr 50px;
         grid-template-rows: 0px 1fr 50px;
@@ -2179,6 +2404,9 @@ html {
     padding: 0px 25px;
   }
   /**/
+  #Qualification .layer .gallery-wrapper {
+    width: 100%;
+  }
   #ContactMobile #ContactMobileForm-wrapper #ContactMobileForm {
     -ms-grid-rows: 20px 40px 1fr auto 50px;
         grid-template-rows: 20px 40px 1fr auto 50px;
