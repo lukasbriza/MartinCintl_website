@@ -50,6 +50,7 @@ function Qualification() {
                     images={images}
                     activeIndex={activeIndex}
                     setActiveIndex={setActiveIndex}
+                    setShowGalleryTiles={setShowGalleryTiles}
                 />
             </div>
             <FooterPersonalGsap />
@@ -71,12 +72,12 @@ function GalleryTiles(props: any) {
         <div className='galleryTiles-wrapper' ref={tileRef}>
             {images.map(({ title, src }, index) => {
                 return (
-                    <div className="img-container" onClick={() => {
+                    <div className="img-container" key={index} onClick={() => {
                         props.setIndex(index)
-                        props.showGallery(true)
                         props.showGalleryTilesFn(false)
+                        props.showGallery(true)
                     }}>
-                        <img src={src} alt={title} key={index} className="img" />
+                        <img src={src} alt={title} className="img" />
                     </div>
                 )
             })}

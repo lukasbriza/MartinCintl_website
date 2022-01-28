@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { galleryShowAnimation } from "../../Functions/AnimationManager";
 import Slider from "react-touch-drag-slider";
 
@@ -32,7 +32,10 @@ function Gallery(props) {
   return (
     <div className="gallery-wrapper" ref={galleryRef}>
       <div className="cross-container">
-        <Cross onClick={props.setGallery} />
+        <Cross
+          onClick={props.setGallery}
+          setShowGalleryTiles={props.setShowGalleryTiles}
+        />
       </div>
       <div className="gallery-container">
         <ArrowSVG className="leftArr" onClick={previous} />
@@ -73,6 +76,7 @@ function Cross(props) {
       className="cross-wrapper"
       onClick={() => {
         props.onClick(false);
+        props.setShowGalleryTiles(true);
       }}
     >
       <div className="line"></div>

@@ -1,4 +1,4 @@
-import {createContext, useState} from 'react'
+import { createContext, useState } from 'react'
 
 
 
@@ -8,20 +8,20 @@ const AnimationContext = createContext({})
 
 
 //CUSTOM PROVIDERS//
-function PageContextProvider(props:any){
+function PageContextProvider(props: any) {
     //SETTERS
     const [languageMutation, setLanguageMutation] = useState('cz')
     const [location, setLocation] = useState(undefined)
     const [transition, setTransition] = useState(undefined)
     const [contactFormular, setContactFormular] = useState(undefined)
-    const [width, setWidth]:any = useState(null)
-    
-    window.addEventListener('load',()=>{
-        setTimeout(()=>{
+    const [width, setWidth]: any = useState(null)
+
+    window.addEventListener('load', () => {
+        setTimeout(() => {
             setWidth(window.innerWidth)
-        },100)
+        }, 100)
     })
-    window.addEventListener('resize',()=>{
+    window.addEventListener('resize', () => {
         setWidth(window.innerWidth)
     })
 
@@ -33,21 +33,21 @@ function PageContextProvider(props:any){
         transitionType: transition,
         contactFormular: contactFormular,
 
-        functions:{
+        functions: {
             setLanguageMutation: setLanguageMutation,
             setLocation: setLocation,
             setTransition: setTransition,
             setContactFormular: setContactFormular,
         }
     }
-    return(
+    return (
         <PageContext.Provider value={appState}>
             {props.children}
         </PageContext.Provider>
-    )  
+    )
 }
 
-function AnimationContextProvider(props:any){
+function AnimationContextProvider(props: any) {
     //SETTERS
     const [menuSlider, setMenuSlider] = useState(false)
     const [actualPage, setActualPage] = useState(true)
@@ -69,7 +69,7 @@ function AnimationContextProvider(props:any){
         openTile3: openTile3,
         tileAnRunning: tileAnRunning,
 
-        functions:{
+        functions: {
             setMenuSlider: setMenuSlider,
             setActualPage: setActualPage,
             setPageCounter: setPageCounter,
@@ -80,14 +80,14 @@ function AnimationContextProvider(props:any){
             setAnimationClass: setAnimationClass,
         }
     }
-    return(
+    return (
         <AnimationContext.Provider value={appState}>
             {props.children}
         </AnimationContext.Provider>
     )
 }
-export{
-    PageContextProvider, 
+export {
+    PageContextProvider,
     AnimationContextProvider,
     PageContext,
     AnimationContext
