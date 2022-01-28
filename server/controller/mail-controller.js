@@ -1,9 +1,12 @@
 import express from "express";
 
+//ABL
+import { sendMail } from "../abl/mail-abl.js";
+
 const mailRouter = express.Router();
 
 mailRouter.post("/post", (req, res) => {
-  console.log("mail post");
+  sendMail(req, res);
 });
 
 export { mailRouter };
