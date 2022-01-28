@@ -1,8 +1,16 @@
 {
   "type": "module",
   "name": "server",
+  "homepage": "https://github.com/lukasbriza/MartinCintl_website#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukasbriza/MartinCintl_website"
+  },
+  "bugs": {
+    "url": "https://github.com/lukasbriza/MartinCintl_website/issues"
+  },
   "version": "1.0.0",
-  "description": "",
+  "description": "server part of MartinCint_website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +21,9 @@
     "cors": "^2.8.5",
     "dotenv": "^14.3.0",
     "express": "^4.17.2",
+    "nodemailer": "^6.7.2"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.15"
   }
 }
