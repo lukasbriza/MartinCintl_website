@@ -108,7 +108,6 @@ function Contact() {
             let telephone = regExpTelephone.test(values.telephone)
             let regExpText = /^[\w\d &,.a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]/
             let text = regExpText.test(values.text)
-            console.log({ name: name, telephone: telephone, text: text })
             return { name: name, telephone: telephone, text: text }
         }
 
@@ -125,15 +124,6 @@ function Contact() {
         }
     }
 
-    const handleSubmit2 = () => {
-        alert("Děkuji za zprávu. Ozvu se Vám co nejdříve")
-        FetchAgent.SendMail({
-            name: values.name,
-            telephone: values.telephone,
-            text: values.text,
-            option: option
-        })
-    }
     ////////////////////////////////////////////////////////////////
     //MOBILE FORM HANDLER//
     const [progress, setProgress] = useState({ c1: true, c2: false, c3: false })
@@ -169,7 +159,7 @@ function Contact() {
                 <div className="contactContent-wrapper">
                     <div className="contactForm">
 
-                        <form className="leftSide" autoComplete="on">
+                        <div className="leftSide">
 
                             <Options
                                 selectOptions={selectOptions}
@@ -194,7 +184,7 @@ function Contact() {
                             })}
 
                             <SubmitButton fn={handleSubmit} />
-                        </form>
+                        </div>
 
                         <div className="rightSide">
                             <div className="pricingSegment-wrapper">
@@ -220,7 +210,7 @@ function Contact() {
                 onClick={() => { if (roll) { setRoll(false) } }}
             >
                 <div id="ContactMobileForm-wrapper">
-                    <form id="ContactMobileForm" className="relative center">
+                    <div id="ContactMobileForm" className="relative center">
                         <ProgressBar callback={(e: { c1: boolean, c2: boolean, c3: boolean }) => validation(e)} progress={progress} />
                         <MobileFormSetup
                             progress={progress}
@@ -233,14 +223,14 @@ function Contact() {
                                     optionSetup: optionSetup,
                                     setProgress: setProgress,
                                     handleChange: handleChange,
-                                    handleSubmit: handleSubmit2,
+                                    handleSubmit: handleSubmit,
                                     validation: validation
                                 }
                             }}
                             priceData={priceDataState}
                             formInputs={inputs}
                         />
-                    </form>
+                    </div>
                 </div>
                 <FooterPersonalGsap />
             </div>

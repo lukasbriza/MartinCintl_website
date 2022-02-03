@@ -5,9 +5,7 @@ dotenv.config();
 
 function sendMail(req, res) {
   //DATA//
-  console.log(req);
   let data = req.body;
-  console.log(data);
   //ERROR BUILDER//
   let err = new Error();
   err.message = "Email se nepodařilo odeslat.";

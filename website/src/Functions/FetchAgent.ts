@@ -9,7 +9,7 @@ type mailData = {
 
 class fetchAgent {
   SendMail(data: mailData) {
-    fetch(env.API_URL + "/mail/post", {
+    fetch("http://89.221.218.247:3001/mail/post", {
       method: "POST",
       mode: "cors",
       headers: {
