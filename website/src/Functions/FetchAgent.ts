@@ -1,5 +1,3 @@
-import env from "react-dotenv";
-
 type mailData = {
   name: string;
   telephone: string;

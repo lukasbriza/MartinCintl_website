@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-import { Switch, Route, useLocation } from 'react-router-dom'
+import { Switch, Route, useLocation, withRouter } from 'react-router-dom'
 import { useContext } from 'react';
 import { PageContext, AnimationContext } from '../Functions/Context'
+import env from "react-dotenv";
+import ReactGA from 'react-ga';
 ////////////////////////////////////////
 //COMPONENTS//
 import { Menu } from '../Components/Menu/Menu'
@@ -19,6 +21,8 @@ import { MenuSlider } from '../Components/Menu_slider/MenuSlider'
 //CONFIG//
 import { config } from './config'
 
+ReactGA.initialize(env.TRACING_CODE)
+
 function PageRoutes() {
     const context: any = useContext(PageContext)
     const contextAn: any = useContext(AnimationContext)
@@ -28,6 +32,11 @@ function PageRoutes() {
         context.functions.setLocation(location.pathname)
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [location])
+
+    //GOOGLE ANALYTICS IMPLEMENTATION//
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    })
 
     return (
         <React.Fragment>
@@ -64,4 +73,4 @@ function PageRoutes() {
     )
 }
 
-export { PageRoutes }
+export default withRouter(PageRoutes) 

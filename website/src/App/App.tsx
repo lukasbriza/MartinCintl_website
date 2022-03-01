@@ -3,7 +3,7 @@ import { createBrowserHistory } from 'history'
 import { PageContextProvider, AnimationContextProvider } from '../Functions/Context'
 ///////////////////////////////////////////////////
 //COMPONENTS//
-import { PageRoutes } from './PageRoutes'
+import PageRoutes from './PageRoutes'
 ///////////////////////////////////////////////////
 //BROWSER HISTORY//
 export const history = createBrowserHistory()
@@ -12,6 +12,7 @@ export const history = createBrowserHistory()
 
 
 function App() {
+
   return (
     <div className="App">
       <PageContextProvider>
