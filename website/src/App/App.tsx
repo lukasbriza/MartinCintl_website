@@ -1,6 +1,7 @@
 import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { PageContextProvider, AnimationContextProvider } from '../Functions/Context'
+
 ///////////////////////////////////////////////////
 //COMPONENTS//
 import PageRoutes from './PageRoutes'
