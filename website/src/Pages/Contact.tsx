@@ -1,17 +1,14 @@
 import { useEffect, useState, useContext } from 'react'
 //COMPONENTS//
+import ContactImg from '../Static/ContactBG.webp'
 import { SubmitButton } from '../Components/Form_components/Partial_components/SubmitButton'
+import { Overlay } from '../Components/Overlay/Overlay'
 import { FormInput } from '../Components/Form_components/Partial_components/FormInput'
 import { IconSegment } from '../Components/Form_components/Partial_components/IconSegment'
-import { PricingSegment } from '../Components/Form_components/Partial_components/PricingSegment'
-import { ProgressBar } from '../Components/Form_components/Partial_components/ProgressBar'
-import { MobileFormSetup } from '../Components/Form_components/MobileFormSetup'
 import { FooterPersonalGsap } from '../Components/Footer/FooterPersonalGsap'
-import { Options } from '../Components/Form_components/Partial_components/Options'
 //CONTEXT//
 import { PageContext } from '../Functions/Context'
 //DATA//
-import { inputsData, selectOptionsData } from '../Components/Form_components/Partial_components/DataInputs'
 import { config } from '../App/config'
 //FETCH AGENT//
 import { FetchAgent } from '../Functions/FetchAgent'
@@ -20,222 +17,160 @@ import { FetchAgent } from '../Functions/FetchAgent'
 function Contact() {
     ////////////////////////////////////////////////////////////////
     //COMPONENT STATE//
-    const [values, setValues] = useState({ name: "", telephone: "", text: "" })
-    const [option, setOption] = useState("")
-    const [roll, setRoll] = useState(false)
-    const [priceDataState, setPricedataState] = useState<any>([{ name: '', value: 0 }])
-
     const context: any = useContext(PageContext)
+    const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
+    const [text, setText] = useState<string>("");
 
-    const inputs = inputsData
-    const selectOptions = selectOptionsData
-    const priceData = [
-        [
-            { name: "1 trénink", value: 550 },
-            { name: "1 trénink (2 osoby)", value: 700 },
-            { name: "10 tréninků", value: 4500 },
-            { name: "10 tréninků (2 osoby)", value: 6000 }
-        ], [
-            { name: "Diagnostika a výstup", value: 1000 },
-            { name: "Diagnostika a výstup + nápravný trénink a plán", value: 2200 }
-        ], [
-            { name: "Online coaching (za měsíc)", value: 1500 }
-        ]
-    ]
-    ////////////////////////////////////////////////////////////////
-    //DEFAULT SETUP//
-    useEffect(() => {
-        if (context.contactFormular === undefined) {
-            optionSetup(1)
-            priceDataSetup(1)
-        } else {
-            optionSetup(context.contactFormular.tag)
-            priceDataSetup(context.contactFormular.tag)
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-    useEffect(() => {
-        if (option === selectOptionsData[0].value) {
-            priceDataSetup(selectOptionsData[0].optionNumber)
-        }
-        if (option === selectOptionsData[1].value) {
-            priceDataSetup(selectOptionsData[1].optionNumber)
-        }
-        if (option === selectOptionsData[2].value) {
-            priceDataSetup(selectOptionsData[2].optionNumber)
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [option])
+    const [showModal, setShowModal] = useState<boolean>(false)
 
+    const [nameFocus, setNameFocus] = useState<boolean>(false);
+    const [emailFocus, setEmailFocus] = useState<boolean>(false);
+    const [textFocus, setTextFocus] = useState<boolean>(false);
 
-    const optionSetup = (option: number) => {
-        switch (option) {
-            case 1:
-                setOption(selectOptions[0].value)
-                break
-            case 2:
-                setOption(selectOptions[1].value)
-                break
-            case 3:
-                setOption(selectOptions[2].value)
-                break
+    const [nameCorrect, setNameCorrect] = useState<boolean>(true);
+    const [emailCorrect, setEmailCorrect] = useState<boolean>(true);
+    const [textCorrect, setTextCorrect] = useState<boolean>(true);
+
+    const [clearName, setclearName] = useState<boolean>(false);
+    const [clearEmail, setClearEmail] = useState<boolean>(false);
+    const [clearText, setClearText] = useState<boolean>(false);
+
+    const handleSubmit = () => {
+        if (
+            nameCorrect === true &&
+            emailCorrect === true &&
+            textCorrect === true
+        ) {
+            FetchAgent.SendMail({ name: name, email: email, text: text })
+            setclearName(true);
+            setClearEmail(true);
+            setClearText(true);
+
+            alert("Děkuji za zprávu. Brzy se Vám ozvu!");
+
+            setTimeout(() => {
+                setclearName(false);
+                setClearEmail(false);
+                setClearText(false);
+            }, 1000)
         }
     }
 
-    const priceDataSetup = (tag: number) => {
-        switch (tag) {
-            case 1:
-                setPricedataState(priceData[0])
-                break
-            case 2:
-                setPricedataState(priceData[1])
-                break
-            case 3:
-                setPricedataState(priceData[2])
-                break
-        }
+    const handleName = (text: string) => {
+        setName(text)
+        let regex = /[&=#|'<>^]/g;
+        let result = regex.test(text)
+        result ? setNameCorrect(false) : setNameCorrect(true);
     }
-
-    const handleChange = (e: any) => {
-        setValues({ ...values, [e.target.name]: e.target.value })
+    const handleEmail = (text: string) => {
+        setEmail(text)
+        let regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$/g;
+        let result = regex.test(text)
+        result ? setEmailCorrect(false) : setEmailCorrect(true);
     }
-
-    const handleSubmit = (e: any) => {
-        const validate = () => {
-            let regExpName = /^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ ]/g
-            let name = regExpName.test(values.name)
-            let regExpTelephone = /^[0-9]{9,9}$/
-            let telephone = regExpTelephone.test(values.telephone)
-            let regExpText = /^[\w\d &,.a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]/
-            let text = regExpText.test(values.text)
-            return { name: name, telephone: telephone, text: text }
-        }
-
-        if (validate().name === true && validate().telephone === true && validate().text === true) {
-            alert("Děkuji za zprávu. Ozvu se Vám co nejdříve")
-            FetchAgent.SendMail({
-                name: values.name,
-                telephone: values.telephone,
-                text: values.text,
-                option: option
-            })
-        } else {
-            alert("Zadány nepovolené údaje.")
-        }
+    const handleText = (text: string) => {
+        setText(text)
+        let regex = /[&=#|'<>^]/g;
+        let result = regex.test(text)
+        result ? setTextCorrect(false) : setTextCorrect(true);
     }
-
-    ////////////////////////////////////////////////////////////////
-    //MOBILE FORM HANDLER//
-    const [progress, setProgress] = useState({ c1: true, c2: false, c3: false })
-
-    ////////////////////////////////////////////////////////////////
-    //FUNCIONS//
-    function validation(e: { c1: boolean, c2: boolean, c3: boolean }) {
-        if (e.c1 === true && e.c2 === true && e.c3 === true) {
-            let regExpName = /^[a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ ]/g
-            let name = regExpName.test(values.name)
-            let regExpTelephone = /^[0-9]{9,9}$/
-            let telephone = regExpTelephone.test(values.telephone)
-            let regExpText = /^[\w\d &,.a-zA-ZáčďéěíňóřšťůúýžÁČĎÉĚÍŇÓŘŠŤŮÚÝŽ]/
-            let text = regExpText.test(values.text)
-
-            if (name === true && telephone === true && text === true) {
-                setProgress(e)
-            } else {
-                alert("Nesprávně zadané údaje.")
-            }
-        } else {
-            setProgress(e)
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////
-    if (context.width > 1100) {
-        return (
+    return (
+        <div
+            id="Contact"
+            style={{ backgroundImage: `url(${ContactImg})` }}
+        >
             <div
-                id="Contact"
-                onClick={() => { if (roll) { setRoll(false) } }}
+                id="ContactLayer" className="relative w100 h100"
             >
-                <div className="contactContent-wrapper">
-                    <div className="contactForm">
-
-                        <div className="leftSide">
-
-                            <Options
-                                selectOptions={selectOptions}
-                                actualOption={option}
-                                roll={roll}
-                                forwardFn={{
-                                    setRoll: setRoll,
-                                    optionSetup: optionSetup,
-                                }}
+                <div id="ContactContent">
+                    <div id="priceInfo">Aktuální ceny mých služeb můžete najít &nbsp;<b onClick={() => setShowModal(true)}>ZDE</b></div>
+                    <div id="Form">
+                        <h2>Kontaktujme se</h2>
+                        <div id="inputSection">
+                            <FormInput
+                                type="name"
+                                callback={handleName}
+                                focused={nameFocus}
+                                onClick={() => { setNameFocus(true); setEmailFocus(false); setTextFocus(false); }}
+                                correct={nameCorrect}
+                                clear={clearName}
                             />
-
-                            {inputs.map((input: any) => {
-                                return (
-                                    <FormInput
-                                        {...input}
-                                        onChange={(e: any) => { handleChange(e) }}
-                                        onFocus={() => { setRoll(false) }}
-                                        key={input.id}
-                                        mobilestyle={false}
-                                    />
-                                )
-                            })}
-
-                            <SubmitButton fn={handleSubmit} />
+                            <FormInput
+                                type="email"
+                                callback={handleEmail}
+                                focused={emailFocus}
+                                onClick={() => { setNameFocus(false); setEmailFocus(true); setTextFocus(false); }}
+                                correct={emailCorrect}
+                                clear={clearEmail}
+                            />
+                            <FormInput
+                                type="textarea"
+                                callback={handleText}
+                                focused={textFocus}
+                                onClick={() => { setNameFocus(false); setEmailFocus(false); setTextFocus(true); }}
+                                correct={textCorrect}
+                                clear={clearText}
+                            />
                         </div>
-
-                        <div className="rightSide">
-                            <div className="pricingSegment-wrapper">
-                                <PricingSegment priceData={priceDataState} />
-                            </div>
-                            <div className="iconSegment-wrapper">
-                                <IconSegment icon={'Pin'} description={'Tvůj Gym s.r.o. - Havlíčkova 260, Kolín 28002'} />
-                                <IconSegment icon={'Call'} description={'+420 722 950 942'} />
-                                <IconSegment icon={'Mail'} description={'martincintl@seznam.cz'} link={config.socialLinks.mail} />
-                                <IconSegment icon={'Instagram'} description={'martin.cintl'} link={config.socialLinks.instagram} />
-                                <IconSegment icon={'Facebook'} description={'martincintlfitness'} link={config.socialLinks.facebook} />
-                            </div>
-                        </div>
+                        <SubmitButton fn={handleSubmit} />
                     </div>
+                </div>
+                <div id="extendedFooter">
+                    <IconSegment icon={'Pin'} description={'Tvůj Gym s.r.o. - Havlíčkova 260, Kolín 28002'} />
+                    <IconSegment icon={'Call'} description={'+420 722 950 942'} />
+                    <IconSegment icon={'Mail'} description={'martincintl@seznam.cz'} link={config.socialLinks.mail} />
+                    <IconSegment icon={'Instagram'} description={'martin.cintl'} link={config.socialLinks.instagram} />
+                    <IconSegment icon={'Facebook'} description={'martincintlfitness'} link={config.socialLinks.facebook} />
                 </div>
                 <FooterPersonalGsap />
             </div>
-        )
-    } else {
-        return (
-            <div
-                id="ContactMobile"
-                onClick={() => { if (roll) { setRoll(false) } }}
-            >
-                <div id="ContactMobileForm-wrapper">
-                    <div id="ContactMobileForm" className="relative center">
-                        <ProgressBar callback={(e: { c1: boolean, c2: boolean, c3: boolean }) => validation(e)} progress={progress} />
-                        <MobileFormSetup
-                            progress={progress}
-                            fn={{
-                                selectOptions: selectOptions,
-                                option: option,
-                                roll: roll,
-                                forwardFn: {
-                                    setRoll: setRoll,
-                                    optionSetup: optionSetup,
-                                    setProgress: setProgress,
-                                    handleChange: handleChange,
-                                    handleSubmit: handleSubmit,
-                                    validation: validation
-                                }
-                            }}
-                            priceData={priceDataState}
-                            formInputs={inputs}
-                        />
-                    </div>
-                </div>
-                <FooterPersonalGsap />
-            </div>
-        )
-    }
+            <Overlay content={
+                <table id="priceTable">
+                    <tr>
+                        <th>Osobní trénink</th>
+                        <th>Cena</th>
+                    </tr>
+                    <tr>
+                        <td>1 trénink</td>
+                        <td>550 Kč</td>
+                    </tr>
+                    <tr>
+                        <td>1 trénink (2 osoby)</td>
+                        <td>700 Kč</td>
+                    </tr>
+                    <tr>
+                        <td>10 tréninků</td>
+                        <td>4500 Kč</td>
+                    </tr>
+                    <tr>
+                        <td>10 tréninků (2 osoby)</td>
+                        <td>6000 Kč</td>
+                    </tr>
+                    <tr>
+                        <th>Funkční fiagnostika</th>
+                        <th>Cena</th>
+                    </tr>
+                    <tr>
+                        <td>Diagnostika a výstup</td>
+                        <td>1000 Kč</td>
+                    </tr>
+                    <tr>
+                        <td>Diagnostika a výstup + nápravný trénink + plán</td>
+                        <td>2200 Kč</td>
+                    </tr>
+                    <tr>
+                        <th>Online coaching</th>
+                        <th>Cena</th>
+                    </tr>
+                    <tr>
+                        <td>Online coaching (za měsíc)</td>
+                        <td>1500 Kč</td>
+                    </tr>
+                </table>
+            } onClick={() => setShowModal(false)} show={showModal} />
+        </div>
+    )
 }
 
 export { Contact }

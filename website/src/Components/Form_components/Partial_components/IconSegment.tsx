@@ -1,22 +1,22 @@
 //COMPONENTS//
-import {Pin,Call,Mail,Facebook,Instagram} from '../SVGs'
+import { Pin, Call, Mail, Facebook, Instagram } from '../SVGs'
 
-function IconSegment(props:iconSegment){
+function IconSegment(props: iconSegment) {
 
-    if(props.link){
+    if (props.link) {
         let iconSVG
-        switch(props.icon){
+        switch (props.icon) {
             case 'Mail':
-                iconSVG = <Mail style={{fill: 'white'}} id={props.icon} className={"icon"}/>
+                iconSVG = <Mail style={{ fill: 'white' }} id={props.icon} className={"icon1"} />
                 break
             case 'Facebook':
-                iconSVG = <Facebook style={{fill: 'white'}} id={props.icon} className={"icon"}/>
+                iconSVG = <Facebook style={{ fill: 'white' }} id={props.icon} className={"icon1"} />
                 break
             case 'Instagram':
-                iconSVG = <Instagram style={{fill: 'white'}} id={props.icon} className={"icon"}/>
+                iconSVG = <Instagram style={{ fill: 'white' }} id={props.icon} className={"icon1"} />
                 break
         }
-        return(
+        return (
             <div className="iconSegment">
                 <a className="iconWrapper" href={props.link}>
                     {iconSVG}
@@ -28,15 +28,15 @@ function IconSegment(props:iconSegment){
         )
     } else {
         let iconSVG
-        switch(props.icon){
+        switch (props.icon) {
             case 'Pin':
-                iconSVG = <Pin style={{fill: 'white'}} id={props.icon} className={"icon"}/>
+                iconSVG = <Pin style={{ fill: 'white' }} id={props.icon} className={"icon1"} />
                 break
             case 'Call':
-                iconSVG = <Call style={{fill: 'white'}} id={props.icon} className={"icon"}/>
+                iconSVG = <Call style={{ fill: 'white' }} id={props.icon} className={"icon1"} />
                 break
         }
-        return(
+        return (
             <div className="iconSegment">
                 <div className="iconWrapper">
                     {iconSVG}
@@ -49,4 +49,4 @@ function IconSegment(props:iconSegment){
     }
 }
 
-export {IconSegment}
+export { IconSegment }

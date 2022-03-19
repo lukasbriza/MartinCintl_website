@@ -1,144 +1,205 @@
-#Contact{
-    background: #14151A;
+#Contact {
+  background: #14151a;
+
+  #ContactLayer {
+    background-color: rgba(0, 0, 0, 0.815);
     display: grid;
 
-    grid-template-rows: 77px 1fr 50px;
-    grid-template-areas: "."
-                        "form"
-                        "footer";
+    grid-template-rows: 77px 1fr min-content 50px;
+    grid-template-areas:
+      "."
+      "content"
+      "extendedFooter"
+      "footer";
 
-    #foote{grid-area: footer;}
-    .contactContent-wrapper{
-        grid-area: form;
+    #ContactContent {
+      grid-area: content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      #priceInfo {
+        display: flex;
+        color: white;
+        line-height: 19px;
+        margin-bottom: 20px;
 
-        .contactForm{
-            width: 80%;
-            height: auto;
-            position: relative;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-    
-            .leftSide{
-                width: 50%;
-                background: white;
-                padding: 50px 30px;
-
-                @media only screen and (max-height:730px){   
-                        padding: 20px 30px;
-
-                }
-            }
-    
-            .rightSide{
-                width: 50%;
-                height: auto;
-                background: $schemeBlueLight;
-    
-                display: grid;
-                grid-template-rows: 1fr 1fr;
-    
-                .pricingSegment-wrapper{
-                    display: grid;
-                    align-content: center;
-                    padding: 0px 20px;
-                }
-    
-                .iconSegment-wrapper{
-                    display: grid;
-                    align-content: center;
-                }
-    
-            }
+        @media (max-width: 480px) {
+          width: 75%;
+          flex-direction: row;
+          flex-wrap: wrap;
+          display: inline;
+          text-align: center;
         }
-    }
-    
-}
 
-#ContactMobile{
-    background: #14151A;
-
-    display:grid;
-    grid-template-rows: 100px 1fr 50px;
-    grid-template-areas: "." "ContactMobile" "footer";
-    
-
-
-
-    #ContactMobileForm-wrapper{
-        grid-area: ContactMobile;
-
-        #ContactMobileForm{
-            height: 80%;
-            width: 80%;
-            background: white;
-            position: relative;
-            
-            display: grid;
-            grid-template-rows: 20px 40px 1fr auto 20px;
-            grid-template-areas: "." "progressBar" "content" "buttons" ".";
-
-            overflow:auto;
-
-            .progressBar-wrapper{grid-area: progressBar;}
-            .contentForm-wrapper{
-                grid-area: content;
-                display: flex;
-                flex-direction: column;
-                margin-top: 15px;
-
-                .segmentLine{
-                    grid-template-columns: 1fr auto;
-                    max-width: 500px;
-                   
-                    padding-right: 50px;
-                    padding-left: 50px;
-                    position: relative;
-                    left:50%;
-                    transform: translateX(-50%);
-                    z-index: -1;
-                }
-            }
-            .contactForm-button-wrapper{grid-area: buttons;}
-
-
-
-            .contactForm-button-wrapper{
-                position: relative;
-                display: flex;
-                width: 100%;
-                justify-content: center;
-
-                .button-wrapper{
-                    width: 150px;
-                    text-align: center;
-                    margin: auto 15px;
-                    padding:0px;
-                }
-
-            }
-
-            //SETUP 1
-            #service-input{
-                width: 80%;
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-
-                .actualOption{
-                    margin-left:0px;
-                }
-            }
-            //SETUP2
-            .formInput-mobile{
-
-            }
-
+        b {
+          font-weight: 900;
+          font-size: 19px;
+          color: #4f5fa4;
+          padding-bottom: 0px;
+          margin-bottom: 0px;
+          line-height: 19px;
+          cursor: pointer;
         }
+      }
+      #Form {
+        position: relative;
+        width: 80%;
+        background: #f8f8f8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @media (max-width: 480px) {
+          width: 75%;
+          margin-bottom: 30px;
+        }
+
+        h2 {
+          font-family: "Megrim", "Helvetica Neue";
+          margin-top: 20px;
+          padding-bottom: 10px;
+
+          @media (max-width: 480px) {
+            font-size: 20px;
+          }
+        }
+
+        #inputSection {
+          width: 80%;
+          .inputWrapper {
+            margin: 15px 0px;
+
+            @media (max-width: 480px) {
+              margin: 10px 0px;
+            }
+
+            input {
+              width: 100%;
+              height: 40px;
+              padding-left: 15px;
+              background: white;
+              border: none;
+
+              @media (max-width: 480px) {
+                height: 35px;
+              }
+            }
+            textarea {
+              width: 100%;
+              height: 100px;
+              padding-left: 15px;
+              padding-top: 8px;
+              background: white;
+              border: none;
+              resize: none;
+            }
+            .inputActiveLine {
+              width: 100%;
+              height: 1px;
+              background: #232323;
+            }
+            .focusedClass {
+              background: #4f5fa4;
+              height: 2px;
+            }
+            .error {
+              padding-left: 15px;
+              font-size: 14px;
+              color: red;
+              opacity: 0;
+              cursor: default;
+            }
+            .errorActive {
+              opacity: 1;
+            }
+          }
+        }
+        .submitButton {
+          left: unset;
+          transform: unset;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+  #extendedFooter {
+    grid-area: extendedFooter;
+    background: black;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    .iconSegment:nth-of-type(1) {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+
+      .iconWrapper {
+        justify-content: center;
+      }
     }
 
-    #footer{
-        grid-area: footer;
+    .iconSegment {
+      .iconWrapper {
+        .description {
+          margin-left: 10px;
+        }
+      }
     }
+  }
+  #footer {
+    grid-area: footer;
+  }
+
+  #priceTable {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 900px;
+    tr {
+      th {
+        padding-top: 25px;
+        text-align: start;
+        border-bottom: 1px solid black;
+        padding-left: 10px;
+        font-size: 18px;
+        @media (max-width: 500px) {
+          font-size: 16px;
+        }
+      }
+      td {
+        @media (max-width: 500px) {
+          font-size: 14px;
+        }
+        text-align: start;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    .overlay-wrapper {
+      z-index: +21;
+      grid-template-columns: 10px 1fr 10px;
+      grid-template-rows: 70px 1fr 70px;
+      grid-template-areas: ". . ." ". overlay ." ". . . ";
+      .overlay-content-wrapper {
+        grid-template-rows: 40px 1fr 40px;
+        max-height: 70vh;
+        padding-left: 30px;
+        padding-right: 30px;
+        .content {
+          overflow: scroll;
+        }
+      }
+    }
+  }
 }

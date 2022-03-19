@@ -128,6 +128,6 @@ type pricingSegment = {
 type Overlay = {
   show: boolean;
   onClick: () => void;
-  content: string;
+  content: any;
   header?: string;
 };

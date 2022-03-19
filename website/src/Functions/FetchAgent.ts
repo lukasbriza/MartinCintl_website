@@ -1,8 +1,7 @@
 type mailData = {
   name: string;
-  telephone: string;
+  email: string;
   text: string;
-  option: string;
 };
 
 class fetchAgent {

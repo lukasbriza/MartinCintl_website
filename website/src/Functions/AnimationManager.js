@@ -92,45 +92,24 @@ const socIconsMobileOff = () => {
 
 //PAGE COUNTER ANIMATION//
 const pageCounterDuration = 0.3;
-const pageCounterAnOn = (count, underliner, isMobile) => {
-  if (isMobile === true) {
-    gsap.to(count, {
+const pageCounterAnOn = (count, underliner) => {
+  gsap.to(count, {
+    duration: pageCounterDuration,
+    ease: "linear",
+    color: "white",
+  });
+  gsap.fromTo(
+    underliner,
+    {
+      width: "0%",
+      backgroundColor: "white",
+    },
+    {
       duration: pageCounterDuration,
       ease: "linear",
-      color: "black",
-    });
-    gsap.fromTo(
-      underliner,
-      {
-        width: "0%",
-        backgroundColor: "black",
-      },
-      {
-        duration: pageCounterDuration,
-        ease: "linear",
-        width: "100%",
-      }
-    );
-  }
-  if (isMobile === false) {
-    gsap.to(count, {
-      duration: pageCounterDuration,
-      ease: "linear",
-      color: "white",
-    });
-    gsap.fromTo(
-      underliner,
-      {
-        width: "0%",
-        backgroundColor: "white",
-      },
-      {
-        duration: pageCounterDuration,
-        ease: "linear",
-        width: "100%",
-      }
-    );
-  }
+      width: "100%",
+    }
+  );
 };
 
 const pageCounterAnOff = (count, underliner) => {
@@ -387,8 +366,7 @@ const mobileFlagOff = (flag, flagLine, flagText) => {
       "textDone"
     );
 };
-const mobileTextOn = () => {};
-const mobileTextOff = () => {};
+
 //WAIT CURSOR ANIMATION//
 const waitCursorOn = () => {
   gsap.to(".tile", {
@@ -586,8 +564,6 @@ export {
   waitCursorOff,
   mobileFlagOn,
   mobileFlagOff,
-  mobileTextOff,
-  mobileTextOn,
   triangleRollOn,
   triangleRollOff,
   socIconsMobileOn,

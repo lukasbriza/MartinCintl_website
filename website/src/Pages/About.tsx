@@ -34,7 +34,7 @@ function About() {
                         text={"chci cvičit"}
                         id={"About-button"}
                         link={"/products"}
-                        onClick={() => { console.log('click') }}
+
                         onMouseEnter={() => { context.functions.setAnimationClass("Up") }}
                         onTouchStart={() => { context.functions.setAnimationClass("Up") }}
                     />

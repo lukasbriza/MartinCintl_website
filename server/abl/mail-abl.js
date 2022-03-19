@@ -22,8 +22,8 @@ function sendMail(req, res) {
   const mailOptions = {
     from: process.env.EMAIL,
     to: process.env.EMAIL,
-    subject: data.option + " (tel.: " + data.telephone + ")",
-    text: "Od: " + data.name + "\n" + data.text,
+    subject: "Od: " + data.name + ". Email: " + data.email,
+    text: data.text,
   };
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {

@@ -1,92 +1,66 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
-function FormInput(props:any){
-    const [focused, setFocused] = useState(false)
-    const { label, labelCounter, errorMessage, onChange, id, ...inputProps } = props
+function FormInput(props: { type: "name" | "textarea" | "email", callback: (text: string) => void, focused: boolean, onClick: any, correct: boolean, clear: boolean }) {
+    const [errorClass, setErrorClass] = useState<string>("error")
+    const [focusClass, setFocusClass] = useState<string>("inputActiveLine")
+    let input: any = <></>;
 
-    function handleFocus(e:any){
-        setFocused(true)
-    }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//PC STYLE//
-    if(props.mobilestyle === false){
-        if(inputProps.type === "textarea"){
-            return(
-                <div className="formInput" id={id} >
-                    <label className="flag-contact" > 
-                        <p className="flagOrder">{labelCounter}</p>
-                        <p className="flagText">{label}</p>
-                    </label>
-                    <textarea
-                        {...inputProps}
-                        onChange={onChange}
-                        onBlur={handleFocus}
-                        onFocus={inputProps.onFocus}
-                        focused={focused.toString()}
-                    >
-                    </textarea>
-                    <span className="errorMessage">{errorMessage}</span>
-                </div>
-            )
-        } else {
-            return(
-                <div className="formInput" id={id}>
-                    <label className="flag-contact"> 
-                        <p className="flagOrder">{labelCounter}</p>
-                        <p className="flagText">{label}</p></label>
-                    <input
-                        {...inputProps}
-                        onChange={onChange}
-                        onFocus={inputProps.onFocus}
-                        onBlur={handleFocus}
-                        focused={focused.toString()}
-                    >
-                    </input>
-                    <span className="errorMessage">{errorMessage}</span>
-                </div>
-            )
+    const ref: any = useRef()
+    useEffect(() => {
+        if (props.clear === true) {
+            ref.current.value = ""
         }
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//MOBILE STYLE//
-    } else if(props.mobilestyle === true){
-        if(inputProps.type === "textarea"){
-            return(
-                <div className="formInput-mobile" id={id} >
-                    <label className="flag-contact-mobile" > 
-                        <p className="flagText-mobile">{label}</p>
-                    </label>
-                    <textarea
-                        {...inputProps}
-                        onChange={onChange}
-                        onBlur={handleFocus}
-                        onFocus={inputProps.onFocus}
-                        focused={focused.toString()}
-                    >
-                    </textarea>
-                    <span className="errorMessage-mobile">{errorMessage}</span>
-                </div>
-            )
-        } else {
-            return(
-                <div className="formInput-mobile" id={id}>
-                    <label className="flag-contact-mobile"> 
-                        <p className="flagText-mobile">{label}</p></label>
-                    <input
-                        {...inputProps}
-                        onChange={onChange}
-                        onFocus={inputProps.onFocus}
-                        onBlur={handleFocus}
-                        focused={focused.toString()}
-                    >
-                    </input>
-                    <span className="errorMessage-mobile">{errorMessage}</span>
-                </div>
-            )
+    }, [props.clear])
+
+    useEffect(() => {
+        if (props.focused === true) {
+            setFocusClass("inputActiveLine focusedClass")
         }
-    } else {
-        return(<></>)
+        if (props.focused === false) {
+            setFocusClass("inputActiveLine")
+        }
+    }, [props.focused])
+    useEffect(() => {
+        if (props.correct === true) {
+            setErrorClass("error")
+        }
+        if (props.correct === false) {
+            setErrorClass("error errorActive")
+        }
+    }, [props.correct])
+
+    let onChange = (text: any) => {
+        props.callback(text.target.value);
     }
-    
+
+    if (props.type === "name") {
+        input = (
+            <div className="inputWrapper">
+                <input type="text" placeholder="Jméno a příjmení" onChange={onChange} onClick={props.onClick} ref={ref} />
+                <div className={focusClass}></div>
+                <div className={errorClass}>Zadal/a jste nevalidní znak.</div>
+            </div>
+        )
+    }
+    if (props.type === "email") {
+        input = (
+            <div className="inputWrapper">
+                <input type="text" placeholder="Email" onChange={onChange} onClick={props.onClick} ref={ref} />
+                <div className={focusClass}></div>
+                <div className={errorClass}>Zadal/a jste neplatný formát emailu.</div>
+            </div>
+        )
+    }
+    if (props.type === "textarea") {
+        input = (
+            <div className="inputWrapper">
+                <textarea placeholder="Zpráva..." onChange={onChange} onClick={props.onClick} ref={ref} />
+                <div className={focusClass}></div>
+                <div className={errorClass}>Zadal/a jste nevalidní znak.</div>
+            </div>
+        )
+    }
+    return (input)
 }
 
-export {FormInput}
+export { FormInput }

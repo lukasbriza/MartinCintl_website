@@ -20,7 +20,6 @@ function Hero() {
                 <Button
                     text="Kdo jsem?"
                     id="quote-button"
-                    onClick={() => { console.log('click') }}
                     link="/about"
                     onMouseEnter={() => { context.functions.setAnimationClass("Up") }}
                     onTouchStart={() => { context.functions.setAnimationClass("Up") }}

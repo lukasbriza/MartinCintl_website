@@ -1691,111 +1691,20 @@
 }
 
 #Contact {
-  background: #14151A;
+  background: #14151a;
+}
+
+#Contact #ContactLayer {
+  background-color: rgba(0, 0, 0, 0.815);
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 77px 1fr 50px;
-      grid-template-rows: 77px 1fr 50px;
-      grid-template-areas: "." "form" "footer";
+  -ms-grid-rows: 77px 1fr min-content 50px;
+      grid-template-rows: 77px 1fr -webkit-min-content 50px;
+      grid-template-rows: 77px 1fr min-content 50px;
+      grid-template-areas: "." "content" "extendedFooter" "footer";
 }
 
-#Contact #foote {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: footer;
-}
-
-#Contact .contactContent-wrapper {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: form;
-}
-
-#Contact .contactContent-wrapper .contactForm {
-  width: 80%;
-  height: auto;
-  position: relative;
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#Contact .contactContent-wrapper .contactForm .leftSide {
-  width: 50%;
-  background: white;
-  padding: 50px 30px;
-}
-
-@media only screen and (max-height: 730px) {
-  #Contact .contactContent-wrapper .contactForm .leftSide {
-    padding: 20px 30px;
-  }
-}
-
-#Contact .contactContent-wrapper .contactForm .rightSide {
-  width: 50%;
-  height: auto;
-  background: #4f5fa4;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-}
-
-#Contact .contactContent-wrapper .contactForm .rightSide .pricingSegment-wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  padding: 0px 20px;
-}
-
-#Contact .contactContent-wrapper .contactForm .rightSide .iconSegment-wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-flex-line-pack: center;
-      align-content: center;
-}
-
-#ContactMobile {
-  background: #14151A;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 100px 1fr 50px;
-      grid-template-rows: 100px 1fr 50px;
-      grid-template-areas: "." "ContactMobile" "footer";
-}
-
-#ContactMobile #ContactMobileForm-wrapper {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: ContactMobile;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm {
-  height: 80%;
-  width: 80%;
-  background: white;
-  position: relative;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-rows: 20px 40px 1fr auto 20px;
-      grid-template-rows: 20px 40px 1fr auto 20px;
-      grid-template-areas: "." "progressBar" "content" "buttons" ".";
-  overflow: auto;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .progressBar-wrapper {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: progressBar;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper {
+#Contact #ContactLayer #ContactContent {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: content;
@@ -1806,62 +1715,257 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 15px;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contentForm-wrapper .segmentLine {
-  -ms-grid-columns: 1fr auto;
-      grid-template-columns: 1fr auto;
-  max-width: 500px;
-  padding-right: 50px;
-  padding-left: 50px;
-  position: relative;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  z-index: -1;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  grid-area: buttons;
-}
-
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
 
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm .contactForm-button-wrapper .button-wrapper {
-  width: 150px;
-  text-align: center;
-  margin: auto 15px;
-  padding: 0px;
+#Contact #ContactLayer #ContactContent #priceInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: white;
+  line-height: 19px;
+  margin-bottom: 20px;
 }
 
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm #service-input {
+@media (max-width: 480px) {
+  #Contact #ContactLayer #ContactContent #priceInfo {
+    width: 75%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    display: inline;
+    text-align: center;
+  }
+}
+
+#Contact #ContactLayer #ContactContent #priceInfo b {
+  font-weight: 900;
+  font-size: 19px;
+  color: #4f5fa4;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  line-height: 19px;
+  cursor: pointer;
+}
+
+#Contact #ContactLayer #ContactContent #Form {
+  position: relative;
   width: 80%;
+  background: #f8f8f8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 480px) {
+  #Contact #ContactLayer #ContactContent #Form {
+    width: 75%;
+    margin-bottom: 30px;
+  }
+}
+
+#Contact #ContactLayer #ContactContent #Form h2 {
+  font-family: "Megrim", "Helvetica Neue";
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 480px) {
+  #Contact #ContactLayer #ContactContent #Form h2 {
+    font-size: 20px;
+  }
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection {
+  width: 80%;
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper {
+  margin: 15px 0px;
+}
+
+@media (max-width: 480px) {
+  #Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper {
+    margin: 10px 0px;
+  }
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper input {
+  width: 100%;
+  height: 40px;
+  padding-left: 15px;
+  background: white;
+  border: none;
+}
+
+@media (max-width: 480px) {
+  #Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper input {
+    height: 35px;
+  }
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper textarea {
+  width: 100%;
+  height: 100px;
+  padding-left: 15px;
+  padding-top: 8px;
+  background: white;
+  border: none;
+  resize: none;
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper .inputActiveLine {
+  width: 100%;
+  height: 1px;
+  background: #232323;
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper .focusedClass {
+  background: #4f5fa4;
+  height: 2px;
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper .error {
+  padding-left: 15px;
+  font-size: 14px;
+  color: red;
+  opacity: 0;
+  cursor: default;
+}
+
+#Contact #ContactLayer #ContactContent #Form #inputSection .inputWrapper .errorActive {
+  opacity: 1;
+}
+
+#Contact #ContactLayer #ContactContent #Form .submitButton {
+  left: unset;
+  -webkit-transform: unset;
+          transform: unset;
+  margin-bottom: 20px;
+}
+
+#Contact #extendedFooter {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: extendedFooter;
+  background: black;
+  padding-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+@media (max-width: 500px) {
+  #Contact #extendedFooter {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+#Contact #extendedFooter .iconSegment:nth-of-type(1) {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#Contact #extendedFooter .iconSegment:nth-of-type(1) .iconWrapper {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#Contact #extendedFooter .iconSegment .iconWrapper .description {
+  margin-left: 10px;
+}
+
+#Contact #footer {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: footer;
+}
+
+#Contact #priceTable {
   position: relative;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  width: 100%;
+  max-width: 900px;
 }
 
-#ContactMobile #ContactMobileForm-wrapper #ContactMobileForm #service-input .actualOption {
-  margin-left: 0px;
+#Contact #priceTable tr th {
+  padding-top: 25px;
+  text-align: start;
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+  font-size: 18px;
 }
 
-#ContactMobile #footer {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: footer;
+@media (max-width: 500px) {
+  #Contact #priceTable tr th {
+    font-size: 16px;
+  }
+}
+
+#Contact #priceTable tr td {
+  text-align: start;
+  padding-left: 10px;
+}
+
+@media (max-width: 500px) {
+  #Contact #priceTable tr td {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  #Contact .overlay-wrapper {
+    z-index: +21;
+    -ms-grid-columns: 10px 1fr 10px;
+        grid-template-columns: 10px 1fr 10px;
+    -ms-grid-rows: 70px 1fr 70px;
+        grid-template-rows: 70px 1fr 70px;
+        grid-template-areas: ". . ." ". overlay ." ". . . ";
+  }
+  #Contact .overlay-wrapper .overlay-content-wrapper {
+    -ms-grid-rows: 40px 1fr 40px;
+        grid-template-rows: 40px 1fr 40px;
+    max-height: 70vh;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  #Contact .overlay-wrapper .overlay-content-wrapper .content {
+    overflow: scroll;
+  }
 }
 
 #Products {
