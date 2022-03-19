@@ -1759,6 +1759,7 @@
 #Contact #ContactLayer #ContactContent #Form {
   position: relative;
   width: 80%;
+  max-width: 1000px;
   background: #f8f8f8;
   display: -webkit-box;
   display: -ms-flexbox;
