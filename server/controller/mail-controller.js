@@ -1,7 +1,7 @@
 const express = require("express");
 
 //ABL
-import { sendMail } from "../abl/mail-abl.js";
+const { sendMail } = require("../abl/mail-abl.js");
 
 const mailRouter = express.Router();
 
