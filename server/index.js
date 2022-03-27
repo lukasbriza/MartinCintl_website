@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.static(path.join("./", "/build")));
 
 //ROUTE CONTROL//
-import { mailRouter } from "./controller/mail-controller.js";
+const { mailRouter } = require("./controller/mail-controller.js");
 
 app.use("/mail", mailRouter);
 
