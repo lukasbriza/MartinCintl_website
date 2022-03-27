@@ -9,4 +9,4 @@ mailRouter.post("/post", (req, res) => {
   sendMail(req, res);
 });
 
-export { mailRouter };
+module.exports = { mailRouter };

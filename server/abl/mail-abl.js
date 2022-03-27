@@ -34,4 +34,4 @@ function sendMail(req, res) {
   });
 }
 
-export { sendMail };
+module.exports = { sendMail };
