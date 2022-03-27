@@ -1,4 +1,4 @@
-import express from "express";
+const express = require("express");
 
 //ABL
 import { sendMail } from "../abl/mail-abl.js";
