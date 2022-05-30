@@ -33,7 +33,7 @@ async function sendMail(req, res) {
     const mailOptions = {
       from: data.email,
       to: "martincintl.fitness@gmail.com",
-      subject: "Poptávka od: " + data.name,
+      subject: "Poptávka od: " + data.name + " | " + data.email,
       text: data.text,
     };
 
