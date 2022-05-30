@@ -59,7 +59,7 @@ function Qualification() {
 }
 
 function GalleryTiles(props: any) {
-    const tileRef: any = useRef()
+    const tileRef = useRef<HTMLDivElement>(null)
     useEffect(() => {
         if (props.showGalleryTiles === true) {
             galleryTilesAnimation(tileRef.current, true)

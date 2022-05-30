@@ -1716,6 +1716,9 @@
 
 #Contact {
   background: #14151a;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 #Contact #ContactLayer {

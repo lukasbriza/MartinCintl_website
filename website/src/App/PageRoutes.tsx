@@ -21,14 +21,14 @@ import { config } from './config'
 
 
 function PageRoutes() {
-    const context: any = useContext(PageContext)
-    const contextAn: any = useContext(AnimationContext)
+    const context = useContext(PageContext)
+    const contextAn = useContext(AnimationContext)
     const location = useLocation()
 
     useEffect(() => {
-        context.functions.setLocation(location.pathname)
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [location])
+        context!.functions.setLocation(location.pathname)
+
+    }, [context, location])
 
     return (
         <React.Fragment>
@@ -36,7 +36,7 @@ function PageRoutes() {
             <PageCounter
                 pageLinks={config.routesMain}
                 counterData={config.counter}
-                show={contextAn.pageCounter}
+                show={contextAn!.pageCounter}
             />
             <MenuSlider
                 routesAll={config.routesAll}
@@ -46,7 +46,7 @@ function PageRoutes() {
             <TransitionGroup>
                 <CSSTransition
                     timeout={2000}
-                    classNames={contextAn.animationClass}
+                    classNames={contextAn!.animationClass}
                     key={location.key}
                 >
                     <Switch location={location}>

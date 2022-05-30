@@ -5,7 +5,7 @@ import HeroImg from '../Static/Hero.webp'
 import { Button } from '../Components/Button/Button'
 
 function Hero() {
-    const context: any = useContext(AnimationContext)
+    const context = useContext(AnimationContext)
 
     return (
         <div id="Hero">
@@ -21,8 +21,8 @@ function Hero() {
                     text="Kdo jsem?"
                     id="quote-button"
                     link="/about"
-                    onMouseEnter={() => { context.functions.setAnimationClass("Up") }}
-                    onTouchStart={() => { context.functions.setAnimationClass("Up") }}
+                    onMouseEnter={() => { context?.functions.setAnimationClass("Up") }}
+                    onTouchStart={() => { context?.functions.setAnimationClass("Up") }}
                 />
             </div>
         </div>

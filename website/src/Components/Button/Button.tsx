@@ -11,7 +11,7 @@ function Button(props: button) {
                 className="button-wrapper"
                 onMouseEnter={props.onMouseEnter}
                 onTouchStart={props.onTouchStart}
-
+                onClick={() => { props.onClick() }}
             >
                 <p
                     className="button-text"

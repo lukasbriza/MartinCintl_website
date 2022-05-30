@@ -1,20 +1,54 @@
-import { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
+//CONTEXT TYPES//
+interface ProviderProps {
+    children: React.ReactNode
+}
 
+export interface AppContextType {
+    width: number,
+    location: string,
+    languageMutation: "cz" | "eng",
+    contactFormular: { name: "Osobní trénink" | "Funkční diagnostika" | "Online coaching", tag: 1 | 2 | 3 } | undefined,
+    functions: {
+        setLanguageMutation: React.Dispatch<React.SetStateAction<"cz" | "eng">>,
+        setLocation: React.Dispatch<React.SetStateAction<string>>,
+        setContactFormular: React.Dispatch<React.SetStateAction<{ name: "Osobní trénink" | "Funkční diagnostika" | "Online coaching", tag: 1 | 2 | 3 } | undefined>>,
+    }
+}
+
+export interface AnimationContextType {
+    menuSlider: boolean,
+    actualPage: boolean,
+    animationClass: "Up" | "Down" | "Left" | "Right" | "",
+    pageCounter: boolean,
+    openTile1: boolean,
+    openTile2: boolean,
+    openTile3: boolean,
+    tileAnRunning: boolean,
+
+    functions: {
+        setMenuSlider: React.Dispatch<React.SetStateAction<boolean>>,
+        setActualPage: React.Dispatch<React.SetStateAction<boolean>>,
+        setPageCounter: React.Dispatch<React.SetStateAction<boolean>>,
+        setOpenTile1: React.Dispatch<React.SetStateAction<boolean>>,
+        setOpenTile2: React.Dispatch<React.SetStateAction<boolean>>,
+        setOpenTile3: React.Dispatch<React.SetStateAction<boolean>>,
+        setTileAnRunning: React.Dispatch<React.SetStateAction<boolean>>,
+        setAnimationClass: React.Dispatch<React.SetStateAction<"Up" | "Down" | "Left" | "Right" | "">>,
+    }
+}
 
 //CONTEXTS//
-const PageContext = createContext({})
-const AnimationContext = createContext({})
-
-
+const PageContext = createContext<AppContextType | null>(null)
+const AnimationContext = createContext<AnimationContextType | null>(null)
 //CUSTOM PROVIDERS//
-function PageContextProvider(props: any) {
+function PageContextProvider(props: ProviderProps) {
     //SETTERS
-    const [languageMutation, setLanguageMutation] = useState('cz')
-    const [location, setLocation] = useState(undefined)
-    const [transition, setTransition] = useState(undefined)
-    const [contactFormular, setContactFormular] = useState(undefined)
-    const [width, setWidth]: any = useState(null)
+    const [languageMutation, setLanguageMutation] = useState<"cz" | "eng">('cz')
+    const [location, setLocation] = useState<string>("/")
+    const [contactFormular, setContactFormular] = useState<{ name: "Osobní trénink" | "Funkční diagnostika" | "Online coaching", tag: 1 | 2 | 3 } | undefined>(undefined)
+    const [width, setWidth] = useState<null | number>(null)
 
     window.addEventListener('load', () => {
         setTimeout(() => {
@@ -26,17 +60,15 @@ function PageContextProvider(props: any) {
     })
 
     //APP STATE
-    let appState = {
-        width: width,
+    const appState: AppContextType = {
+        width: width ? width : 550,
         location: location,
         languageMutation: languageMutation,
-        transitionType: transition,
         contactFormular: contactFormular,
 
         functions: {
             setLanguageMutation: setLanguageMutation,
             setLocation: setLocation,
-            setTransition: setTransition,
             setContactFormular: setContactFormular,
         }
     }
@@ -47,19 +79,19 @@ function PageContextProvider(props: any) {
     )
 }
 
-function AnimationContextProvider(props: any) {
+function AnimationContextProvider(props: ProviderProps) {
     //SETTERS
-    const [menuSlider, setMenuSlider] = useState(false)
-    const [actualPage, setActualPage] = useState(true)
-    const [pageCounter, setPageCounter] = useState(!menuSlider)
-    const [openTile1, setOpenTile1] = useState(true)
-    const [openTile2, setOpenTile2] = useState(false)
-    const [openTile3, setOpenTile3] = useState(false)
-    const [tileAnRunning, setTileAnRunning] = useState(false)
-    const [animationClass, setAnimationClass] = useState('')
+    const [menuSlider, setMenuSlider] = useState<boolean>(false)
+    const [actualPage, setActualPage] = useState<boolean>(true)
+    const [pageCounter, setPageCounter] = useState<boolean>(!menuSlider)
+    const [openTile1, setOpenTile1] = useState<boolean>(true)
+    const [openTile2, setOpenTile2] = useState<boolean>(false)
+    const [openTile3, setOpenTile3] = useState<boolean>(false)
+    const [tileAnRunning, setTileAnRunning] = useState<boolean>(false)
+    const [animationClass, setAnimationClass] = useState<"Up" | "Down" | "Left" | "Right" | "">('')
 
     //APP STATE
-    let appState = {
+    const appState: AnimationContextType = {
         menuSlider: menuSlider,
         actualPage: actualPage,
         animationClass: animationClass,

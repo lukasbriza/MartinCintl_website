@@ -8,7 +8,7 @@ import { Overlay } from '../Components/Overlay/Overlay'
 
 
 function About() {
-    const context: any = useContext(AnimationContext)
+    const context = useContext(AnimationContext)
 
     const [showModal, setShowModal] = useState(false)
 
@@ -35,8 +35,8 @@ function About() {
                         id={"About-button"}
                         link={"/products"}
 
-                        onMouseEnter={() => { context.functions.setAnimationClass("Up") }}
-                        onTouchStart={() => { context.functions.setAnimationClass("Up") }}
+                        onMouseEnter={() => { context?.functions.setAnimationClass("Up") }}
+                        onTouchStart={() => { context?.functions.setAnimationClass("Up") }}
                     />
                 </section>
                 <Overlay show={showModal} content={

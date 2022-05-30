@@ -1,42 +1,42 @@
-import {Link} from 'react-router-dom'
-import {useRef,useContext, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import { useRef, useContext, useEffect } from 'react'
 
-import {AnimationContext} from '../../Functions/Context'
-import {menuSliderOff, menuSliderOn} from '../../Functions/AnimationManager'
+import { AnimationContext } from '../../Functions/Context'
+import { menuSliderOff, menuSliderOn } from '../../Functions/AnimationManager'
 
-function MenuSlider(props:menuSlider){
-    const context:any = useContext(AnimationContext)
+function MenuSlider(props: menuSlider) {
+    const context = useContext(AnimationContext)
 
-    const menuSlider:any = useRef()
+    const menuSlider = useRef<HTMLDivElement>(null)
 
     //ANIMATION LISTENER//
     useEffect(() => {
-        if(context.menuSlider === true){
+        if (context?.menuSlider === true) {
             menuSliderOn(menuSlider.current)
             context.functions.setActualPage(false)
             context.functions.setPageCounter(false)
         }
-        if(context.menuSlider === false){
+        if (context?.menuSlider === false) {
             menuSliderOff(menuSlider.current)
             context.functions.setActualPage(true)
             context.functions.setPageCounter(true)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [context.menuSlider])
+
+    }, [context?.menuSlider])
 
     //SLIDER PROPERTIES RENDERING//
-    const menuItems = props.pagesAll.map((menuItem:string, index:number) => {
-        return(
-            <Link 
+    const menuItems = props.pagesAll.map((menuItem: string, index: number) => {
+        return (
+            <Link
                 to={props.routesAll[index]}
-                key={index+menuItem+"key"}
-                id={"_"+index+menuItem}
-                onClick={()=>{
-                    setTimeout(()=>{
-                        context.functions.setMenuSlider(false)
-                        context.functions.setActualPage(true)
+                key={index + menuItem + "key"}
+                id={"_" + index + menuItem}
+                onClick={() => {
+                    setTimeout(() => {
+                        context?.functions.setMenuSlider(false)
+                        context?.functions.setActualPage(true)
 
-                    },1750)
+                    }, 1750)
                 }}
             >
                 <p>{menuItem}</p>
@@ -44,8 +44,8 @@ function MenuSlider(props:menuSlider){
         )
     })
 
-    return(
-        <div 
+    return (
+        <div
             id="menuSlider"
             ref={menuSlider}
         >
@@ -60,4 +60,4 @@ function MenuSlider(props:menuSlider){
     )
 }
 
-export {MenuSlider}
+export { MenuSlider }

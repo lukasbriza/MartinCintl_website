@@ -6,8 +6,6 @@ import { Overlay } from '../Components/Overlay/Overlay'
 import { FormInput } from '../Components/Form_components/Partial_components/FormInput'
 import { IconSegment } from '../Components/Form_components/Partial_components/IconSegment'
 import { FooterPersonalGsap } from '../Components/Footer/FooterPersonalGsap'
-//CONTEXT//
-import { PageContext } from '../Functions/Context'
 //DATA//
 import { config } from '../App/config'
 //FETCH AGENT//
@@ -17,7 +15,6 @@ import { FetchAgent } from '../Functions/FetchAgent'
 function Contact() {
     ////////////////////////////////////////////////////////////////
     //COMPONENT STATE//
-    const context: any = useContext(PageContext)
     const [name, setName] = useState<string>("");
     const [email, setEmail] = useState<string>("");
     const [text, setText] = useState<string>("");

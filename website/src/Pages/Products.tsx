@@ -1,12 +1,12 @@
-import {useContext, useState} from 'react'
+import { useContext, useState } from 'react'
 ////////////////////////////////////////////////////
 //COMPONENTS//
-import {Tile} from '../Components/Tile/Tile'
-import {TileMobile} from '../Components/Tile/TileMobile'
-import {TileContent} from '../Components/Tile_content/Tile_content'
+import { Tile } from '../Components/Tile/Tile'
+import { TileMobile } from '../Components/Tile/TileMobile'
+import { TileContent } from '../Components/Tile_content/Tile_content'
 
 import { Swiper, SwiperSlide } from 'swiper/react/swiper-react'
-import SwiperCore, {Pagination} from 'swiper'
+import SwiperCore, { Pagination } from 'swiper'
 ////////////////////////////////////////////////////
 //SWIPER STYLES//
 import "swiper/swiper-bundle.css"
@@ -18,82 +18,82 @@ import service2 from '../Static/Service2IMG.jpg'
 import service3 from '../Static/Service3IMG.jpeg'
 ////////////////////////////////////////////////////
 //CONTEXT//
-import {AnimationContext, PageContext} from '../Functions/Context'
+import { AnimationContext, PageContext } from '../Functions/Context'
 import { deviceDetection } from '../Functions/DeviceDetect'
 ///////////////////////////////////////////////////
 //INSTALL SWIPER MODULE//
 SwiperCore.use([Pagination]);
 
-function Products(){
-    const contextAn:any = useContext(AnimationContext)
-    const contextApp:any = useContext(PageContext)
+function Products() {
+    const contextAn = useContext(AnimationContext)
+    const contextApp = useContext(PageContext)
 
-    const[flagAnimation1, setFlagAnimation1] = useState(true)
-    const[flagAnimation2, setFlagAnimation2] = useState(false)
-    const[flagAnimation3, setFlagAnimation3] = useState(false)
+    const [flagAnimation1, setFlagAnimation1] = useState(true)
+    const [flagAnimation2, setFlagAnimation2] = useState(false)
+    const [flagAnimation3, setFlagAnimation3] = useState(false)
 
-    const[textAnimation1, setTextAnimation1] = useState(true)
-    const[textAnimation2, setTextAnimation2] = useState(false)
-    const[textAnimation3, setTextAnimation3] = useState(false)
+    const [textAnimation1, setTextAnimation1] = useState(true)
+    const [textAnimation2, setTextAnimation2] = useState(false)
+    const [textAnimation3, setTextAnimation3] = useState(false)
 
-    if(contextApp.width > 700 && deviceDetection() === false){
-        return(
+    if (contextApp!.width > 700 && deviceDetection() === false) {
+        return (
             <div id="Products">
-                <Tile 
-                    background={service1} 
-                    flagCount={"01"} 
-                    flagText={"Osobní trénink"} 
+                <Tile
+                    background={service1}
+                    flagCount={"01"}
+                    flagText={"Osobní trénink"}
                     id={"tile1"}
-                    open={contextAn.openTile1}
-                    openTrigger={contextAn.functions.setOpenTile1}
+                    open={contextAn!.openTile1}
+                    openTrigger={contextAn?.functions.setOpenTile1}
                 >
-                    <TileContent 
-                        show={contextAn.openTile1} 
-                        count={1} 
+                    <TileContent
+                        show={contextAn!.openTile1}
+                        count={1}
                         idContent={"tileContent1"}
                     />
                 </Tile>
-                <Tile 
-                    background={service2} 
-                    flagCount={"02"} 
-                    flagText={"Funkční diagnostika"} 
+                <Tile
+                    background={service2}
+                    flagCount={"02"}
+                    flagText={"Funkční diagnostika"}
                     id={"tile2"}
-                    open={contextAn.openTile2}
-                    openTrigger={contextAn.functions.setOpenTile2}
+                    open={contextAn!.openTile2}
+                    openTrigger={contextAn?.functions.setOpenTile2}
                 >
-                    <TileContent 
-                        show={contextAn.openTile2} 
+                    <TileContent
+                        show={contextAn!.openTile2}
                         count={2}
                         idContent={"tileContent2"}
                     />
                 </Tile>
-                <Tile 
+                <Tile
                     background={service3}
-                    flagCount={"03"} 
-                    flagText={"Online coaching"} 
+                    flagCount={"03"}
+                    flagText={"Online coaching"}
                     id={"tile3"}
-                    open={contextAn.openTile3}
-                    openTrigger={contextAn.functions.setOpenTile3}
+                    open={contextAn!.openTile3}
+                    openTrigger={contextAn!.functions.setOpenTile3}
                 >
-                    <TileContent 
-                        show={contextAn.openTile3} 
+                    <TileContent
+                        show={contextAn!.openTile3}
                         count={3}
                         idContent={"tileContent3"}
                     />
                 </Tile>
             </div>
         )
-    }else{
+    } else {
 
-        return(
+        return (
             <div id="Products">
-                <Swiper 
-                    pagination={{"clickable": true}} 
-                    className="productSwiper" 
+                <Swiper
+                    pagination={{ "clickable": true }}
+                    className="productSwiper"
                     speed={2000}
-                    onPaginationUpdate={(e)=>{
-                        let index:number = e.activeIndex
-                        switch(index) {
+                    onPaginationUpdate={(e) => {
+                        let index: number = e.activeIndex
+                        switch (index) {
                             case 0:
                                 setFlagAnimation1(true)
                                 setFlagAnimation2(false)
@@ -121,50 +121,50 @@ function Products(){
                                 setTextAnimation2(false)
                                 setTextAnimation3(true)
                                 break
-                            
+
 
                         }
                     }}>
                     <SwiperSlide>
-                        <TileMobile 
-                            background={service1} 
-                            flagCount={"01"} 
-                            flagText={"Osobní trénink"} 
+                        <TileMobile
+                            background={service1}
+                            flagCount={"01"}
+                            flagText={"Osobní trénink"}
                             id={"tile1"}
                             open={flagAnimation1}
                         >
-                            <TileContent 
-                                show={textAnimation1} 
+                            <TileContent
+                                show={textAnimation1}
                                 count={1}
                                 idContent={"mobileTileContent1"}
                             />
                         </TileMobile>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <TileMobile 
-                            background={service2} 
-                            flagCount={"02"} 
-                            flagText={"Funkční diagnostika"} 
+                        <TileMobile
+                            background={service2}
+                            flagCount={"02"}
+                            flagText={"Funkční diagnostika"}
                             id={"tile2"}
                             open={flagAnimation2}
                         >
-                            <TileContent 
-                                show={textAnimation2} 
+                            <TileContent
+                                show={textAnimation2}
                                 count={2}
                                 idContent={"mobileTileContent2"}
                             />
                         </TileMobile>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <TileMobile 
+                        <TileMobile
                             background={service3}
-                            flagCount={"03"} 
-                            flagText={"Online coaching"} 
+                            flagCount={"03"}
+                            flagText={"Online coaching"}
                             id={"tile3"}
                             open={flagAnimation3}
                         >
-                            <TileContent 
-                                show={textAnimation3} 
+                            <TileContent
+                                show={textAnimation3}
                                 count={3}
                                 idContent={"mobileTileContent3"}
                             />
@@ -177,4 +177,4 @@ function Products(){
 }
 
 
-export {Products}
+export { Products }

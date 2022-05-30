@@ -1,11 +1,12 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, LegacyRef } from "react";
 
 function FormInput(props: { type: "name" | "textarea" | "email", callback: (text: string) => void, focused: boolean, onClick: any, correct: boolean, clear: boolean }) {
     const [errorClass, setErrorClass] = useState<string>("error")
     const [focusClass, setFocusClass] = useState<string>("inputActiveLine")
-    let input: any = <></>;
+    let input = <></>;
 
-    const ref: any = useRef()
+    const ref: LegacyRef<any> | undefined = useRef(null)
+
     useEffect(() => {
         if (props.clear === true) {
             ref.current.value = ""
@@ -41,6 +42,7 @@ function FormInput(props: { type: "name" | "textarea" | "email", callback: (text
                 <div className={errorClass}>Zadal/a jste nevalidní znak.</div>
             </div>
         )
+        return (input)
     }
     if (props.type === "email") {
         input = (
@@ -50,6 +52,7 @@ function FormInput(props: { type: "name" | "textarea" | "email", callback: (text
                 <div className={errorClass}>Zadal/a jste neplatný formát emailu.</div>
             </div>
         )
+        return (input)
     }
     if (props.type === "textarea") {
         input = (
@@ -59,8 +62,9 @@ function FormInput(props: { type: "name" | "textarea" | "email", callback: (text
                 <div className={errorClass}>Zadal/a jste nevalidní znak.</div>
             </div>
         )
+        return (input)
     }
-    return (input)
+    return <></>
 }
 
 export { FormInput }

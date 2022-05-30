@@ -1,12 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useContext, useEffect } from 'react'
-import { AnimationContext, PageContext } from '../../Functions/Context'
+import React, { useState, useContext, useEffect } from 'react'
+import { PageContext } from '../../Functions/Context'
 
 function LanguageMutation(props: languageMutations) {
-    const context: any = useContext(PageContext)
-    const anContext: any = useContext(AnimationContext)
+    const context = useContext(PageContext)
 
-    const [language, setLanguage] = useState(context.languageMutation)
+    const [language, setLanguage] = useState(context?.languageMutation)
     const [optiondisplay, setOptionDisplay] = useState("none")
     const [rolled, setRolled] = useState(false)
     const [mutationWrapperClass, setMutationWrapperClass] = useState({})
@@ -15,22 +14,22 @@ function LanguageMutation(props: languageMutations) {
     const [mobStyle, setmobStyle] = useState("white")
 
     useEffect(() => {
-        setLanguage(context.languageMutation)
-    }, [context.languageMutation])
+        setLanguage(context?.languageMutation)
+    }, [context?.languageMutation])
 
     useEffect(() => {
         if (rolled === true) {
             roll() //set default on location change
         }
-    }, [context.location])
+    }, [context?.location])
 
     //LANGUAGE OPTIONS//
-    function switchLanguage(e: any) {
-        let lang: string = e.target.getAttribute('data-value')
+    function switchLanguage(e: React.BaseSyntheticEvent) {
+        const lang: "cz" | "eng" = e.target.getAttribute('data-value')
         //CHNAGE STATE
         setLanguage(lang)
         //CHANGE CONTEXT
-        context.functions.setLanguageMutation(lang)
+        context?.functions.setLanguageMutation(lang)
     }
 
     function roll() {

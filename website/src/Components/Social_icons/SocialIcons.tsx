@@ -8,7 +8,7 @@ import { AnimationContext } from "../../Functions/Context"
 import { deviceDetection } from '../../Functions/DeviceDetect'
 
 function SocialIcons(props: socialIcons) {
-  const context: any = useContext(PageContext)
+  const context = useContext(PageContext)
 
   const [mobArrow, setMobArrow] = useState(false)
 
@@ -19,14 +19,13 @@ function SocialIcons(props: socialIcons) {
     if (mobArrow === false && window.innerWidth < 768) {
       socIconsMobileOff()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mobArrow])
 
   let pcStyleReset = {
     width: undefined,
     height: undefined
   }
-  if (context.width < 768) {
+  if (context!.width < 768) {
     return (
       <div id="socialIcons-mobile-wrapper">
         <Arrow onClick={() => { setMobArrow(!mobArrow) }} />

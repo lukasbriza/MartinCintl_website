@@ -1,20 +1,20 @@
-import React, {useRef, useState, useEffect} from 'react'
-import {gsap, Power1, Power2} from 'gsap'
+import React, { useRef, useState, useEffect } from 'react'
+import { gsap, Power1, Power2 } from 'gsap'
 
 
 
-function FooterPersonalGsap(props:any){
+function FooterPersonalGsap() {
     //REF SETUP//
-    const leftSideRef:any = useRef(null)
-    const rightSideRef:any = useRef(null)
-    const dividerRef:any = useRef(null)
-    const leftTextRef:any = {
+    const leftSideRef = useRef(null)
+    const rightSideRef = useRef(null)
+    const dividerRef = useRef(null)
+    const leftTextRef: any = {
         leftTextPt1: useRef(null),
         leftTextPt2: useRef(null),
         leftTextPt3: useRef(null),
         circle: useRef(null)
     }
-    const rightTextRef:any = useRef(null)
+    const rightTextRef = useRef(null)
 
     //////////////////////////////////////////////////////
     //STATES//
@@ -24,12 +24,12 @@ function FooterPersonalGsap(props:any){
     const [offAn, setOffAn] = useState(false)
     const [offAnTime, setOffAnTime] = useState(0)
 
-    
+
     //////////////////////////////////////////////////////
     //INPUTS//
-    const input = ["Lu","c","ky","Coder"]
+    const input = ["Lu", "c", "ky", "Coder"]
     const link = "https://github.com/lukasbriza"
-    
+
     let ls = leftSideRef.current
     let rs = rightSideRef.current
 
@@ -43,76 +43,75 @@ function FooterPersonalGsap(props:any){
     let dr = dividerRef.current
     //////////////////////////////////////////////////////
     //ANIMATION//
-    const animationOn = () =>{
-        let tl = gsap.timeline({onStart: ()=>{setOnAn(true);setonAnTime(3000)}, onComplete: ()=>{setOnAn(false)}})
+    const animationOn = () => {
+        let tl = gsap.timeline({ onStart: () => { setOnAn(true); setonAnTime(3000) }, onComplete: () => { setOnAn(false) } })
             .addLabel('start')
-            .to(ls,{left: "0px", duration: 1.5, ease: Power1.easeOut},'start')
-            .to(rs,{right: "0px", duration: 1.5, ease: Power1.easeOut, onComplete: ()=>{setonAnTime(1500)}},'start')
-            .to(dr,{height: "25px", duration: 1, delay: 0.5, ease: Power1.easeOut}, 'start')
-            .to(lt3,{opacity: 1, duration: 0.5, ease: Power1.easeOut, onStart: ()=>{setonAnTime(2000)}},'start+=1')
-            .to(lt2,{opacity: 1, duration: 0.5, ease: Power1.easeOut},'start+=1')
-            .to(lt1,{opacity: 1, duration: 0.5, ease: Power1.easeOut},'start+=1')
-            .to(rt,{opacity: 1, duration: 0.5, ease: Power1.easeOut},'start+=1')
+            .to(ls, { left: "0px", duration: 1.5, ease: Power1.easeOut }, 'start')
+            .to(rs, { right: "0px", duration: 1.5, ease: Power1.easeOut, onComplete: () => { setonAnTime(1500) } }, 'start')
+            .to(dr, { height: "25px", duration: 1, delay: 0.5, ease: Power1.easeOut }, 'start')
+            .to(lt3, { opacity: 1, duration: 0.5, ease: Power1.easeOut, onStart: () => { setonAnTime(2000) } }, 'start+=1')
+            .to(lt2, { opacity: 1, duration: 0.5, ease: Power1.easeOut }, 'start+=1')
+            .to(lt1, { opacity: 1, duration: 0.5, ease: Power1.easeOut }, 'start+=1')
+            .to(rt, { opacity: 1, duration: 0.5, ease: Power1.easeOut }, 'start+=1')
             .addLabel("text")
-            .to(lt1,{left: "0px", duration: 0.5, ease: Power1.easeOut, onComplete: ()=>{setonAnTime(1000)}},'text')
-            .to(lt3,{right: "0px", duration: 0.5, ease: Power1.easeOut},'text')
-            .to(ci,{strokeDashoffset: 0, duration: 1, ease: Power1.easeOut, onComplete: ()=>{setonAnTime(0)}})
+            .to(lt1, { left: "0px", duration: 0.5, ease: Power1.easeOut, onComplete: () => { setonAnTime(1000) } }, 'text')
+            .to(lt3, { right: "0px", duration: 0.5, ease: Power1.easeOut }, 'text')
+            .to(ci, { strokeDashoffset: 0, duration: 1, ease: Power1.easeOut, onComplete: () => { setonAnTime(0) } })
         return tl
     }
     const animationOff = () => {
-        let tl = gsap.timeline({onStart: ()=>{setOffAn(true);setOffAnTime(3000)}, onComplete: ()=>{setOffAn(false)}})
+        let tl = gsap.timeline({ onStart: () => { setOffAn(true); setOffAnTime(3000) }, onComplete: () => { setOffAn(false) } })
             .addLabel('start')
-            .to(ci,{strokeDashoffset: 50, duration: 0.75, ease: Power1.easeOut, onComplete: ()=>{setOffAnTime(2250)}},'start')
-            .to(lt1,{left: "4px", duration: 0.5, delay: 0.75, ease: Power1.easeOut, onComplete: ()=>{setOffAnTime(1750)}}, 'start')
-            .to(lt3,{right: "4px", duration: 0.5, delay: 0.75, ease: Power1.easeOut}, 'start')
+            .to(ci, { strokeDashoffset: 50, duration: 0.75, ease: Power1.easeOut, onComplete: () => { setOffAnTime(2250) } }, 'start')
+            .to(lt1, { left: "4px", duration: 0.5, delay: 0.75, ease: Power1.easeOut, onComplete: () => { setOffAnTime(1750) } }, 'start')
+            .to(lt3, { right: "4px", duration: 0.5, delay: 0.75, ease: Power1.easeOut }, 'start')
             .addLabel('text')
-            .to(lt3,{opacity: 0, duration: 0.25, ease: Power1.easeOut, onComplete: ()=> {setOffAnTime(1500)}},'text')
-            .to(lt2,{opacity: 0, duration: 0.25, ease: Power1.easeOut},'text')
-            .to(lt1,{opacity: 0, duration: 0.25, ease: Power1.easeOut},'text')
-            .to(rt,{opacity: 0, duration: 0.25, ease: Power1.easeOut},'text')
-            .to(ls,{left: "56px", duration: 1.5, delay: 0.25, ease: Power1.easeOut},'text')
-            .to(rs,{right: "57px", duration: 1.5, delay: 0.25, ease: Power1.easeOut},'text')
-            .to(dr,{height: "0px", duration: 0.75, delay: 0.25, ease: Power2.easeOut, onComplete: ()=>{setOffAnTime(750)}},'text')
-        return tl  
+            .to(lt3, { opacity: 0, duration: 0.25, ease: Power1.easeOut, onComplete: () => { setOffAnTime(1500) } }, 'text')
+            .to(lt2, { opacity: 0, duration: 0.25, ease: Power1.easeOut }, 'text')
+            .to(lt1, { opacity: 0, duration: 0.25, ease: Power1.easeOut }, 'text')
+            .to(rt, { opacity: 0, duration: 0.25, ease: Power1.easeOut }, 'text')
+            .to(ls, { left: "56px", duration: 1.5, delay: 0.25, ease: Power1.easeOut }, 'text')
+            .to(rs, { right: "57px", duration: 1.5, delay: 0.25, ease: Power1.easeOut }, 'text')
+            .to(dr, { height: "0px", duration: 0.75, delay: 0.25, ease: Power2.easeOut, onComplete: () => { setOffAnTime(750) } }, 'text')
+        return tl
     }
     ////////////////////////////////////////////////////// 
-    
+
     useEffect(() => {
-        if(active === true && offAn === false){
+        if (active === true && offAn === false) {
             //start animation
             animationOn()
         }
-         else if(active === true && offAn === true){
-            setTimeout(() =>{
+        else if (active === true && offAn === true) {
+            setTimeout(() => {
                 animationOn()
-            },offAnTime)
+            }, offAnTime)
         }
-        if(active === false && onAn === false){
+        if (active === false && onAn === false) {
             //reverse animation
             animationOff()
         }
-         else if(active === false && onAn === true){
-            setTimeout(()=>{
+        else if (active === false && onAn === true) {
+            setTimeout(() => {
                 animationOff()
-            },onAnTime)
+            }, onAnTime)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [active])
     //////////////////////////////////////////////////////
-    return(
+    return (
         <div id="footer">
-            <a 
-                id="footerLogo-wrapper" 
+            <a
+                id="footerLogo-wrapper"
                 href={link}
-                onMouseEnter={() => { 
+                onMouseEnter={() => {
                     setActive(true)
                 }}
                 onMouseLeave={() => {
-                    setActive(false)                  
+                    setActive(false)
                 }}
             >
-                <LeftSide ref={leftSideRef}/>
-                <LeftText 
+                <LeftSide ref={leftSideRef} />
+                <LeftText
                     ref={leftTextRef}
                     text={{
                         pt1: input[0],
@@ -120,22 +119,22 @@ function FooterPersonalGsap(props:any){
                         pt3: input[2]
                     }}
                 />
-                <Divider ref={dividerRef}/>
-                <RightText 
+                <Divider ref={dividerRef} />
+                <RightText
                     ref={rightTextRef}
                     text={input[3]}
                 />
-                <RightSide ref={rightSideRef}/>
+                <RightSide ref={rightSideRef} />
             </a>
         </div>
     )
 }
 
 
-const LeftText = React.forwardRef((props:any, ref:any) => {
-    const {leftTextPt1, leftTextPt2, leftTextPt3, circle} = ref
+const LeftText = React.forwardRef((props: { text: { pt1: string, pt2: string, pt3: string } }, ref: any) => {
+    const { leftTextPt1, leftTextPt2, leftTextPt3, circle } = ref
 
-    return(
+    return (
         <div className="leftText">
             <div id="pt1" ref={leftTextPt1}>{props.text.pt1}</div>
             <div id="pt2-wrapper">
@@ -158,16 +157,16 @@ const LeftText = React.forwardRef((props:any, ref:any) => {
     )
 })
 
-const RightText = React.forwardRef((props:any, ref:any) => {
-    return(
+const RightText = React.forwardRef((props: any, ref: any) => {
+    return (
         <div className="rightText" ref={ref}>
             {props.text}
         </div>
     )
 })
 
-const LeftSide = React.forwardRef((props: any, ref:any) => {
-    return(
+const LeftSide = React.forwardRef<HTMLDivElement>((props, ref) => {
+    return (
         <div className="leftSide-logo" ref={ref}>
             <div className="line centerX" id="line1"></div>
             <div className="line centerX" id="line2"></div>
@@ -175,8 +174,8 @@ const LeftSide = React.forwardRef((props: any, ref:any) => {
     )
 })
 
-const RightSide = React.forwardRef((props: any, ref:any) => {
-    return(
+const RightSide = React.forwardRef<HTMLDivElement>((props, ref) => {
+    return (
         <div className="rightSide-logo" ref={ref}>
             <div className="line centerX" id="line3"></div>
             <div className="line centerX" id="line4"></div>
@@ -184,11 +183,11 @@ const RightSide = React.forwardRef((props: any, ref:any) => {
     )
 })
 
-const Divider = React.forwardRef((props: any, ref:any) => {
-    return(
+const Divider = React.forwardRef((props: any, ref: any) => {
+    return (
         <div className="divider" ref={ref}></div>
     )
 })
 
 
-export {FooterPersonalGsap}
+export { FooterPersonalGsap }
