@@ -1,7 +1,7 @@
 const express = require("express");
 
 //ABL
-const { sendMail } = require("../abl/mail-abl.js");
+const { sendMail } = require("../abl/gmail-abl");
 
 const mailRouter = express.Router();
 
