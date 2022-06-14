@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react'
+import { useState } from 'react'
 //COMPONENTS//
 import ContactImg from '../Static/ContactBG.webp'
 import { SubmitButton } from '../Components/Form_components/Partial_components/SubmitButton'
