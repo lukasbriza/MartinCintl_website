@@ -33,24 +33,31 @@ function Contact() {
     const [clearEmail, setClearEmail] = useState<boolean>(false);
     const [clearText, setClearText] = useState<boolean>(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (
             nameCorrect === true &&
             emailCorrect === true &&
             textCorrect === true
         ) {
-            FetchAgent.SendMail({ name: name, email: email, text: text })
-            setclearName(true);
-            setClearEmail(true);
-            setClearText(true);
+            await FetchAgent.SendMail({ name: name, email: email, text: text }).then(response => {
+                if (response.code !== 200) {
+                    alert("Něco se pokazilo. Kontaktujte administrátora.");
+                    return
+                } else {
+                    setclearName(true);
+                    setClearEmail(true);
+                    setClearText(true);
 
-            alert("Děkuji za zprávu. Brzy se Vám ozvu!");
+                    alert("Děkuji za zprávu. Brzy se Vám ozvu!");
 
-            setTimeout(() => {
-                setclearName(false);
-                setClearEmail(false);
-                setClearText(false);
-            }, 1000)
+                    setTimeout(() => {
+                        setclearName(false);
+                        setClearEmail(false);
+                        setClearText(false);
+                    }, 1000)
+                    return
+                }
+            })
         }
     }
 
