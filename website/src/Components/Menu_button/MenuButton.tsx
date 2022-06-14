@@ -11,7 +11,16 @@ function MenuButton(props: menuButton) {
         <div
             id={props.id}
             onClick={() => {
-                context?.functions.setMenuSlider(context.menuSlider)
+                console.log(context?.menuSlider)
+                switch (context?.menuSlider) {
+                    case true:
+                        context?.functions.setMenuSlider(false)
+                        break;
+                    case false:
+                        context?.functions.setMenuSlider(true)
+                        break;
+                }
+                //context?.functions.setMenuSlider(context.menuSlider)
             }}
         >
             <p className="center absolute" style={{ color: mobStyle, fontWeight: 600 }}>Menu</p>

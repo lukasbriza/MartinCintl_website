@@ -28,7 +28,7 @@ function About() {
                         Pomáhám nejen začátečníkům s osvojením techniky cvičení, ale i sportovcům zlepšit
                         jejich výkon a dosáhnout jejich vytyčeného cíle. V obou případech je pro mě klíčové dosáhnout co
                         nejlepšího výsledku za podmínky udržení celkového zdraví člověka, bez bolesti a omezení. <br />
-                        <p id="showMore" onClick={() => { setShowModal(true) }}>Ukaž více</p>
+                        <p id="showMore" onClick={() => { setShowModal(true); console.log("modal") }}>Ukaž více</p>
                     </div>
                     <Button
                         text={"chci cvičit"}

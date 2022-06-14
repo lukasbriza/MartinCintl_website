@@ -124,46 +124,50 @@ function Contact() {
             </div>
             <Overlay content={
                 <table id="priceTable">
-                    <tr>
-                        <th>Osobní trénink</th>
-                        <th>Cena</th>
-                    </tr>
-                    <tr>
-                        <td>1 trénink</td>
-                        <td>550 Kč</td>
-                    </tr>
-                    <tr>
-                        <td>1 trénink (2 osoby)</td>
-                        <td>700 Kč</td>
-                    </tr>
-                    <tr>
-                        <td>10 tréninků</td>
-                        <td>4500 Kč</td>
-                    </tr>
-                    <tr>
-                        <td>10 tréninků (2 osoby)</td>
-                        <td>6000 Kč</td>
-                    </tr>
-                    <tr>
-                        <th>Funkční fiagnostika</th>
-                        <th>Cena</th>
-                    </tr>
-                    <tr>
-                        <td>Diagnostika a výstup</td>
-                        <td>1000 Kč</td>
-                    </tr>
-                    <tr>
-                        <td>Diagnostika a výstup + nápravný trénink + plán</td>
-                        <td>2200 Kč</td>
-                    </tr>
-                    <tr>
-                        <th>Online coaching</th>
-                        <th>Cena</th>
-                    </tr>
-                    <tr>
-                        <td>Online coaching (za měsíc)</td>
-                        <td>1500 Kč</td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Osobní trénink</th>
+                            <th>Cena</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1 trénink</td>
+                            <td>550 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>1 trénink (2 osoby)</td>
+                            <td>700 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>10 tréninků</td>
+                            <td>4500 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>10 tréninků (2 osoby)</td>
+                            <td>6000 Kč</td>
+                        </tr>
+                        <tr>
+                            <th>Funkční fiagnostika</th>
+                            <th>Cena</th>
+                        </tr>
+                        <tr>
+                            <td>Diagnostika a výstup</td>
+                            <td>1000 Kč</td>
+                        </tr>
+                        <tr>
+                            <td>Diagnostika a výstup + nápravný trénink + plán</td>
+                            <td>2200 Kč</td>
+                        </tr>
+                        <tr>
+                            <th>Online coaching</th>
+                            <th>Cena</th>
+                        </tr>
+                        <tr>
+                            <td>Online coaching (za měsíc)</td>
+                            <td>1500 Kč</td>
+                        </tr>
+                    </tbody>
                 </table>
             } onClick={() => setShowModal(false)} show={showModal} />
         </div>

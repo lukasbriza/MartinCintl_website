@@ -11,6 +11,7 @@ function MenuSlider(props: menuSlider) {
 
     //ANIMATION LISTENER//
     useEffect(() => {
+        console.log(context?.menuSlider)
         if (context?.menuSlider === true) {
             menuSliderOn(menuSlider.current)
             context.functions.setActualPage(false)
