@@ -6,14 +6,14 @@ type mailData = {
 
 class fetchAgent {
   async SendMail(data: mailData) {
-    return await fetch("https://www.martincintl.cz/mail/post", {
+    return await fetch("http://localhost:3001/mail/post", {
       method: "POST",
       mode: "cors",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((response) => response.json());
+    });
   }
 }
 

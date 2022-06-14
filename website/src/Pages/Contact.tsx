@@ -37,10 +37,14 @@ function Contact() {
         if (
             nameCorrect === true &&
             emailCorrect === true &&
-            textCorrect === true
+            textCorrect === true &&
+            name.length > 0 &&
+            email.length > 0 &&
+            text.length > 0
         ) {
             await FetchAgent.SendMail({ name: name, email: email, text: text }).then(response => {
-                if (response.code !== 200) {
+                console.log(response)
+                if (response.status !== 200) {
                     alert("Něco se pokazilo. Kontaktujte administrátora.");
                     return
                 } else {
@@ -58,25 +62,28 @@ function Contact() {
                     return
                 }
             })
+        } else {
+            alert("Vyplňte formulář prosím.")
         }
     }
 
     const handleName = (text: string) => {
         setName(text)
-        let regex = /[&=#|'<>^]/g;
+        let regex = /[&=#|?!,.§'<>^./¨§)(;)=%¿¡§¶†‡•‹›«»''“”™©®¢€¥£¤∫∑∏√−±∞≈∝≡≠≤≥→×·÷∂′″∇‰°∴ℵø∈∉∩∪⊂⊃⊆⊇¬∧∨∃∀⇒⇔→↔]/g;
         let result = regex.test(text)
         result ? setNameCorrect(false) : setNameCorrect(true);
     }
     const handleEmail = (text: string) => {
         setEmail(text)
-        let regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,3}$/g;
+        let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         let result = regex.test(text)
-        result ? setEmailCorrect(false) : setEmailCorrect(true);
+        result ? setEmailCorrect(true) : setEmailCorrect(false);
     }
     const handleText = (text: string) => {
         setText(text)
-        let regex = /[&=#|'<>^]/g;
+        let regex = /[|,.§'^.¨¿¡§¶†‡•‹›«»''“”™©®¢€¥£¤∫∑∏√−±∞≈∝≡≠≤≥→×·÷∂′″∇‰°∴ℵø∈∉∩∪⊂⊃⊆⊇¬∧∨∃∀⇒⇔→↔]/g;
         let result = regex.test(text)
+        console.log(result)
         result ? setTextCorrect(false) : setTextCorrect(true);
     }
     return (
