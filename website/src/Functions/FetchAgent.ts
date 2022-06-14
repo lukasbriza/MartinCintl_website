@@ -6,7 +6,7 @@ type mailData = {
 
 class fetchAgent {
   async SendMail(data: mailData) {
-    return await fetch("https://martincintl.cz/mail/post", {
+    return await fetch("https://www.martincintl.cz/mail/post", {
       method: "POST",
       mode: "cors",
       headers: {
