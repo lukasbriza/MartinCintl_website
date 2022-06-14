@@ -130,7 +130,7 @@ function Contact() {
                 <div id="extendedFooter">
                     <IconSegment icon={'Pin'} description={'Tvůj Gym s.r.o. - Havlíčkova 260, Kolín 28002'} />
                     <IconSegment icon={'Call'} description={'+420 722 950 942'} />
-                    <IconSegment icon={'Mail'} description={'martincintl@seznam.cz'} link={config.socialLinks.mail} />
+                    <IconSegment icon={'Mail'} description={'fitness.martincintl@gmail.com'} link={config.socialLinks.mail} />
                     <IconSegment icon={'Instagram'} description={'martin.cintl'} link={config.socialLinks.instagram} />
                     <IconSegment icon={'Facebook'} description={'martincintlfitness'} link={config.socialLinks.facebook} />
                 </div>
